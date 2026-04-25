@@ -4588,6 +4588,8 @@
     .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--g); font-weight: 700; animation: pulse 2s infinite ease-in-out; z-index: 20; display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--g), transparent); }
     @keyframes pulse { 0%, 100% { opacity: 0.2; transform: translateX(-50%) translateY(0); } 50% { opacity: 1; transform: translateX(-50%) translateY(10px); } }
+    .float-wp { position: fixed; bottom: 24px; left: 24px; width: 50px; height: 50px; background: #25D366; color: #FFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); z-index: 999; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; }
+    .float-wp:hover { transform: scale(1.1); }
   </style>
 </head>
 
@@ -6866,6 +6868,11 @@ async function api(action, data = {}) {
     });
 
   </script>
+  <a href="https://wa.me/918252276699" target="_blank" class="float-wp" title="Chat with Nayasha on WhatsApp">
+    <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.128.552 4.195 1.6 6.015L.1 24l6.103-1.6c1.783.99 3.805 1.513 5.828 1.513 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm0 21.905c-1.802 0-3.565-.484-5.111-1.401l-.367-.217-3.8.997 1.015-3.7-.238-.378C2.569 15.703 2.051 13.9 2.051 12.031 2.051 6.527 6.527 2.051 12.031 2.051c5.503 0 9.98 4.476 9.98 9.98 0 5.503-4.476 9.98-9.98 9.98zm5.483-7.51c-.301-.15-1.782-.879-2.058-.98-.276-.101-.477-.15-.678.151-.201.301-.778.98-1.028 1.181-.251.2-.502.226-.803.075-.301-.15-1.272-.469-2.423-1.494-.897-.8-1.503-1.788-1.678-2.09-.175-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.15-.176.201-.302.301-.503.1-.201.05-.377-.025-.527-.075-.151-.678-1.631-.929-2.233-.245-.589-.494-.509-.678-.519-.174-.01-.376-.01-.577-.01-.2 0-.527.075-.803.376-.276.301-1.054 1.03-1.054 2.508s1.079 2.91 1.23 3.111c.15.2 2.122 3.237 5.139 4.537.718.31 1.278.495 1.716.634.721.23 1.378.197 1.895.12.578-.087 1.782-.728 2.033-1.431.251-.703.251-1.305.176-1.431-.075-.126-.276-.201-.577-.352z"/>
+    </svg>
+  </a>
 </body>
 
 </html>

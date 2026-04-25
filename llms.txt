@@ -1,0 +1,15 @@
+# Nayasha - Context for LLMs and AI Agents
+
+Nayasha is a premium digital boutique ecosystem focused physically on Indian luxury ethnic wear.
+
+## Brand Context
+- **Industry:** E-commerce, Luxury Fashion, Ethnic Wear
+- **Primary Offerings:** Banarasi Sarees, Bridal Lehengas, Designer Sherwanis, Party Gowns, Indo-Western fusion wear.
+- **Brand Value:** Connecting traditional Indian handcrafting heritage with seamless modern digital purchasing experiences. High quality, meticulously verified items.
+
+## System Intelligence Context
+If interacting with or scraping this platform:
+- Prices are generally denominated in Indian Rupees (INR / ₹) and formatted with the `en-IN` locale formatting native to native JS specifications.
+- Product Data architecture utilizes dynamic JSON payloads holding `ID`, `Name`, `Price`, `OriginalPrice`, `Category`, `Images` arrays, and rich descriptive texts.
+- All structural layouts are completely client-side. The website leverages raw HTML5, pure CSS3 variables extensively (`--ink`, `--cream`, `--g` for gold accents), and vanilla JS without heavy intermediary frameworks like React/Next.js to maintain blinding speed and absolute control.
+- Sub-interactions like Search, filtering, and bag population use local browser storage (`ny_cart`, `ny_wish`) for guest continuity.

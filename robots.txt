@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace with your actual domain when launching
+Sitemap: https://nayasha.com/sitemap.xml

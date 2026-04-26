@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nayasha | The Space Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════ RESETS & VARIABLES ═══════════════════════════ */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --g: #C4973A;
+      --g2: #E8C87A;
+      --ink: #0A0806;
+      --cream: #FDFAF4;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      background-color: var(--ink);
+      color: var(--cream);
+      overflow-x: hidden;
+      overscroll-behavior-y: none;
+    }
+
+    /* ═══════════════════════════ WEBGL CANVAS ═══════════════════════════ */
+    #webgl-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      outline: none;
+    }
+
+    /* ═══════════════════════════ SCROLL CAPTURE ═══════════════════════════ */
+    /* This invisible div handles the actual mouse scroll, guaranteeing device support. */
+    .scroll-track {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 15000px; /* The total travel distance */
+      z-index: 0;
+    }
+
+    /* ═══════════════════════════ FIXED UI LAYER ═══════════════════════════ */
+    .ui-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10;
+      pointer-events: none; /* Let clicks pass through except on active buttons */
+      perspective: 1000px;
+    }
+
+    /* ═══════════════════════════ NO-VERTICAL SCROLL CARDS ═══════════════════════════ */
+    .scene-card {
+      /* Locked dead center of the screen */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.01);
+      opacity: 0;
+      
+      width: 650px;
+      max-width: 90vw;
+      padding: 80px 60px;
+      
+      /* Glass Aesthetics */
+      background: rgba(10, 8, 6, 0.4);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(196, 151, 58, 0.2);
+      border-radius: 4px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.9);
+      
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      /* Extremely fast update, no CSS transition so JS can control exactly */
+      will-change: transform, opacity;
+      pointer-events: auto; /* Buttons inside remain clickable */
+    }
+
+    .tagline {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--g);
+      margin-bottom: 24px;
+    }
+
+    .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .title em { font-style: italic; color: var(--g2); }
+
+    .desc {
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(253, 250, 244, 0.85);
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    /* Primary Portal Button */
+    .btn-portal {
+      display: inline-block;
+      margin-top: 48px;
+      padding: 18px 48px;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      box-shadow: 0 0 40px rgba(253, 250, 244, 0.15);
+      transition: all 0.4s;
+    }
+
+    .btn-portal:hover {
+      background: var(--g);
+      box-shadow: 0 0 60px rgba(196, 151, 58, 0.6);
+      transform: scale(1.05);
+    }
+
+    /* Persistent Center Prompt */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--g);
+      font-weight: 700;
+      animation: pulse 2s infinite ease-in-out;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--g), transparent);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.2; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- The Track that drives the scroll engine -->
+  <div class="scroll-track"></div>
+
+  <!-- The Interactive 3D Void -->
+  <canvas id="webgl-bg"></canvas>
+
+  <!-- The Fixed Center Lens (No HTML scrolling allowed here) -->
+  <div class="ui-layer">
+    
+    <div class="scroll-indicator" id="s-ind">
+      Scroll to fly forward
+      <div class="scroll-line"></div>
+    </div>
+
+    <!-- Scene 1: Arrival (Mapped to Z=0 in JS) -->
+    <div class="scene-card" data-z="0">
+      <div class="tagline">The Interactive Dimension</div>
+      <div class="title">Welcome to <em>Nayasha</em></div>
+      <div class="desc">You are entering the volumetric realm of Indian Ethnic Wear. Use your scroll wheel to fly precisely forward through time and tradition.</div>
+    </div>
+
+    <!-- Scene 2: The Heritage (Mapped to Z=-20) -->
+    <div class="scene-card" data-z="-20" style="align-items: flex-start; text-align: left; background: rgba(10,8,6,0.6);">
+      <div class="tagline">The Heritage</div>
+      <div class="title" style="font-size: 48px;">Centuries of<br><em>Craftsmanship</em></div>
+      <div class="desc" style="font-size: 16px;">Woven by master artisans. Each thread in our Banarasi collection carries the spiritual weight and cultural elegance of the ancient city of Varanasi.</div>
+    </div>
+
+    <!-- Scene 3: Art of Elegance (Mapped to Z=-40) -->
+    <div class="scene-card" data-z="-40" style="align-items: flex-end; text-align: right; background: rgba(10,8,6,0.6);">
+      <div class="tagline">Art of Elegance</div>
+      <div class="title" style="font-size: 52px;">The Bridal <em>Edit</em></div>
+      <div class="desc" style="font-size: 16px; margin-left: auto;">Discover lehengas and gowns layered with heavy zardozi work. Our bridal edit ensures you feel like royalty when the spotlight hits.</div>
+    </div>
+
+    <!-- Scene 4: Portal Out (Mapped to Z=-65) -->
+    <div class="scene-card" data-z="-65" style="background: none; border: none; box-shadow: none; backdrop-filter: none;">
+      <div class="title" style="font-size: 80px;">Ready to <em>Explore?</em></div>
+      <a href="index.html" class="btn-portal">Enter The Store</a>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════ LIBRARIES ═══════════════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- ═══════════════════════════ APPLICATION LOGIC ═══════════════════════════ -->
+  <script>
+    // ----------------------------------------------------
+    // 1. THREE.JS TUNNEL SETUP
+    // ----------------------------------------------------
+    const canvas = document.getElementById('webgl-bg');
+    const scene = new THREE.Scene();
+
+    // Dense atmospheric fog helps obscure things far away
+    scene.fog = new THREE.FogExp2(0x0A0806, 0.04);
+
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
+    // Standard starting depth
+    camera.position.z = 10;
+
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // ----------------------------------------------------
+    // 2. THE WARP TUNNEL PARTICLE GALAXY
+    // ----------------------------------------------------
+    // We create an extremely long particle tunnel stretching from Z=20 to Z=-100
+    const particlesCount = 3000;
+    const positions = new Float32Array(particlesCount * 3);
+
+    for(let i = 0; i < particlesCount * 3; i+=3) {
+      // Form a dense cylindrical tube / galaxy scattering
+      const radius = 3 + Math.random() * 25; // How far particles are from the center track (giving flying space)
+      const theta = Math.random() * Math.PI * 2;
+      
+      positions[i] = Math.cos(theta) * radius;     // X center ring
+      positions[i+1] = Math.sin(theta) * radius;   // Y center ring
+      positions[i+2] = 20 - (Math.random() * 120); // Z stretching deeply backwards
+    }
+
+    const particlesGeometry = new THREE.BufferGeometry();
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const particleMaterial = new THREE.PointsMaterial({
+        size: 0.18,
+        color: 0xE8C87A, // Lighter gold
+        transparent: true,
+        opacity: 0.8,
+        blending: THREE.AdditiveBlending
+    });
+
+    const particlesMesh = new THREE.Points(particlesGeometry, particleMaterial);
+    scene.add(particlesMesh);
+
+    // ----------------------------------------------------
+    // 3. FLOATING LUXURY IMAGES (In Pure 3D WebGL Space)
+    // ----------------------------------------------------
+    const textureLoader = new THREE.TextureLoader();
+    const meshes = [];
+
+    function create3DImage(url, width, height, x, y, z) {
+      const geometry = new THREE.PlaneGeometry(width, height);
+      const material = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.95 });
+
+      textureLoader.load(url, (texture) => {
+        texture.colorSpace = THREE.SRGBColorSpace;
+        material.map = texture;
+        material.needsUpdate = true;
+      });
+
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(x, y, z);
+      
+      // Face the camera perfectly
+      mesh.lookAt(0,0,100);
+      scene.add(mesh);
+      meshes.push(mesh);
+    }
+
+    // Place these images corresponding to the Z-data of the HTML cards!
+    // Card 2 is Z=-20, so place images around -22 Z
+    create3DImage('https://lh3.googleusercontent.com/d/175eWIiP8pYIisjhLWJk1qo9ucmdd0Hw7=w800', 4.5, 6, 8, 0, -22);
+    
+    // Card 3 is Z=-40
+    create3DImage('https://lh3.googleusercontent.com/d/11PONteLNHmA0gFkf8_ynoBdDmq2h6JIg=w800', 5, 7.5, -9, 1, -43);
+    create3DImage('https://lh3.googleusercontent.com/d/1YXma2Edq_v9ieFbhhBlJyMgGJCDhhUiE=w800', 3, 4.5, -5, -4, -40);
+
+
+    // ----------------------------------------------------
+    // 4. THE 3D SCROLL & "WARP" ZOOM CALCULATION
+    // ----------------------------------------------------
+    let currentScroll = 0;
+    let targetScroll = 0;
+    const maxScroll = 15000 - window.innerHeight; // The height of the .scroll-track
+
+    window.addEventListener('scroll', () => {
+        targetScroll = window.scrollY;
+    });
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Grab all HTML cards that we are going to manually scale
+    const cards = Array.from(document.querySelectorAll('.scene-card')).map(card => {
+      return {
+        el: card,
+        z: parseFloat(card.dataset.z) // e.g. 0, -20, -40, -65
+      }
+    });
+
+    const clock = new THREE.Clock();
+
+    function animate() {
+        const elapsedTime = clock.getElapsedTime();
+
+        // Buttery interpolation for scroll
+        currentScroll += (targetScroll - currentScroll) * 0.05;
+
+        // Map current 0-Max height scroll precisely to Z = 10 to -60
+        const scrollProgress = Math.max(0, Math.min(1, currentScroll / maxScroll));
+        const cameraZ = 10 - (scrollProgress * 70); 
+        camera.position.z = cameraZ;
+
+        // Make the particles slowly galaxy-spin to add life
+        particlesMesh.rotation.z = elapsedTime * 0.05;
+
+        // Slowly bob the heavy 3D canvases 
+        meshes.forEach((mesh, index) => {
+            mesh.position.y += Math.sin(elapsedTime * 2 + index) * 0.003;
+        });
+
+        // ════════ THE MAGIC HTML PROJECTION MATRIX ════════
+        // Loop every HTML glass card securely in the center of the screen
+        // and calculate its optical SCALING dynamically based purely on camera distance!
+        cards.forEach(card => {
+          // Distance from Camera Lens to Card Object.
+          // Example: Camera=10, CardZ=0 -> Distance = 10.
+          const distance = cameraZ - card.z;
+
+          if (distance <= 0) {
+            // Camera has physical flown PAST the card (card is behind the viewport).
+            // We scale it hugely (flying over your head) and set opacity completely 0.
+            card.el.style.transform = `translate(-50%, -50%) scale(10)`;
+            card.el.style.opacity = 0;
+            card.el.style.pointerEvents = 'none';
+          } else {
+            // Camera is in front of the card.
+            // If it's too far (distance > 25), it's just a tiny dot or invisible.
+            if (distance > 25) {
+              card.el.style.transform = `translate(-50%, -50%) scale(0.01)`;
+              card.el.style.opacity = 0;
+              card.el.style.pointerEvents = 'none';
+            } else {
+              // It's entering the visual field (Distance between 0 and 25)!
+              // The closer the camera gets (distance dropping to 1), the LARGER the scale.
+              // When dist=5 (Sweet Spot), scale=1 
+              let scale = 5 / distance; 
+              
+              // Prevent wild zooming artifacts
+              scale = Math.max(0.01, Math.min(25, scale));
+
+              // Compute Opacity (Fades in nicely around dist 15, stays 1 until past)
+              let opacity = 0;
+              if (distance <= 15 && distance >= 1) {
+                // If it's slightly far (5 to 15), fade in
+                opacity = 1 - ((distance - 5) / 10);
+              } else if (distance < 1) {
+                // Flashing out as it clips past the camera
+                opacity = distance;
+              }
+
+              // Apply the exact transform
+              card.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+              card.el.style.opacity = Math.max(0, Math.min(1, opacity));
+              card.el.style.pointerEvents = (opacity > 0.6) ? 'auto' : 'none';
+            }
+          }
+        });
+
+        // Hide prompt if scrolled
+        if (currentScroll > 100) {
+          document.getElementById('s-ind').style.opacity = 0;
+        }
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>

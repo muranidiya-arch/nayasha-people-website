@@ -5112,6 +5112,21 @@
             line-height: 1.4;
             margin: 0;
         }
+        /* ── CUSTOM SCROLL SNAPPING ── */
+        .bargain-scroll,
+        .bestseller-scroll,
+        .mob-cat-scroll {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .bargain-card,
+        .bestseller-card,
+        .mob-cat-item {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
     </style>
 </head>
 
@@ -5419,7 +5434,7 @@
                     <!-- Slide 2 -->
                     <div class="hero-slide">
                         <div class="hero-slide-bg"
-                            style="background-image:url('casulas_banner.png'); background-size:cover; background-position:center;">
+                            style="background-image:url('casuals_banner.png'); background-size:cover; background-position:center;">
                         </div>
                         <div class="hero-slide-overlay"
                             style="background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);">
@@ -7231,6 +7246,7 @@
             });
             loadProducts();
             startSlider();
+            initTouchSlider();
         };
 
         function buildSkeletons() {
@@ -8078,6 +8094,54 @@
         function nextSlide() { currentSlide = (currentSlide + 1) % totalSlides; updateSlider(); startSlider(); }
         function prevSlide() { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; updateSlider(); startSlider(); }
         function goToSlide(idx) { currentSlide = idx; updateSlider(); startSlider(); }
+
+        function initTouchSlider() {
+            const wrap = document.getElementById('hero-slider-wrap');
+            if (!wrap) return;
+            let startX = 0, startY = 0, endX = 0, endY = 0, isDragging = false;
+            
+            const handleStart = (x, y) => {
+                startX = x; startY = y;
+                isDragging = true;
+                stopSlider();
+            };
+            
+            const handleMove = (x, y) => {
+                if (!isDragging) return;
+                endX = x; endY = y;
+            };
+            
+            const handleEnd = () => {
+                if (!isDragging) return;
+                isDragging = false;
+                const diffX = startX - endX;
+                const diffY = startY - endY;
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                    if (diffX > 0) nextSlide();
+                    else prevSlide();
+                } else {
+                    startSlider();
+                }
+            };
+
+            wrap.addEventListener('touchstart', e => handleStart(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+            wrap.addEventListener('touchmove', e => handleMove(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+            wrap.addEventListener('touchend', handleEnd);
+
+            wrap.addEventListener('mousedown', e => {
+                handleStart(e.clientX, e.clientY);
+                wrap.style.cursor = 'grabbing';
+            });
+            window.addEventListener('mousemove', e => {
+                if (isDragging) handleMove(e.clientX, e.clientY);
+            });
+            window.addEventListener('mouseup', () => {
+                if (isDragging) {
+                    handleEnd();
+                    wrap.style.cursor = 'grab';
+                }
+            });
+        }
 
         // ══════════════════════════════════════════
         // CHATBOT

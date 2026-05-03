@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayasha collection | Clothing in Dhanbad | Luxury Ethnic Wear</title>
-    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1ZGmBPr5Zxm5v3X5nBT2n4Dk4Ox8IkqZ9">
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1bkWjg6e4gNP74B-eyZYb5uvyL6haqbny">
 
     <!-- SEO & Meta Information -->
     <meta name="description"
@@ -2225,9 +2225,8 @@
         .c-price-col {}
 
         .c-price {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-            font-weight: 500;
+            font-size: 18px;
+            font-weight: 400;
             color: var(--ink);
             line-height: 1
         }
@@ -2253,7 +2252,7 @@
         .c-disc {
             font-size: 10px;
             color: var(--ok);
-            font-weight: 700
+            font-weight: 600
         }
 
         .c-add-btn {
@@ -5434,7 +5433,7 @@
                     <!-- Slide 2 -->
                     <div class="hero-slide">
                         <div class="hero-slide-bg"
-                            style="background-image:url('banner_saree.png'); background-size:cover; background-position:center;">
+                            style="background-image:url('casuals_banner.png'); background-size:cover; background-position:center;">
                         </div>
                         <div class="hero-slide-overlay"
                             style="background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);">
@@ -7573,13 +7572,10 @@
             ${'★'.repeat(stars).split('').map(() => '<span class="star-fill">★</span>').join('')}${'★'.repeat(5 - stars).split('').map(() => '<span class="star-empty">★</span>').join('')}
             <span class="c-reviews">(${reviews})</span>
           </div>
-          <div class="c-foot">
-            <div class="c-price-col">
-              <div class="c-price"><sup>₹</sup>${Number(p.Price).toLocaleString('en-IN')}</div>
-              ${p.MRP && Number(p.MRP) > Number(p.Price) ? `<div class="c-price-row"><span class="c-orig">₹${Number(p.MRP).toLocaleString('en-IN')}</span><span class="c-disc">${disc}% OFF</span></div>` : ''}
+            <div class="c-foot">
+              ${getPriceHTML(p, 'card')}
+              <button class="c-add-btn" onclick="event.stopPropagation();addToCart(${pi})" ${qty <= 0 ? 'disabled' : ''}>${qty <= 0 ? 'Sold Out' : '+ Bag'}</button>
             </div>
-            <button class="c-add-btn" onclick="event.stopPropagation();addToCart(${pi})" ${qty <= 0 ? 'disabled' : ''}>${qty <= 0 ? 'Sold Out' : '+ Bag'}</button>
-          </div>
         </div>
       </div>`;
             }).join('');
@@ -7629,7 +7625,7 @@
       <div style="display:flex; flex-direction:column; justify-content:center;">
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--g4);margin-bottom:6px">${escH(p.Brand || 'Nayasha')}</div>
         <h2 style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:400; line-height:1.2; margin-bottom:12px">${escH(p.Name)}</h2>
-        <div style="font-size:24px; font-weight:500; color:var(--ink); margin-bottom:16px">₹${Number(p.Price).toLocaleString('en-IN')}</div>
+        ${getPriceHTML(p, 'modal')}
         <p style="font-size:14px; color:var(--muted); line-height:1.6; margin-bottom:20px">${escH(p.Description || 'A beautiful piece carefully crafted to celebrate elegance and tradition. Premium finish, sustainable styling, crafted for the modern Indian wardrobe.')}</p>
         
         <button class="place-btn" onclick="event.stopPropagation();addToCart(${idx}); closeProductModal();">Add to Bag</button>
@@ -7671,7 +7667,7 @@
                     `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center"><div class="devnagari" style="font-size:44px;color:var(--bd2)">${getCatDeco(p.Category)}</div></div>`}
       </div>
       <div class="t-name">${escH(p.Name)}</div>
-      <div class="t-price">₹${Number(p.Price).toLocaleString('en-IN')}</div>
+      ${getPriceHTML(p, 'small')}
     </div>`).join('');
         }
 
@@ -7689,7 +7685,7 @@
         <div class="t-rank">${i + 1}</div>
       </div>
       <div class="t-name">${escH(p.Name)}</div>
-      <div class="t-price">₹${Number(p.Price).toLocaleString('en-IN')}</div>
+      ${getPriceHTML(p, 'small')}
     </div>`).join('');
         }
 
@@ -7715,7 +7711,7 @@
       <div class="wl-img">${p.ThumbnailURL ? `<img src="${p.ThumbnailURL}" style="width:100%;height:100%;object-fit:cover;border-radius:3px" alt="">` : ''}</div>
       <div>
         <div class="wl-name">${escH(p.Name)}</div>
-        <div class="wl-price">₹${Number(p.Price).toLocaleString('en-IN')}</div>
+        ${getPriceHTML(p, 'small')}
       </div>
       <button class="wl-add" onclick="addToCart(${allProducts.indexOf(p)});closeWishlist()">+ Bag</button>
     </div>`).join('');
@@ -8077,6 +8073,35 @@
         // UTILS
         // ══════════════════════════════════════════
         function escH(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') }
+
+        function getMRP(p) {
+            const price = Number(p.Price || 0);
+            if (p.MRP && Number(p.MRP) > price) return Number(p.MRP);
+            const seed = String(p.ID || p.Name || '').split('').reduce((a, b) => a + (b ? b.charCodeAt(0) : 0), 0);
+            const pct = 20 + (seed % 21); // 20% to 40%
+            const fake = Math.ceil((price * (1 + pct / 100)) / 10) * 10 - 1;
+            return fake;
+        }
+
+        function getPriceHTML(p, mode = 'card') {
+            const price = Number(p.Price || 0);
+            const mrp = getMRP(p);
+            const disc = Math.round((1 - price / mrp) * 100);
+            if (mode === 'modal') {
+                return `<div style="font-size:24px; font-weight:400; color:var(--ink); margin-bottom:16px">
+                    ₹${price.toLocaleString('en-IN')}
+                    <span style="text-decoration: line-through; color: var(--muted); font-size: 18px; font-weight: 400; margin-left: 10px;">₹${mrp.toLocaleString('en-IN')}</span>
+                    <span style="color: var(--primary); font-size: 18px; font-weight: 500; margin-left: 10px;">(${disc}% OFF)</span>
+                </div>`;
+            }
+            if (mode === 'small') {
+                return `<div class="t-price">₹${price.toLocaleString('en-IN')} <span style="text-decoration:line-through;color:var(--muted);font-size:0.8em">₹${mrp.toLocaleString('en-IN')}</span></div>`;
+            }
+            return `<div class="c-price-col">
+                <div class="c-price"><sup>₹</sup>${price.toLocaleString('en-IN')}</div>
+                <div class="c-price-row"><span class="c-orig">₹${mrp.toLocaleString('en-IN')}</span><span class="c-disc">${disc}% OFF</span></div>
+            </div>`;
+        }
         function showToast(msg, type) {
             const z = document.getElementById('toast-wrap'); const t = document.createElement('div');
             t.className = 'toast' + (type === true || type === 'true' ? ' err' : type === 'ok' ? ' ok' : '');

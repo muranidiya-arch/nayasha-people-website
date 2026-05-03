@@ -595,18 +595,24 @@
             color: var(--ink);
             transition: var(--tr);
         }
-        .h-bag:hover { color: var(--g); }
+
+        .h-bag:hover {
+            color: var(--g);
+        }
+
         .h-bag-icon {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         .h-bag-count {
             position: absolute;
             top: -2px;
             right: -8px;
-            background: #ff3f6c; /* Myntra Pink */
+            background: #ff3f6c;
+            /* Myntra Pink */
             color: #fff;
             font-size: 10px;
             font-weight: 700;
@@ -619,6 +625,7 @@
             justify-content: center;
             border: 2px solid var(--cream);
         }
+
         .h-bag-label {
             font-size: 11px;
             font-weight: 700;
@@ -4745,6 +4752,95 @@
             .footer-grid {
                 grid-template-columns: 1fr;
             }
+
+            .h-left {
+                display: none;
+            }
+
+            .h-hamburger {
+                display: block;
+            }
+
+            .h-top {
+                padding: 0 16px;
+                height: 50px;
+            }
+
+            .h-logo img {
+                width: 140px !important;
+                height: auto !important;
+            }
+
+            .hero-slider-wrap {
+                width: 100% !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+                height: 50vh !important;
+            }
+
+            .hero-content {
+                padding: 30px 20px !important;
+                max-width: 100% !important;
+            }
+
+            .hero-h1 {
+                font-size: 32px !important;
+            }
+
+            .hero-sub {
+                font-size: 14px !important;
+                margin-bottom: 24px !important;
+            }
+        }
+
+        /* MOBILE MENU DRAWER */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 300px;
+            height: 100vh;
+            background: var(--cream);
+            z-index: 1100;
+            transition: left .35s cubic-bezier(.4, 0, .2, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 20px 0 50px rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-drawer.open {
+            left: 0;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+
+        .mobile-nav-links a {
+            padding: 18px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+            border-bottom: 1px solid var(--bd);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: background .2s;
+        }
+
+        .mobile-nav-links a:active {
+            background: var(--warm);
+        }
+
+        .h-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--ink);
         }
 
         /* Elegant 3D Enhancements */
@@ -4953,6 +5049,7 @@
         .float-wp:hover {
             transform: scale(1.1);
         }
+
         /* ── TRUST SECTION ── */
         .trust-sec {
             background: var(--white);
@@ -4960,6 +5057,7 @@
             border-top: 1px solid var(--bd);
             margin-top: 40px;
         }
+
         .trust-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -4967,11 +5065,13 @@
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 30px;
         }
+
         .trust-card {
             display: flex;
             align-items: center;
             gap: 16px;
         }
+
         .trust-icon {
             font-size: 24px;
             width: 50px;
@@ -4984,6 +5084,7 @@
             flex-shrink: 0;
             border: 1px solid var(--bd);
         }
+
         .trust-info h4 {
             font-size: 13px;
             font-weight: 700;
@@ -4992,6 +5093,7 @@
             color: var(--ink);
             margin-bottom: 2px;
         }
+
         .trust-info p {
             font-size: 11px;
             color: var(--muted);
@@ -5064,11 +5166,19 @@
     <header id="site-header">
         <div class="h-top">
             <div class="h-left">
+                <button class="h-hamburger" onclick="toggleMobileMenu()">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
                 <button class="h-navbtn on" id="btn-shop" onclick="switchView('shop')">Shop</button>
                 <button class="h-navbtn" onclick="toggleMegaNav()">Collections ▾</button>
                 <button class="h-navbtn" onclick="filterAndGo('New Arrivals')">New Arrivals</button>
                 <button class="h-navbtn" onclick="switchView('about')">About Us</button>
-                <button class="h-navbtn" onclick="window.location.href='exp.html'" style="color: var(--g)">Experience ✦</button>
+                <button class="h-navbtn" onclick="window.location.href='exp.html'" style="color: var(--g)">Experience
+                    ✦</button>
             </div>
             <div class="h-logo" onclick="switchView('shop')"
                 style="display:flex;align-items:center;justify-content:center;gap:8px;">
@@ -5102,7 +5212,9 @@
                 <button class="h-bag" onclick="toggleCart(true)">
                     <div class="h-bag-icon">
                         <svg width="22" height="22" viewBox="0 0 40 40" fill="none">
-                            <path d="M29.5 12h-3.3c-.6-3.8-3.4-7-7.2-7s-6.6 3.2-7.2 7H8.5c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h21c1.1 0 2-.9 2-2V14c0-1.1-.9-2-2-2zM19 8c2.2 0 4 2 4.4 4h-8.8C15 10 16.8 8 19 8zm10.5 24h-21V14h21v18z" fill="currentColor" />
+                            <path
+                                d="M29.5 12h-3.3c-.6-3.8-3.4-7-7.2-7s-6.6 3.2-7.2 7H8.5c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h21c1.1 0 2-.9 2-2V14c0-1.1-.9-2-2-2zM19 8c2.2 0 4 2 4.4 4h-8.8C15 10 16.8 8 19 8zm10.5 24h-21V14h21v18z"
+                                fill="currentColor" />
                         </svg>
                         <span id="cart-count" class="h-bag-count">0</span>
                     </div>
@@ -5209,1129 +5321,1306 @@
         <div id="shop-panel" style="max-width: 100%; overflow-x: hidden;">
 
 
-        <!-- MOBILE CAT SCROLL -->
-        <div class="mob-cat-scroll" id="mob-cat-scroll">
-            <div class="mob-cat-item" onclick="filterAndGo('Saree')">
-                <div class="mob-cat-img-wrap"><img
-                        src="https://lh3.googleusercontent.com/d/1fDK_48Yvj0pu2ygXXPEgNuhtmqMybbo3=w800" alt="Sarees">
+            <!-- MOBILE CAT SCROLL -->
+            <div class="mob-cat-scroll" id="mob-cat-scroll">
+                <div class="mob-cat-item" onclick="filterAndGo('Saree')">
+                    <div class="mob-cat-img-wrap"><img
+                            src="https://lh3.googleusercontent.com/d/1fDK_48Yvj0pu2ygXXPEgNuhtmqMybbo3=w800"
+                            alt="Sarees">
+                    </div>
+                    <span>Sarees</span>
                 </div>
-                <span>Sarees</span>
-            </div>
-            <div class="mob-cat-item" onclick="filterAndGo('Ready to Wear Saree')">
-                <div class="mob-cat-img-wrap"><img
-                        src="https://lh3.googleusercontent.com/d/175eWIiP8pYIisjhLWJk1qo9ucmdd0Hw7=w800"
-                        alt="Ready to Wear"></div>
-                <span>Ready-To-Wear</span>
-            </div>
-            <div class="mob-cat-item" onclick="filterAndGo('Lehnga')">
-                <div class="mob-cat-img-wrap"><img
-                        src="https://lh3.googleusercontent.com/d/1kVJXlmknKByghtXv6lnAVpDnMTYiW5Tm=w800" alt="Lehengas">
+                <div class="mob-cat-item" onclick="filterAndGo('Ready to Wear Saree')">
+                    <div class="mob-cat-img-wrap"><img
+                            src="https://lh3.googleusercontent.com/d/175eWIiP8pYIisjhLWJk1qo9ucmdd0Hw7=w800"
+                            alt="Ready to Wear"></div>
+                    <span>Ready-To-Wear</span>
                 </div>
-                <span>Lehengas</span>
-            </div>
-            <div class="mob-cat-item" onclick="filterAndGo('Sherwani')">
-                <div class="mob-cat-img-wrap"><img
-                        src="https://lh3.googleusercontent.com/d/1y07eKlHBx46gt4m6neaD5MINudQL_wTA=w800" alt="Sherwani">
+                <div class="mob-cat-item" onclick="filterAndGo('Lehnga')">
+                    <div class="mob-cat-img-wrap"><img
+                            src="https://lh3.googleusercontent.com/d/1kVJXlmknKByghtXv6lnAVpDnMTYiW5Tm=w800"
+                            alt="Lehengas">
+                    </div>
+                    <span>Lehengas</span>
                 </div>
-                <span>Sherwani</span>
-            </div>
-            <div class="mob-cat-item" onclick="filterAndGo('Gown')">
-                <div class="mob-cat-img-wrap"><img
-                        src="https://lh3.googleusercontent.com/d/1APAySxYOZFdllcwVuuDek2ckRsubZdbM=w800" alt="Gowns">
+                <div class="mob-cat-item" onclick="filterAndGo('Sherwani')">
+                    <div class="mob-cat-img-wrap"><img
+                            src="https://lh3.googleusercontent.com/d/1y07eKlHBx46gt4m6neaD5MINudQL_wTA=w800"
+                            alt="Sherwani">
+                    </div>
+                    <span>Sherwani</span>
                 </div>
-                <span>Gowns</span>
-            </div>
-            <div class="mob-cat-item" onclick="filterAndGo('Suit pieces')">
-                <div class="mob-cat-img-wrap"><img
-                        src="https://lh3.googleusercontent.com/d/11PONteLNHmA0gFkf8_ynoBdDmq2h6JIg=w800" alt="Suits">
+                <div class="mob-cat-item" onclick="filterAndGo('Gown')">
+                    <div class="mob-cat-img-wrap"><img
+                            src="https://lh3.googleusercontent.com/d/1APAySxYOZFdllcwVuuDek2ckRsubZdbM=w800"
+                            alt="Gowns">
+                    </div>
+                    <span>Gowns</span>
                 </div>
-                <span>Suits</span>
+                <div class="mob-cat-item" onclick="filterAndGo('Suit pieces')">
+                    <div class="mob-cat-img-wrap"><img
+                            src="https://lh3.googleusercontent.com/d/11PONteLNHmA0gFkf8_ynoBdDmq2h6JIg=w800"
+                            alt="Suits">
+                    </div>
+                    <span>Suits</span>
+                </div>
+                <div class="mob-cat-item" onclick="filterAndGo('Indo-Western')">
+                    <div class="mob-cat-img-wrap"><img
+                            src="https://lh3.googleusercontent.com/d/1HWWjML6EABOo87QWYkN0-X_hGlHTDbVb=w800"
+                            alt="Indo-West"></div>
+                    <span>Indo-West</span>
+                </div>
             </div>
-            <div class="mob-cat-item" onclick="filterAndGo('Indo-Western')">
-                <div class="mob-cat-img-wrap"><img
-                        src="https://lh3.googleusercontent.com/d/1HWWjML6EABOo87QWYkN0-X_hGlHTDbVb=w800"
-                        alt="Indo-West"></div>
-                <span>Indo-West</span>
-            </div>
-        </div>
 
-        <!-- HERO SLIDER -->
-        <section class="hero-slider-wrap" id="hero-slider-wrap">
-            <div class="hero-slider" id="hero-slider">
-                <!-- Slide 1 -->
-                <div class="hero-slide active">
-                    <div class="hero-slide-bg" style="background-image:url('banner_lehenga.png'); background-size:cover; background-position:center top;"></div>
-                    <div class="hero-slide-overlay" style="background:linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.1) 100%);"></div>
-                    <div class="hero-content" style="align-items:flex-start; text-align:left; padding:60px 8%;">
-                        <div class="hero-badge" style="background:#C4973A; padding:10px 24px; border-radius:4px;">
-                            <span class="hero-badge-text" style="color:#fff; font-size:14px; letter-spacing:4px;">WEDDING SEASON SALE</span>
+            <!-- HERO SLIDER -->
+            <section class="hero-slider-wrap" id="hero-slider-wrap">
+                <div class="hero-slider" id="hero-slider">
+                    <!-- Slide 1 -->
+                    <div class="hero-slide active">
+                        <div class="hero-slide-bg"
+                            style="background-image:url('banner_lehenga.png'); background-size:cover; background-position:center top;">
                         </div>
-                        <h1 class="hero-h1" style="font-size:clamp(52px,7vw,88px); font-weight:800; margin-bottom:10px; line-height:1;">
-                            FLAT <em style="color:#E8C87A;">50% OFF</em><br>ON LEHENGAS</h1>
-                        <p class="hero-sub" style="font-size: 18px; font-weight: 400; color: #fff;">Bridal &amp; party lehengas — dazzle at every celebration.</p>
-                        <div class="hero-cta">
-                            <button class="btn-primary" style="padding:18px 48px; font-size:14px; background:#fff; color:#000;" onclick="filterAndGo('Lehnga')">
-                                <span>SHOP LEHENGAS &gt;</span>
-                            </button>
+                        <div class="hero-slide-overlay"
+                            style="background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);">
                         </div>
-                    </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="hero-slide">
-                    <div class="hero-slide-bg" style="background-image:url('banner_saree.png'); background-size:cover; background-position:center;"></div>
-                    <div class="hero-slide-overlay" style="background:linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.1) 100%);"></div>
-                    <div class="hero-content" style="align-items:flex-start; text-align:left; padding:60px 8%;">
-                        <div class="hero-badge" style="background:#C4973A; padding:10px 24px; border-radius:4px;">
-                            <span class="hero-badge-text" style="color:#fff; font-size:14px; letter-spacing:4px;">FESTIVE ARRIVALS</span>
-                        </div>
-                        <h1 class="hero-h1" style="font-size:clamp(64px,8vw,96px); font-weight:700; margin-bottom:10px; line-height:1;">
-                            ROYAL <em style="color:#E8C87A;">SAREES</em><br>UP TO 40% OFF</h1>
-                        <p class="hero-sub" style="font-size: 20px; font-weight: 400; color: #fff;">Exquisite Banarasi and Kanchipuram weaves.</p>
-                        <div class="hero-cta">
-                            <button class="btn-primary" style="padding:18px 48px; font-size:14px; background:#fff; color:#000;" onclick="filterAndGo('Saree')">
-                                <span>SHOP NOW ></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="hero-slide">
-                    <div class="hero-slide-bg" style="background-image:url('banner_sherwani.png'); background-size:cover; background-position:center top;"></div>
-                    <div class="hero-slide-overlay" style="background:linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.1) 100%);"></div>
-                    <div class="hero-content" style="align-items:flex-start; text-align:left; padding:60px 8%;">
-                        <div class="hero-badge" style="background:#000; border-color:#FFD700; padding:10px 24px; border-radius:4px; border-width:2px;">
-                            <span class="hero-badge-text" style="color:#FFD700; font-size:14px; letter-spacing:4px;">MEGA MENSWEAR SALE</span>
-                        </div>
-                        <h1 class="hero-h1" style="font-size:clamp(64px,8vw,96px); font-weight:700; margin-bottom:10px; line-height:1;">
-                            MIN <em style="color:#FFD700;">50% OFF</em><br>ON SHERWANIS</h1>
-                        <p class="hero-sub" style="font-size: 20px; font-weight: 400; color: #fff;">Premium wedding collection at unbeatable prices.</p>
-                        <div class="hero-cta">
-                            <button class="btn-primary" style="padding:18px 48px; font-size:14px; background:#fff; color:#000;" onclick="filterAndGo('Sherwani')">
-                                <span>EXPLORE NOW ></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 4 -->
-                <div class="hero-slide">
-                    <div class="hero-slide-bg" style="background-image:url('banner_indowestern.png'); background-size:cover; background-position:center;"></div>
-                    <div class="hero-slide-overlay" style="background:linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.1) 100%);"></div>
-                    <div class="hero-content" style="align-items:flex-start; text-align:left; padding:60px 8%;">
-                        <div class="hero-badge" style="background:#E63946; border-color:#E63946; padding:10px 24px; border-radius:4px;">
-                            <span class="hero-badge-text" style="color:#fff; font-size:14px; letter-spacing:4px;">CLEARANCE SALE</span>
-                        </div>
-                        <h1 class="hero-h1" style="font-size:clamp(52px,6vw,72px); font-weight:800; margin-bottom:10px; line-height:1; text-transform:uppercase;">
-                            FLAT <em style="color:#FFD700;">40-60% OFF</em><br>ON INDO-WESTERN</h1>
-                        <p class="hero-sub" style="font-size: 20px; font-weight: 400; color: #fff;">Top brands and exclusive designs starting at just ₹999.</p>
-                        <div class="hero-cta">
-                            <button class="btn-primary" style="padding:18px 48px; font-size:14px; background:#fff; color:#000;" onclick="filterAndGo('Indo-Western')">
-                                <span>SHOP NOW ></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slider-nav" id="slider-nav">
-                <div class="slider-dot active" onclick="goToSlide(0)">
-                    <div class="dot-fill"></div>
-                </div>
-                <div class="slider-dot" onclick="goToSlide(1)">
-                    <div class="dot-fill"></div>
-                </div>
-                <div class="slider-dot" onclick="goToSlide(2)">
-                    <div class="dot-fill"></div>
-                </div>
-                <div class="slider-dot" onclick="goToSlide(3)">
-                    <div class="dot-fill"></div>
-                </div>
-            </div>
-
-            <button class="slider-arrow slider-prev" onclick="prevSlide()"><svg width="24" height="24" fill="none"
-                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg></button>
-            <button class="slider-arrow slider-next" onclick="nextSlide()"><svg width="24" height="24" fill="none"
-                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg></button>
-        </section>
-
-
-
-        <!-- BUDGET BUYS -->
-        <section class="section" style="position: relative; z-index: 5;">
-            <div class="section-header" style="position: relative; z-index: 10;">
-                <div onclick="filterAndGo('Bargain')" style="cursor: pointer;">
-                    <div class="section-kicker">Where style matches savings</div>
-                    <h2 class="section-title"
-                        style="font-family: inherit; font-size: 20px; font-style: normal; font-weight: 800; letter-spacing: normal;">
-                        Pocket Friendly Bargain!</h2>
-                </div>
-            </div>
-            <!-- Grid of items horizontally scrolling -->
-            <div class="bargain-scroll"
-                style="display: flex; overflow-x: auto; gap: 12px; scrollbar-width: none; margin-top: 16px; padding-bottom: 12px;">
-                <!-- Card 1 -->
-                <div class="bargain-card"
-                    style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
-                    onclick="filterAndGo('Suit pieces')">
-                    <div
-                        style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/11PONteLNHmA0gFkf8_ynoBdDmq2h6JIg=w800') center/cover;">
-                    </div>
-                    <div
-                        style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
-                    </div>
-                    <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
-                        <div style="font-size: 10px; opacity: 0.9;">Under</div>
-                        <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹1049</div>
-                        <div style="font-size: 12px; margin-top: 2px;">Suit Pieces</div>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="bargain-card"
-                    style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
-                    onclick="filterAndGo('Indo-Western')">
-                    <div
-                        style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/1HWWjML6EABOo87QWYkN0-X_hGlHTDbVb=w800') center/cover;">
-                    </div>
-                    <div
-                        style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
-                    </div>
-                    <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
-                        <div style="font-size: 10px; opacity: 0.9;">Under</div>
-                        <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹399</div>
-                        <div style="font-size: 12px; margin-top: 2px;">Indo-Western</div>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="bargain-card"
-                    style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
-                    onclick="filterAndGo('Ready to Wear Saree')">
-                    <div
-                        style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/175eWIiP8pYIisjhLWJk1qo9ucmdd0Hw7=w800') center/cover;">
-                    </div>
-                    <div
-                        style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
-                    </div>
-                    <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
-                        <div style="font-size: 10px; opacity: 0.9;">Under</div>
-                        <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹699</div>
-                        <div style="font-size: 12px; margin-top: 2px;">Ready to Wear</div>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="bargain-card"
-                    style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
-                    onclick="filterAndGo('Gown')">
-                    <div
-                        style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/1APAySxYOZFdllcwVuuDek2ckRsubZdbM=w800') center/cover;">
-                    </div>
-                    <div
-                        style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
-                    </div>
-                    <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
-                        <div style="font-size: 10px; opacity: 0.9;">Under</div>
-                        <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹2299</div>
-                        <div style="font-size: 12px; margin-top: 2px;">Gowns</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CATEGORIES -->
-        <section class="section" style="margin-top: 24px; position: relative; z-index: 5;">
-            <div class="section-header" style="position: relative; z-index: 10;">
-                <div onclick="filterAndGo('All')" style="cursor: pointer;">
-                    <div class="section-kicker">Top Picks, Just For You!</div>
-                    <h2 class="section-title"
-                        style="font-family: inherit; font-size: 20px; font-style: normal; font-weight: 800; letter-spacing: normal;">
-                        Bestseller Categories</h2>
-                </div>
-            </div>
-            <div class="bestseller-scroll"
-                style="display: flex; overflow-x: auto; gap: 12px; scrollbar-width: none; margin-top: 16px;">
-                <!-- Bestseller 1 -->
-                <div class="bestseller-card"
-                    style="min-width: 140px; border: 1px solid var(--bd); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; flex-shrink: 0;"
-                    onclick="filterAndGo('Saree')">
-                    <div style="font-size: 13px; font-weight: 700; text-align: center; padding: 10px 0;">Sarees</div>
-                    <div style="height: 180px; position: relative;">
-                        <img src="https://lh3.googleusercontent.com/d/1fDK_48Yvj0pu2ygXXPEgNuhtmqMybbo3=w800"
-                            style="width:100%; height:100%; object-fit:cover;">
-                        <div
-                            style="position: absolute; bottom:0; left:0; width:100%; padding: 8px 0; background: rgba(0,0,0,0.6); color: #fff; text-align: center; font-size: 12px; font-weight: 700;">
-                            Under ₹1099</div>
-                    </div>
-                </div>
-                <!-- Bestseller 2 -->
-                <div class="bestseller-card"
-                    style="min-width: 140px; border: 1px solid var(--bd); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; flex-shrink: 0;"
-                    onclick="filterAndGo('Ready to Wear Saree')">
-                    <div style="font-size: 13px; font-weight: 700; text-align: center; padding: 10px 0;">Kurta Sets
-                    </div>
-                    <div style="height: 180px; position: relative;">
-                        <img src="https://lh3.googleusercontent.com/d/1HWWjML6EABOo87QWYkN0-X_hGlHTDbVb=w800"
-                            style="width:100%; height:100%; object-fit:cover;">
-                        <div
-                            style="position: absolute; bottom:0; left:0; width:100%; padding: 8px 0; background: rgba(0,0,0,0.6); color: #fff; text-align: center; font-size: 12px; font-weight: 700;">
-                            Under ₹1049</div>
-                    </div>
-                </div>
-                <!-- Bestseller 3 -->
-                <div class="bestseller-card"
-                    style="min-width: 140px; border: 1px solid var(--bd); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; flex-shrink: 0;"
-                    onclick="filterAndGo('Lehnga')">
-                    <div style="font-size: 13px; font-weight: 700; text-align: center; padding: 10px 0;">Lehengas</div>
-                    <div style="height: 180px; position: relative;">
-                        <img src="https://lh3.googleusercontent.com/d/1kVJXlmknKByghtXv6lnAVpDnMTYiW5Tm=w800"
-                            style="width:100%; height:100%; object-fit:cover;">
-                        <div
-                            style="position: absolute; bottom:0; left:0; width:100%; padding: 8px 0; background: rgba(0,0,0,0.6); color: #fff; text-align: center; font-size: 12px; font-weight: 700;">
-                            Under ₹1999</div>
-                    </div>
-                </div>
-                <!-- Bestseller 4 -->
-                <div class="bestseller-card"
-                    style="min-width: 140px; border: 1px solid var(--bd); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; flex-shrink: 0;"
-                    onclick="filterAndGo('Sherwani')">
-                    <div style="font-size: 13px; font-weight: 700; text-align: center; padding: 10px 0;">Sherwanis</div>
-                    <div style="height: 180px; position: relative;">
-                        <img src="https://lh3.googleusercontent.com/d/1y07eKlHBx46gt4m6neaD5MINudQL_wTA=w800"
-                            style="width:100%; height:100%; object-fit:cover;">
-                        <div
-                            style="position: absolute; bottom:0; left:0; width:100%; padding: 8px 0; background: rgba(0,0,0,0.6); color: #fff; text-align: center; font-size: 12px; font-weight: 700;">
-                            Under ₹2999</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEATURED BANNER -->
-        <div class="feat-banner">
-            <div class="feat-content">
-                <div class="feat-tag">★ Editor's Choice</div>
-                <div class="feat-title">The Bridal <em>Banarasi</em><br>Saree </div>
-                <div class="feat-desc">Woven with centuries of tradition, our Banarasi collection celebrates the
-                    timeless art of
-                    silk weaving from the heart of Varanasi. Each piece is a story.</div>
-                <button class="btn-primary" onclick="filterAndGo('Saree')">
-                    <span>Discover the Collection</span>
-                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                </button>
-            </div>
-            <div class="feat-visual">
-                <div class="feat-img">
-                    <div class="feat-img-inner"
-                        style="background:url('https://lh3.googleusercontent.com/d/175eWIiP8pYIisjhLWJk1qo9ucmdd0Hw7=w800') center/cover;height:100%">
-                    </div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:2px">
-                    <div class="feat-img" style="flex:1">
-                        <div class="feat-img-inner"
-                            style="background:url('https://lh3.googleusercontent.com/d/11PONteLNHmA0gFkf8_ynoBdDmq2h6JIg=w800') center/cover;height:100%">
-                        </div>
-                    </div>
-                    <div class="feat-img" style="flex:1">
-                        <div class="feat-img-inner"
-                            style="background:url('https://lh3.googleusercontent.com/d/1YXma2Edq_v9ieFbhhBlJyMgGJCDhhUiE=w800') center/cover;height:100%">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- BRAND STRIP -->
-        <div class="brand-strip">
-            <div class="brand-strip-label">As Seen In</div>
-            <div class="brand-logos">
-                <span class="brand-logo-item">Vogue India</span>
-                <span class="brand-logo-item">Elle</span>
-                <span class="brand-logo-item">Harper's Bazaar</span>
-                <span class="brand-logo-item">Femina</span>
-                <span class="brand-logo-item">GQ India</span>
-                <span class="brand-logo-item">Grazia</span>
-            </div>
-        </div>
-
-        <!-- FILTER BAR -->
-        <div class="filter-bar-wrap" id="filter-bar-wrap">
-            <div class="filter-bar">
-                <button class="fpill on" data-cat="All" onclick="filterCat(this)">All Products</button>
-                <div class="f-sep"></div>
-                <button class="fpill" data-cat="Saree" onclick="filterCat(this)">Sarees</button>
-                <button class="fpill" data-cat="Ready to Wear Saree" onclick="filterCat(this)">Ready-to-Wear</button>
-                <button class="fpill" data-cat="Lehnga" onclick="filterCat(this)">Lehengas</button>
-                <button class="fpill" data-cat="Party wear Lehnga" onclick="filterCat(this)">Party Lehenga</button>
-                <button class="fpill" data-cat="Gown" onclick="filterCat(this)">Gowns</button>
-                <button class="fpill" data-cat="Sherwani" onclick="filterCat(this)">Sherwani</button>
-                <button class="fpill" data-cat="Coat-Pant" onclick="filterCat(this)">Coat-Pant</button>
-                <button class="fpill" data-cat="Suit pieces" onclick="filterCat(this)">Suit Pieces</button>
-                <button class="fpill" data-cat="Crop tops" onclick="filterCat(this)">Crop Tops</button>
-                <button class="fpill" data-cat="Indo-Western" onclick="filterCat(this)">Indo-Western</button>
-            </div>
-        </div>
-
-        <!-- SHOP TOOLBAR -->
-        <div class="shop-toolbar" id="shop-section">
-            <div class="srch-wrap">
-                <svg class="srch-icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-                <input class="srch-in" id="search-input" type="text" placeholder="Search products…"
-                    oninput="applyFilters()">
-            </div>
-            <button class="filter-btn" id="filter-toggle-btn" onclick="toggleFilters()">
-                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <line x1="4" y1="6" x2="20" y2="6" />
-                    <line x1="8" y1="12" x2="16" y2="12" />
-                    <line x1="11" y1="18" x2="13" y2="18" />
-                </svg>
-                Filters
-                <span class="filter-count" id="filter-count">0</span>
-            </button>
-            <select class="sort-sel" id="sort-select" onchange="applyFilters()">
-                <option value="default">Sort: Featured</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-                <option value="name">Name A–Z</option>
-                <option value="rating">Top Rated</option>
-                <option value="new">Newest First</option>
-                <option value="discount">Biggest Discount</option>
-            </select>
-            <div class="view-toggle">
-                <button class="view-btn on" id="grid-btn" onclick="setView('grid')" title="Grid">
-                    <svg width="13" height="13" fill="currentColor" viewBox="0 0 12 12">
-                        <rect x="0" y="0" width="5" height="5" />
-                        <rect x="7" y="0" width="5" height="5" />
-                        <rect x="0" y="7" width="5" height="5" />
-                        <rect x="7" y="7" width="5" height="5" />
-                    </svg>
-                </button>
-                <button class="view-btn" id="list-btn" onclick="setView('list')" title="List">
-                    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <line x1="8" y1="6" x2="21" y2="6" />
-                        <line x1="8" y1="12" x2="21" y2="12" />
-                        <line x1="8" y1="18" x2="21" y2="18" />
-                        <line x1="3" y1="6" x2="3.01" y2="6" />
-                        <line x1="3" y1="12" x2="3.01" y2="12" />
-                        <line x1="3" y1="18" x2="3.01" y2="18" />
-                    </svg>
-                </button>
-            </div>
-            <div class="res-label" id="results-count"></div>
-        </div>
-
-        <!-- SHOP BODY -->
-        <div class="shop-body" id="shop-body-wrap">
-            <!-- SIDE FILTER -->
-            <div class="filter-panel" id="filter-panel">
-                <div class="filter-panel-inner">
-                    <div class="filter-section">
-                        <div class="filter-s-title">Price Range <span id="price-label"
-                                style="font-weight:400;font-size:11px;color:var(--g4)">up to ₹50,000</span></div>
-                        <input type="range" class="price-slider" id="price-max" min="0" max="50000" value="50000"
-                            step="500" oninput="updatePriceFilter(this.value)">
-                        <div class="price-labels"><span>₹0</span><span id="price-display">₹50,000</span></div>
-                    </div>
-                    <div class="filter-section">
-                        <div class="filter-s-title">Colour</div>
-                        <div class="color-swatches">
-                            <div class="swatch" style="background:#E63946" title="Red"
-                                onclick="toggleSwatch(this,'Red')"></div>
-                            <div class="swatch" style="background:#2196F3" title="Blue"
-                                onclick="toggleSwatch(this,'Blue')"></div>
-                            <div class="swatch" style="background:#4CAF50" title="Green"
-                                onclick="toggleSwatch(this,'Green')"></div>
-                            <div class="swatch" style="background:#FF9800" title="Orange"
-                                onclick="toggleSwatch(this,'Orange')"></div>
-                            <div class="swatch" style="background:#9C27B0" title="Purple"
-                                onclick="toggleSwatch(this,'Purple')"></div>
-                            <div class="swatch" style="background:#F5F5F5;box-shadow:0 0 0 1px #ddd" title="White"
-                                onclick="toggleSwatch(this,'White')"></div>
-                            <div class="swatch" style="background:#1A1A1A" title="Black"
-                                onclick="toggleSwatch(this,'Black')"></div>
-                            <div class="swatch" style="background:#FF69B4" title="Pink"
-                                onclick="toggleSwatch(this,'Pink')"></div>
-                            <div class="swatch" style="background:#C4973A" title="Gold"
-                                onclick="toggleSwatch(this,'Gold')"></div>
-                            <div class="swatch" style="background:#E84393" title="Rani Pink"
-                                onclick="toggleSwatch(this,'Rani')">
+                        <div class="hero-content"
+                            style="align-items:flex-start; text-align:left; padding:0 10%; justify-content: center;">
+                            <div
+                                style="font-size: 13px; font-weight: 700; color: #E8C87A; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;">
+                                Trending Now</div>
+                            <h1
+                                style="font-family: 'DM Sans', sans-serif; font-size: clamp(38px, 6vw, 72px); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 8px;">
+                                Elegant <br>Kurta Sets</h1>
+                            <p class="hero-sub"
+                                style="font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.9); margin-bottom: 32px;">
+                                Min 50% Off</p>
+                            <div class="hero-cta">
+                                <button class="btn-primary"
+                                    style="padding:14px 40px; font-size:13px; background:#fff; color:#000; font-weight:700; border-radius: 4px;"
+                                    onclick="filterAndGo('Suit pieces')">
+                                    <span>EXPLORE</span>
+                                </button>
                             </div>
-                            <div class="swatch" style="background:#00897B" title="Teal"
-                                onclick="toggleSwatch(this,'Teal')"></div>
-                            <div class="swatch" style="background:#795548" title="Brown"
-                                onclick="toggleSwatch(this,'Brown')"></div>
                         </div>
                     </div>
-                    <div class="filter-section">
-                        <div class="filter-s-title">Brand</div>
-                        <label class="fcheck"><input type="checkbox" onchange="applyFilters()"> Nayasha</label>
-                        <label class="fcheck"><input type="checkbox" onchange="applyFilters()"> Levi's</label>
-                        <label class="fcheck"><input type="checkbox" onchange="applyFilters()"> Killer</label>
+
+                    <!-- Slide 2 -->
+                    <div class="hero-slide">
+                        <div class="hero-slide-bg"
+                            style="background-image:url('banner_saree.png'); background-size:cover; background-position:center;">
+                        </div>
+                        <div class="hero-slide-overlay"
+                            style="background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);">
+                        </div>
+                        <div class="hero-content"
+                            style="align-items:flex-start; text-align:left; padding:0 10%; justify-content: center;">
+                            <div
+                                style="font-size: 13px; font-weight: 700; color: #E8C87A; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;">
+                                Urban Chic</div>
+                            <h1
+                                style="font-family: 'DM Sans', sans-serif; font-size: clamp(38px, 6vw, 72px); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 8px;">
+                                Western <br>Wear</h1>
+                            <p class="hero-sub"
+                                style="font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.9); margin-bottom: 32px;">
+                                Flat 40% Off</p>
+                            <div class="hero-cta">
+                                <button class="btn-primary"
+                                    style="padding:14px 40px; font-size:13px; background:#fff; color:#000; font-weight:700; border-radius: 4px;"
+                                    onclick="filterAndGo('Indo-Western')">
+                                    <span>EXPLORE</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="filter-section">
-                        <div class="filter-s-title">Availability</div>
-                        <label class="fcheck"><input type="checkbox" id="instock-only" onchange="applyFilters()"> In
-                            Stock
-                            Only</label>
-                        <label class="fcheck"><input type="checkbox" id="discount-only" onchange="applyFilters()"> On
-                            Sale</label>
+
+                    <!-- Slide 3 -->
+                    <div class="hero-slide">
+                        <div class="hero-slide-bg"
+                            style="background-image:url('banner_sherwani.png'); background-size:cover; background-position:center top;">
+                        </div>
+                        <div class="hero-slide-overlay"
+                            style="background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);">
+                        </div>
+                        <div class="hero-content"
+                            style="align-items:flex-start; text-align:left; padding:0 10%; justify-content: center;">
+                            <div
+                                style="font-size: 13px; font-weight: 700; color: #E8C87A; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;">
+                                Premium Wedding</div>
+                            <h1
+                                style="font-family: 'DM Sans', sans-serif; font-size: clamp(38px, 6vw, 72px); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 8px;">
+                                Royal <br>Sherwanis</h1>
+                            <p class="hero-sub"
+                                style="font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.9); margin-bottom: 32px;">
+                                Up to 50% Off</p>
+                            <div class="hero-cta">
+                                <button class="btn-primary"
+                                    style="padding:14px 40px; font-size:13px; background:#fff; color:#000; font-weight:700; border-radius: 4px;"
+                                    onclick="filterAndGo('Sherwani')">
+                                    <span>EXPLORE</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div style="padding:16px 20px">
-                        <button onclick="clearAllFilters()"
-                            style="width:100%;background:none;border:1px solid var(--bd);cursor:pointer;padding:10px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);transition:var(--tr);border-radius:2px"
-                            onmouseover="this.style.borderColor='var(--g)';this.style.color='var(--g4)'"
-                            onmouseout="this.style.borderColor='var(--bd)';this.style.color='var(--muted)'">Clear
-                            All</button>
+
+                    <!-- Slide 4 -->
+                    <div class="hero-slide">
+                        <div class="hero-slide-bg"
+                            style="background-image:url('banner_indowestern.png'); background-size:cover; background-position:center;">
+                        </div>
+                        <div class="hero-slide-overlay"
+                            style="background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);">
+                        </div>
+                        <div class="hero-content"
+                            style="align-items:flex-start; text-align:left; padding:0 10%; justify-content: center;">
+                            <div
+                                style="font-size: 13px; font-weight: 700; color: #E8C87A; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;">
+                                Bridal Edit</div>
+                            <h1
+                                style="font-family: 'DM Sans', sans-serif; font-size: clamp(38px, 6vw, 72px); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 8px;">
+                                Banarasi <br>Silk Sarees</h1>
+                            <p class="hero-sub"
+                                style="font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.9); margin-bottom: 32px;">
+                                Exclusive 2026 Collection</p>
+                            <div class="hero-cta">
+                                <button class="btn-primary"
+                                    style="padding:14px 40px; font-size:13px; background:#fff; color:#000; font-weight:700; border-radius: 4px;"
+                                    onclick="filterAndGo('Saree')">
+                                    <span>EXPLORE</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- PRODUCT GRID -->
-            <div>
-                <div class="prod-grid" id="loading-skeletons"></div>
-                <div class="prod-grid" id="product-grid" style="display:none"></div>
-                <div id="load-more-wrap">
-                    <button class="btn-primary" id="load-more-btn" onclick="loadMore()">
-                        <span>View more</span>
+                <div class="slider-nav" id="slider-nav">
+                    <div class="slider-dot active" onclick="goToSlide(0)">
+                        <div class="dot-fill"></div>
+                    </div>
+                    <div class="slider-dot" onclick="goToSlide(1)">
+                        <div class="dot-fill"></div>
+                    </div>
+                    <div class="slider-dot" onclick="goToSlide(2)">
+                        <div class="dot-fill"></div>
+                    </div>
+                    <div class="slider-dot" onclick="goToSlide(3)">
+                        <div class="dot-fill"></div>
+                    </div>
+                </div>
+
+                <button class="slider-arrow slider-prev" onclick="prevSlide()"><svg width="24" height="24" fill="none"
+                        stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg></button>
+                <button class="slider-arrow slider-next" onclick="nextSlide()"><svg width="24" height="24" fill="none"
+                        stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg></button>
+            </section>
+
+
+
+            <!-- BUDGET BUYS -->
+            <section
+                style="padding: 40px 20px; position: relative; z-index: 5; display: flex; flex-direction: column; align-items: center;">
+                <div class="section-header"
+                    style="position: relative; z-index: 10; margin-bottom: 24px; text-align: center;">
+                    <div onclick="filterAndGo('Bargain')" style="cursor: pointer;">
+                        <div
+                            style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #3e4152; margin-bottom: 6px;">
+                            Where style matches savings</div>
+                        <h2
+                            style="font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #1c1810;">
+                            Pocket Friendly Bargain!</h2>
+                    </div>
+                </div>
+                <!-- Grid of items horizontally scrolling -->
+                <div class="bargain-scroll"
+                    style="display: flex; overflow-x: auto; gap: 16px; scrollbar-width: none; width: 100%; justify-content: center; padding-bottom: 12px;">
+                    <!-- Card 1 -->
+                    <div class="bargain-card"
+                        style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Suit pieces')">
+                        <div
+                            style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/11PONteLNHmA0gFkf8_ynoBdDmq2h6JIg=w800') center/cover;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
+                        </div>
+                        <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
+                            <div style="font-size: 10px; opacity: 0.9;">Under</div>
+                            <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹1049</div>
+                            <div style="font-size: 12px; margin-top: 2px;">Suit Pieces</div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bargain-card"
+                        style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Indo-Western')">
+                        <div
+                            style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/1HWWjML6EABOo87QWYkN0-X_hGlHTDbVb=w800') center/cover;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
+                        </div>
+                        <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
+                            <div style="font-size: 10px; opacity: 0.9;">Under</div>
+                            <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹399</div>
+                            <div style="font-size: 12px; margin-top: 2px;">Indo-Western</div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bargain-card"
+                        style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Ready to Wear Saree')">
+                        <div
+                            style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/175eWIiP8pYIisjhLWJk1qo9ucmdd0Hw7=w800') center/cover;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
+                        </div>
+                        <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
+                            <div style="font-size: 10px; opacity: 0.9;">Under</div>
+                            <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹699</div>
+                            <div style="font-size: 12px; margin-top: 2px;">Ready to Wear</div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bargain-card"
+                        style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Gown')">
+                        <div
+                            style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/1APAySxYOZFdllcwVuuDek2ckRsubZdbM=w800') center/cover;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
+                        </div>
+                        <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
+                            <div style="font-size: 10px; opacity: 0.9;">Under</div>
+                            <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹2299</div>
+                            <div style="font-size: 12px; margin-top: 2px;">Gowns</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATEGORIES -->
+            <section
+                style="padding: 40px 20px; position: relative; z-index: 5; display: flex; flex-direction: column; align-items: center;">
+                <div class="section-header"
+                    style="position: relative; z-index: 10; margin-bottom: 24px; text-align: center;">
+                    <div onclick="filterAndGo('All')" style="cursor: pointer;">
+                        <div
+                            style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #3e4152; margin-bottom: 6px;">
+                            Top Picks, Just For You!</div>
+                        <h2
+                            style="font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #1c1810;">
+                            Bestseller Categories</h2>
+                    </div>
+                </div>
+                <div class="bestseller-scroll"
+                    style="display: flex; overflow-x: auto; gap: 16px; scrollbar-width: none; width: 100%; justify-content: center;">
+                    <!-- Bestseller 1 -->
+                    <div class="bestseller-card"
+                        style="min-width: 140px; border: 1px solid var(--bd); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Saree')">
+                        <div style="font-size: 13px; font-weight: 700; text-align: center; padding: 10px 0;">Sarees
+                        </div>
+                        <div style="height: 180px; position: relative;">
+                            <img src="https://lh3.googleusercontent.com/d/1fDK_48Yvj0pu2ygXXPEgNuhtmqMybbo3=w800"
+                                style="width:100%; height:100%; object-fit:cover;">
+                            <div
+                                style="position: absolute; bottom:0; left:0; width:100%; padding: 8px 0; background: rgba(0,0,0,0.6); color: #fff; text-align: center; font-size: 12px; font-weight: 700;">
+                                Under ₹1099</div>
+                        </div>
+                    </div>
+                    <!-- Bestseller 2 -->
+                    <div class="bestseller-card"
+                        style="min-width: 140px; border: 1px solid var(--bd); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Ready to Wear Saree')">
+                        <div style="font-size: 13px; font-weight: 700; text-align: center; padding: 10px 0;">Kurta Sets
+                        </div>
+                        <div style="height: 180px; position: relative;">
+                            <img src="https://lh3.googleusercontent.com/d/1HWWjML6EABOo87QWYkN0-X_hGlHTDbVb=w800"
+                                style="width:100%; height:100%; object-fit:cover;">
+                            <div
+                                style="position: absolute; bottom:0; left:0; width:100%; padding: 8px 0; background: rgba(0,0,0,0.6); color: #fff; text-align: center; font-size: 12px; font-weight: 700;">
+                                Under ₹1049</div>
+                        </div>
+                    </div>
+                    <!-- Bestseller 3 -->
+                    <div class="bestseller-card"
+                        style="min-width: 140px; border: 1px solid var(--bd); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Lehnga')">
+                        <div style="font-size: 13px; font-weight: 700; text-align: center; padding: 10px 0;">Lehengas
+                        </div>
+                        <div style="height: 180px; position: relative;">
+                            <img src="https://lh3.googleusercontent.com/d/1kVJXlmknKByghtXv6lnAVpDnMTYiW5Tm=w800"
+                                style="width:100%; height:100%; object-fit:cover;">
+                            <div
+                                style="position: absolute; bottom:0; left:0; width:100%; padding: 8px 0; background: rgba(0,0,0,0.6); color: #fff; text-align: center; font-size: 12px; font-weight: 700;">
+                                Under ₹1999</div>
+                        </div>
+                    </div>
+                    <!-- Bestseller 4 -->
+                    <div class="bestseller-card"
+                        style="min-width: 140px; border: 1px solid var(--bd); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Sherwani')">
+                        <div style="font-size: 13px; font-weight: 700; text-align: center; padding: 10px 0;">Sherwanis
+                        </div>
+                        <div style="height: 180px; position: relative;">
+                            <img src="https://lh3.googleusercontent.com/d/1y07eKlHBx46gt4m6neaD5MINudQL_wTA=w800"
+                                style="width:100%; height:100%; object-fit:cover;">
+                            <div
+                                style="position: absolute; bottom:0; left:0; width:100%; padding: 8px 0; background: rgba(0,0,0,0.6); color: #fff; text-align: center; font-size: 12px; font-weight: 700;">
+                                Under ₹2999</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FEATURED BANNER -->
+            <div class="feat-banner">
+                <div class="feat-content">
+                    <div class="feat-tag">★ Editor's Choice</div>
+                    <div class="feat-title">The Bridal <em>Banarasi</em><br>Saree </div>
+                    <div class="feat-desc">Woven with centuries of tradition, our Banarasi collection celebrates the
+                        timeless art of
+                        silk weaving from the heart of Varanasi. Each piece is a story.</div>
+                    <button class="btn-primary" onclick="filterAndGo('Saree')">
+                        <span>Discover the Collection</span>
                         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
                             viewBox="0 0 24 24">
-                            <polyline points="6 9 12 15 18 9" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
                         </svg>
                     </button>
                 </div>
-            </div>
-        </div>
-
-        <!-- TRENDING NOW -->
-        <div class="trending-sec">
-            <div class="section-header" style="margin-bottom:32px">
-                <div>
-                    <div class="section-kicker">What's Hot</div>
-                    <h2 class="section-title">Trending <em>Now</em></h2>
-                </div>
-                <button class="section-link" onclick="filterAndGo('All')">See All <svg width="14" height="14"
-                        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <polyline points="12 5 19 12 12 19" />
-                    </svg></button>
-            </div>
-            <div class="trending-scroll">
-                <div class="trending-row" id="trending-row"></div>
-            </div>
-        </div>
-
-        <!-- ABOUT / DESIGNER -->
-        <div class="designer-sec">
-            <div class="designer-visual">
-                <div class="d-img-main">
-                    <div class="d-img-inner"
-                        style="background:url('https://lh3.googleusercontent.com/d/17Wn0imP42CAXLL1xvgWcBGlCp31N4ahx=w800') center/cover;height:100%">
-                    </div>
-                </div>
-                <div class="d-img-sm">
-                    <div class="d-img-inner"
-                        style="background:url('https://lh3.googleusercontent.com/d/1_t40so1bEfL2cwfUWSnxTF8w_laNh2-I=w800') center/cover;height:100%">
-                    </div>
-                </div>
-                <div class="d-img-sm">
-                    <div class="d-img-inner"
-                        style="background:url('https://lh3.googleusercontent.com/d/1P4-COz7QEs2QEjFn8HSpBMBMcp6mXz5Q=w800') center/cover;height:100%">
-                    </div>
-                </div>
-            </div>
-            <div class="designer-content">
-                <div class="d-tag">★ Our Story</div>
-                <h2 class="d-title">Where Heritage<br>Meets <em>Modern</em><br>Luxury</h2>
-                <p class="d-desc">At Nayasha, we believe ethnic wear is not just clothing — it is a story woven in silk
-                    and
-                    thread, carrying centuries of craftsmanship. Our artisans work with the finest fabrics sourced from
-                    the
-                    weaving capitals of India.</p>
-                <p class="d-desc">Every piece in our collection is a testament to skilled hands — from the weavers of
-                    Varanasi
-                    to the embroiderers of Lucknow.</p>
-                <div class="d-divider"></div>
-                <div class="d-sig">Nayasha</div>
-                <div class="d-role">India's Finest Luxury Ethnic Wear · Est. 2020</div>
-            </div>
-        </div>
-
-        <!-- LOOKBOOK -->
-        <div class="lookbook-sec">
-            <div class="section-header" style="margin-bottom:20px">
-                <div>
-                    <div class="section-kicker">Visual Stories</div>
-                    <h2 class="section-title">Style <em>Lookbook</em></h2>
-                </div>
-            </div>
-            <div class="lookbook-grid">
-                <div class="look-item" onclick="filterAndGo('Saree')">
-                    <div class="look-bg"
-                        style="background:url('https://lh3.googleusercontent.com/d/1fDK_48Yvj0pu2ygXXPEgNuhtmqMybbo3=w800') center/cover">
-                    </div>
-                    <div class="look-shade"></div>
-                    <div class="look-info">
-                        <div class="look-title">The Bridal Edit</div>
-                        <div class="look-cta">Shop Sarees <svg width="12" height="12" fill="none" stroke="currentColor"
-                                stroke-width="2" viewBox="0 0 24 24">
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                                <polyline points="12 5 19 12 12 19" />
-                            </svg></div>
-                    </div>
-                </div>
-                <div class="look-item" onclick="filterAndGo('Lehnga')">
-                    <div class="look-bg"
-                        style="background:url('https://lh3.googleusercontent.com/d/1kVJXlmknKByghtXv6lnAVpDnMTYiW5Tm=w800') center/cover">
-                    </div>
-                    <div class="look-shade"></div>
-                    <div class="look-info">
-                        <div class="look-title">Festive Lehengas</div>
-                        <div class="look-cta">Shop Now →</div>
-                    </div>
-                </div>
-                <div class="look-item" onclick="filterAndGo('Sherwani')">
-                    <div class="look-bg"
-                        style="background:url('https://lh3.googleusercontent.com/d/1y07eKlHBx46gt4m6neaD5MINudQL_wTA=w800') center/cover">
-                    </div>
-                    <div class="look-shade"></div>
-                    <div class="look-info">
-                        <div class="look-title">Men's Elegance</div>
-                        <div class="look-cta">Shop Sherwanis →</div>
-                    </div>
-                </div>
-                <div class="look-item" onclick="filterAndGo('Gown')">
-                    <div class="look-bg"
-                        style="background:url('https://lh3.googleusercontent.com/d/1APAySxYOZFdllcwVuuDek2ckRsubZdbM=w800') center/cover">
-                    </div>
-                    <div class="look-shade"></div>
-                    <div class="look-info">
-                        <div class="look-title">Evening Gowns</div>
-                        <div class="look-cta">Explore →</div>
-                    </div>
-                </div>
-                <div class="look-item" onclick="filterAndGo('Indo-Western')">
-                    <div class="look-bg"
-                        style="background:url('https://lh3.googleusercontent.com/d/1HWWjML6EABOo87QWYkN0-X_hGlHTDbVb=w800') center/cover">
-                    </div>
-                    <div class="look-shade"></div>
-                    <div class="look-info">
-                        <div class="look-title">Indo-Western</div>
-                        <div class="look-cta">Discover →</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- REVIEWS -->
-        <div class="reviews-sec">
-            <div class="section-header">
-                <div>
-                    <div class="section-kicker">Customer Love</div>
-                    <h2 class="section-title">What They <em>Say</em></h2>
-                </div>
-                <div style="display:flex;align-items:center;gap:8px">
-                    <span style="color:var(--g);font-size:18px">★★★★★</span>
-                    <span style="font-size:13px;color:var(--muted)">4.9 · 2,400+ reviews</span>
-                </div>
-            </div>
-            <div class="reviews-hero">
-                <div>
-                    <div class="reviews-big-num">4.9</div>
-                    <div style="color:var(--g);font-size:18px;margin-top:4px">★★★★★</div>
-                    <div style="font-size:12px;color:var(--muted);margin-top:6px">Based on 2,400+ reviews</div>
-                </div>
-                <div class="reviews-summary" style="flex:1;max-width:320px">
-                    <div class="review-bars">
-                        <div class="review-bar-row">5 ★ <div class="review-bar-track">
-                                <div class="review-bar-fill" style="width:82%"></div>
-                            </div> <span>82%</span></div>
-                        <div class="review-bar-row">4 ★ <div class="review-bar-track">
-                                <div class="review-bar-fill" style="width:11%"></div>
-                            </div> <span>11%</span></div>
-                        <div class="review-bar-row">3 ★ <div class="review-bar-track">
-                                <div class="review-bar-fill" style="width:5%"></div>
-                            </div> <span>5%</span></div>
-                        <div class="review-bar-row">2 ★ <div class="review-bar-track">
-                                <div class="review-bar-fill" style="width:1%"></div>
-                            </div> <span>1%</span></div>
-                        <div class="review-bar-row">1 ★ <div class="review-bar-track">
-                                <div class="review-bar-fill" style="width:1%"></div>
-                            </div> <span>1%</span></div>
-                    </div>
-                </div>
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-                    <div style="text-align:center;background:var(--warm);padding:16px;border-radius:4px">
-                        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--g4)">98%</div>
-                        <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Would
-                            Recommend
+                <div class="feat-visual">
+                    <div class="feat-img">
+                        <div class="feat-img-inner"
+                            style="background:url('https://lh3.googleusercontent.com/d/175eWIiP8pYIisjhLWJk1qo9ucmdd0Hw7=w800') center/cover;height:100%">
                         </div>
                     </div>
-                    <div style="text-align:center;background:var(--warm);padding:16px;border-radius:4px">
-                        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--g4)">4.8</div>
-                        <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">
-                            Quality</div>
-                    </div>
-                    <div style="text-align:center;background:var(--warm);padding:16px;border-radius:4px">
-                        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--g4)">4.9</div>
-                        <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">
-                            Delivery</div>
+                    <div style="display:flex;flex-direction:column;gap:2px">
+                        <div class="feat-img" style="flex:1">
+                            <div class="feat-img-inner"
+                                style="background:url('https://lh3.googleusercontent.com/d/11PONteLNHmA0gFkf8_ynoBdDmq2h6JIg=w800') center/cover;height:100%">
+                            </div>
+                        </div>
+                        <div class="feat-img" style="flex:1">
+                            <div class="feat-img-inner"
+                                style="background:url('https://lh3.googleusercontent.com/d/1YXma2Edq_v9ieFbhhBlJyMgGJCDhhUiE=w800') center/cover;height:100%">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-card-top">
-                        <div class="review-stars">★★★★★</div>
-                        <div class="review-date">March 2025</div>
-                    </div>
-                    <div class="review-text">"The Banarasi saree I ordered was absolutely stunning. The quality is
-                        unmatched —
-                        exactly as shown in the photos. Will be ordering again!"</div>
-                    <div class="review-author">Priya Sharma</div>
-                    <div class="review-loc">Delhi</div>
-                    <div class="review-product">✓ Banarasi Silk Saree</div>
-                    <div class="review-verified">✓ Verified Purchase</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-card-top">
-                        <div class="review-stars">★★★★★</div>
-                        <div class="review-date">Feb 2026</div>
-                    </div>
-                    <div class="review-text">"My daughter's wedding lehenga from Nayasha was the highlight of the
-                        ceremony.
-                        Everyone kept asking where we got it from!"</div>
-                    <div class="review-author">Sunita Mehta</div>
-                    <div class="review-loc">Mumbai</div>
-                    <div class="review-product">✓ Bridal Lehenga</div>
-                    <div class="review-verified">✓ Verified Purchase</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-card-top">
-                        <div class="review-stars">★★★★★</div>
-                        <div class="review-date">Jan 2025</div>
-                    </div>
-                    <div class="review-text">"Fast delivery, beautiful packaging, and the sherwani fit perfectly.
-                        Nayasha is my
-                        go-to for all ethnic occasions now."</div>
-                    <div class="review-author">Rahul Kapoor</div>
-                    <div class="review-loc">Bangalore</div>
-                    <div class="review-product">✓ Royal Sherwani</div>
-                    <div class="review-verified">✓ Verified Purchase</div>
-                </div>
-            </div>
-        </div>
 
-        <!-- RECENTLY VIEWED -->
-        <div class="trending-sec" id="recently-viewed" style="display:none;background:var(--warm)">
-            <div class="section-header" style="margin-bottom:28px">
-                <div>
-                    <div class="section-kicker">Your Journey</div>
-                    <h2 class="section-title">Recently <em>Viewed</em></h2>
+            <!-- BRAND STRIP -->
+            <div class="brand-strip">
+                <div class="brand-strip-label">As Seen In</div>
+                <div class="brand-logos">
+                    <span class="brand-logo-item">Vogue India</span>
+                    <span class="brand-logo-item">Elle</span>
+                    <span class="brand-logo-item">Harper's Bazaar</span>
+                    <span class="brand-logo-item">Femina</span>
+                    <span class="brand-logo-item">GQ India</span>
+                    <span class="brand-logo-item">Grazia</span>
                 </div>
             </div>
-            <div class="trending-scroll">
-                <div class="trending-row" id="recently-viewed-row"></div>
-            </div>
-        </div>
 
-        <!-- TRUST BADGES -->
-        <div class="trust-sec">
-            <div class="trust-grid">
-                <div class="trust-card">
-                    <div class="trust-icon">🚚</div>
-                    <div class="trust-info">
-                        <h4>Free Delivery</h4>
-                        <p>Orders above ₹2999 · 3–7 days pan India</p>
-                    </div>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon">✦</div>
-                    <div class="trust-info">
-                        <h4>100% Authentic</h4>
-                        <p>Every piece handcrafted & verified</p>
-                    </div>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon">↩</div>
-                    <div class="trust-info">
-                        <h4>Easy Returns</h4>
-                        <p>7-day hassle-free return policy</p>
-                    </div>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon">🔒</div>
-                    <div class="trust-info">
-                        <h4>Secure Payments</h4>
-                        <p>UPI, Cards, Net Banking & COD</p>
-                    </div>
+            <!-- FILTER BAR -->
+            <div class="filter-bar-wrap" id="filter-bar-wrap">
+                <div class="filter-bar">
+                    <button class="fpill on" data-cat="All" onclick="filterCat(this)">All Products</button>
+                    <div class="f-sep"></div>
+                    <button class="fpill" data-cat="Saree" onclick="filterCat(this)">Sarees</button>
+                    <button class="fpill" data-cat="Ready to Wear Saree"
+                        onclick="filterCat(this)">Ready-to-Wear</button>
+                    <button class="fpill" data-cat="Lehnga" onclick="filterCat(this)">Lehengas</button>
+                    <button class="fpill" data-cat="Party wear Lehnga" onclick="filterCat(this)">Party Lehenga</button>
+                    <button class="fpill" data-cat="Gown" onclick="filterCat(this)">Gowns</button>
+                    <button class="fpill" data-cat="Sherwani" onclick="filterCat(this)">Sherwani</button>
+                    <button class="fpill" data-cat="Coat-Pant" onclick="filterCat(this)">Coat-Pant</button>
+                    <button class="fpill" data-cat="Suit pieces" onclick="filterCat(this)">Suit Pieces</button>
+                    <button class="fpill" data-cat="Crop tops" onclick="filterCat(this)">Crop Tops</button>
+                    <button class="fpill" data-cat="Indo-Western" onclick="filterCat(this)">Indo-Western</button>
                 </div>
             </div>
-        </div>
 
-        <!-- NEWSLETTER -->
-        <div class="nl-sec">
-            <div>
-                <h2 class="nl-title">Join the <em>Nayasha</em><br>Inner Circle</h2>
-                <p class="nl-desc">Get first access to new arrivals, exclusive offers, and style inspiration straight to
-                    your
-                    inbox. No spam, ever.</p>
-                <div class="nl-perks">
-                    <span class="nl-perk">15% off first order</span>
-                    <span class="nl-perk">Early access</span>
-                    <span class="nl-perk">Style guides</span>
+            <!-- SHOP TOOLBAR -->
+            <div class="shop-toolbar" id="shop-section">
+                <div class="srch-wrap">
+                    <svg class="srch-icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <input class="srch-in" id="search-input" type="text" placeholder="Search products…"
+                        oninput="applyFilters()">
                 </div>
-            </div>
-            <div>
-                <div class="nl-form">
-                    <input class="nl-in" type="email" id="nl-email" placeholder="Your email address">
-                    <button class="nl-btn" onclick="subscribeNewsletter()">Subscribe</button>
+                <button class="filter-btn" id="filter-toggle-btn" onclick="toggleFilters()">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <line x1="4" y1="6" x2="20" y2="6" />
+                        <line x1="8" y1="12" x2="16" y2="12" />
+                        <line x1="11" y1="18" x2="13" y2="18" />
+                    </svg>
+                    Filters
+                    <span class="filter-count" id="filter-count">0</span>
+                </button>
+                <select class="sort-sel" id="sort-select" onchange="applyFilters()">
+                    <option value="default">Sort: Featured</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="name">Name A–Z</option>
+                    <option value="rating">Top Rated</option>
+                    <option value="new">Newest First</option>
+                    <option value="discount">Biggest Discount</option>
+                </select>
+                <div class="view-toggle">
+                    <button class="view-btn on" id="grid-btn" onclick="setView('grid')" title="Grid">
+                        <svg width="13" height="13" fill="currentColor" viewBox="0 0 12 12">
+                            <rect x="0" y="0" width="5" height="5" />
+                            <rect x="7" y="0" width="5" height="5" />
+                            <rect x="0" y="7" width="5" height="5" />
+                            <rect x="7" y="7" width="5" height="5" />
+                        </svg>
+                    </button>
+                    <button class="view-btn" id="list-btn" onclick="setView('list')" title="List">
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <line x1="8" y1="6" x2="21" y2="6" />
+                            <line x1="8" y1="12" x2="21" y2="12" />
+                            <line x1="8" y1="18" x2="21" y2="18" />
+                            <line x1="3" y1="6" x2="3.01" y2="6" />
+                            <line x1="3" y1="12" x2="3.01" y2="12" />
+                            <line x1="3" y1="18" x2="3.01" y2="18" />
+                        </svg>
+                    </button>
                 </div>
-                <p style="font-size:11px;color:rgba(253,250,244,.18);margin-top:10px">No spam, ever. Unsubscribe any
-                    time.</p>
+                <div class="res-label" id="results-count"></div>
             </div>
-        </div>
 
-        <!-- FOOTER -->
-        <div class="footer">
-            <div class="footer-grid">
+            <!-- SHOP BODY -->
+            <div class="shop-body" id="shop-body-wrap">
+                <!-- SIDE FILTER -->
+                <div class="filter-panel" id="filter-panel">
+                    <div class="filter-panel-inner">
+                        <div class="filter-section">
+                            <div class="filter-s-title">Price Range <span id="price-label"
+                                    style="font-weight:400;font-size:11px;color:var(--g4)">up to ₹50,000</span></div>
+                            <input type="range" class="price-slider" id="price-max" min="0" max="50000" value="50000"
+                                step="500" oninput="updatePriceFilter(this.value)">
+                            <div class="price-labels"><span>₹0</span><span id="price-display">₹50,000</span></div>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-s-title">Colour</div>
+                            <div class="color-swatches">
+                                <div class="swatch" style="background:#E63946" title="Red"
+                                    onclick="toggleSwatch(this,'Red')"></div>
+                                <div class="swatch" style="background:#2196F3" title="Blue"
+                                    onclick="toggleSwatch(this,'Blue')"></div>
+                                <div class="swatch" style="background:#4CAF50" title="Green"
+                                    onclick="toggleSwatch(this,'Green')"></div>
+                                <div class="swatch" style="background:#FF9800" title="Orange"
+                                    onclick="toggleSwatch(this,'Orange')"></div>
+                                <div class="swatch" style="background:#9C27B0" title="Purple"
+                                    onclick="toggleSwatch(this,'Purple')"></div>
+                                <div class="swatch" style="background:#F5F5F5;box-shadow:0 0 0 1px #ddd" title="White"
+                                    onclick="toggleSwatch(this,'White')"></div>
+                                <div class="swatch" style="background:#1A1A1A" title="Black"
+                                    onclick="toggleSwatch(this,'Black')"></div>
+                                <div class="swatch" style="background:#FF69B4" title="Pink"
+                                    onclick="toggleSwatch(this,'Pink')"></div>
+                                <div class="swatch" style="background:#C4973A" title="Gold"
+                                    onclick="toggleSwatch(this,'Gold')"></div>
+                                <div class="swatch" style="background:#E84393" title="Rani Pink"
+                                    onclick="toggleSwatch(this,'Rani')">
+                                </div>
+                                <div class="swatch" style="background:#00897B" title="Teal"
+                                    onclick="toggleSwatch(this,'Teal')"></div>
+                                <div class="swatch" style="background:#795548" title="Brown"
+                                    onclick="toggleSwatch(this,'Brown')"></div>
+                            </div>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-s-title">Brand</div>
+                            <label class="fcheck"><input type="checkbox" onchange="applyFilters()"> Nayasha</label>
+                            <label class="fcheck"><input type="checkbox" onchange="applyFilters()"> Levi's</label>
+                            <label class="fcheck"><input type="checkbox" onchange="applyFilters()"> Killer</label>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-s-title">Availability</div>
+                            <label class="fcheck"><input type="checkbox" id="instock-only" onchange="applyFilters()"> In
+                                Stock
+                                Only</label>
+                            <label class="fcheck"><input type="checkbox" id="discount-only" onchange="applyFilters()">
+                                On
+                                Sale</label>
+                        </div>
+                        <div style="padding:16px 20px">
+                            <button onclick="clearAllFilters()"
+                                style="width:100%;background:none;border:1px solid var(--bd);cursor:pointer;padding:10px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);transition:var(--tr);border-radius:2px"
+                                onmouseover="this.style.borderColor='var(--g)';this.style.color='var(--g4)'"
+                                onmouseout="this.style.borderColor='var(--bd)';this.style.color='var(--muted)'">Clear
+                                All</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT GRID -->
                 <div>
-                    <span class="f-logo">Naya<em>sha</em></span>
-                    <p class="f-desc">India's finest luxury ethnic wear, handcrafted by master artisans. Celebrating the
-                        timeless
-                        beauty of Indian culture through contemporary fashion.</p>
-                    <div class="f-socials">
-                        <div class="f-social" title="Instagram">in</div>
-                        <div class="f-social" title="Facebook">fb</div>
-                        <div class="f-social" title="Pinterest">pt</div>
-                        <div class="f-social" title="YouTube">yt</div>
+                    <div class="prod-grid" id="loading-skeletons"></div>
+                    <div class="prod-grid" id="product-grid" style="display:none"></div>
+                    <div id="load-more-wrap">
+                        <button class="btn-primary" id="load-more-btn" onclick="loadMore()">
+                            <span>View more</span>
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRENDING NOW -->
+            <div class="trending-sec">
+                <div class="section-header" style="margin-bottom:32px">
+                    <div>
+                        <div class="section-kicker">What's Hot</div>
+                        <h2 class="section-title">Trending <em>Now</em></h2>
+                    </div>
+                    <button class="section-link" onclick="filterAndGo('All')">See All <svg width="14" height="14"
+                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg></button>
+                </div>
+                <div class="trending-scroll">
+                    <div class="trending-row" id="trending-row"></div>
+                </div>
+            </div>
+
+            <!-- ABOUT / DESIGNER -->
+            <div class="designer-sec">
+                <div class="designer-visual">
+                    <div class="d-img-main">
+                        <div class="d-img-inner"
+                            style="background:url('https://lh3.googleusercontent.com/d/17Wn0imP42CAXLL1xvgWcBGlCp31N4ahx=w800') center/cover;height:100%">
+                        </div>
+                    </div>
+                    <div class="d-img-sm">
+                        <div class="d-img-inner"
+                            style="background:url('https://lh3.googleusercontent.com/d/1_t40so1bEfL2cwfUWSnxTF8w_laNh2-I=w800') center/cover;height:100%">
+                        </div>
+                    </div>
+                    <div class="d-img-sm">
+                        <div class="d-img-inner"
+                            style="background:url('https://lh3.googleusercontent.com/d/1P4-COz7QEs2QEjFn8HSpBMBMcp6mXz5Q=w800') center/cover;height:100%">
+                        </div>
+                    </div>
+                </div>
+                <div class="designer-content">
+                    <div class="d-tag">★ Our Story</div>
+                    <h2 class="d-title">Where Heritage<br>Meets <em>Modern</em><br>Luxury</h2>
+                    <p class="d-desc">At Nayasha, we believe ethnic wear is not just clothing — it is a story woven in
+                        silk
+                        and
+                        thread, carrying centuries of craftsmanship. Our artisans work with the finest fabrics sourced
+                        from
+                        the
+                        weaving capitals of India.</p>
+                    <p class="d-desc">Every piece in our collection is a testament to skilled hands — from the weavers
+                        of
+                        Varanasi
+                        to the embroiderers of Lucknow.</p>
+                    <div class="d-divider"></div>
+                    <div class="d-sig">Nayasha</div>
+                    <div class="d-role">India's Finest Luxury Ethnic Wear · Est. 2020</div>
+                </div>
+            </div>
+
+            <!-- LOOKBOOK -->
+            <div class="lookbook-sec">
+                <div class="section-header" style="margin-bottom:20px">
+                    <div>
+                        <div class="section-kicker">Visual Stories</div>
+                        <h2 class="section-title">Style <em>Lookbook</em></h2>
+                    </div>
+                </div>
+                <div class="lookbook-grid">
+                    <div class="look-item" onclick="filterAndGo('Saree')">
+                        <div class="look-bg"
+                            style="background:url('https://lh3.googleusercontent.com/d/1fDK_48Yvj0pu2ygXXPEgNuhtmqMybbo3=w800') center/cover">
+                        </div>
+                        <div class="look-shade"></div>
+                        <div class="look-info">
+                            <div class="look-title">The Bridal Edit</div>
+                            <div class="look-cta">Shop Sarees <svg width="12" height="12" fill="none"
+                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                    <polyline points="12 5 19 12 12 19" />
+                                </svg></div>
+                        </div>
+                    </div>
+                    <div class="look-item" onclick="filterAndGo('Lehnga')">
+                        <div class="look-bg"
+                            style="background:url('https://lh3.googleusercontent.com/d/1kVJXlmknKByghtXv6lnAVpDnMTYiW5Tm=w800') center/cover">
+                        </div>
+                        <div class="look-shade"></div>
+                        <div class="look-info">
+                            <div class="look-title">Festive Lehengas</div>
+                            <div class="look-cta">Shop Now →</div>
+                        </div>
+                    </div>
+                    <div class="look-item" onclick="filterAndGo('Sherwani')">
+                        <div class="look-bg"
+                            style="background:url('https://lh3.googleusercontent.com/d/1y07eKlHBx46gt4m6neaD5MINudQL_wTA=w800') center/cover">
+                        </div>
+                        <div class="look-shade"></div>
+                        <div class="look-info">
+                            <div class="look-title">Men's Elegance</div>
+                            <div class="look-cta">Shop Sherwanis →</div>
+                        </div>
+                    </div>
+                    <div class="look-item" onclick="filterAndGo('Gown')">
+                        <div class="look-bg"
+                            style="background:url('https://lh3.googleusercontent.com/d/1APAySxYOZFdllcwVuuDek2ckRsubZdbM=w800') center/cover">
+                        </div>
+                        <div class="look-shade"></div>
+                        <div class="look-info">
+                            <div class="look-title">Evening Gowns</div>
+                            <div class="look-cta">Explore →</div>
+                        </div>
+                    </div>
+                    <div class="look-item" onclick="filterAndGo('Indo-Western')">
+                        <div class="look-bg"
+                            style="background:url('https://lh3.googleusercontent.com/d/1HWWjML6EABOo87QWYkN0-X_hGlHTDbVb=w800') center/cover">
+                        </div>
+                        <div class="look-shade"></div>
+                        <div class="look-info">
+                            <div class="look-title">Indo-Western</div>
+                            <div class="look-cta">Discover →</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REVIEWS -->
+            <div class="reviews-sec">
+                <div class="section-header">
+                    <div>
+                        <div class="section-kicker">Customer Love</div>
+                        <h2 class="section-title">What They <em>Say</em></h2>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px">
+                        <span style="color:var(--g);font-size:18px">★★★★★</span>
+                        <span style="font-size:13px;color:var(--muted)">4.9 · 2,400+ reviews</span>
+                    </div>
+                </div>
+                <div class="reviews-hero">
+                    <div>
+                        <div class="reviews-big-num">4.9</div>
+                        <div style="color:var(--g);font-size:18px;margin-top:4px">★★★★★</div>
+                        <div style="font-size:12px;color:var(--muted);margin-top:6px">Based on 2,400+ reviews</div>
+                    </div>
+                    <div class="reviews-summary" style="flex:1;max-width:320px">
+                        <div class="review-bars">
+                            <div class="review-bar-row">5 ★ <div class="review-bar-track">
+                                    <div class="review-bar-fill" style="width:82%"></div>
+                                </div> <span>82%</span></div>
+                            <div class="review-bar-row">4 ★ <div class="review-bar-track">
+                                    <div class="review-bar-fill" style="width:11%"></div>
+                                </div> <span>11%</span></div>
+                            <div class="review-bar-row">3 ★ <div class="review-bar-track">
+                                    <div class="review-bar-fill" style="width:5%"></div>
+                                </div> <span>5%</span></div>
+                            <div class="review-bar-row">2 ★ <div class="review-bar-track">
+                                    <div class="review-bar-fill" style="width:1%"></div>
+                                </div> <span>1%</span></div>
+                            <div class="review-bar-row">1 ★ <div class="review-bar-track">
+                                    <div class="review-bar-fill" style="width:1%"></div>
+                                </div> <span>1%</span></div>
+                        </div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+                        <div style="text-align:center;background:var(--warm);padding:16px;border-radius:4px">
+                            <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--g4)">98%</div>
+                            <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">
+                                Would
+                                Recommend
+                            </div>
+                        </div>
+                        <div style="text-align:center;background:var(--warm);padding:16px;border-radius:4px">
+                            <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--g4)">4.8</div>
+                            <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">
+                                Quality</div>
+                        </div>
+                        <div style="text-align:center;background:var(--warm);padding:16px;border-radius:4px">
+                            <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--g4)">4.9</div>
+                            <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">
+                                Delivery</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-card-top">
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-date">March 2025</div>
+                        </div>
+                        <div class="review-text">"The Banarasi saree I ordered was absolutely stunning. The quality is
+                            unmatched —
+                            exactly as shown in the photos. Will be ordering again!"</div>
+                        <div class="review-author">Priya Sharma</div>
+                        <div class="review-loc">Delhi</div>
+                        <div class="review-product">✓ Banarasi Silk Saree</div>
+                        <div class="review-verified">✓ Verified Purchase</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-card-top">
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-date">Feb 2026</div>
+                        </div>
+                        <div class="review-text">"My daughter's wedding lehenga from Nayasha was the highlight of the
+                            ceremony.
+                            Everyone kept asking where we got it from!"</div>
+                        <div class="review-author">Sunita Mehta</div>
+                        <div class="review-loc">Mumbai</div>
+                        <div class="review-product">✓ Bridal Lehenga</div>
+                        <div class="review-verified">✓ Verified Purchase</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-card-top">
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-date">Jan 2025</div>
+                        </div>
+                        <div class="review-text">"Fast delivery, beautiful packaging, and the sherwani fit perfectly.
+                            Nayasha is my
+                            go-to for all ethnic occasions now."</div>
+                        <div class="review-author">Rahul Kapoor</div>
+                        <div class="review-loc">Bangalore</div>
+                        <div class="review-product">✓ Royal Sherwani</div>
+                        <div class="review-verified">✓ Verified Purchase</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECENTLY VIEWED -->
+            <div class="trending-sec" id="recently-viewed" style="display:none;background:var(--warm)">
+                <div class="section-header" style="margin-bottom:28px">
+                    <div>
+                        <div class="section-kicker">Your Journey</div>
+                        <h2 class="section-title">Recently <em>Viewed</em></h2>
+                    </div>
+                </div>
+                <div class="trending-scroll">
+                    <div class="trending-row" id="recently-viewed-row"></div>
+                </div>
+            </div>
+
+            <!-- TRUST BADGES -->
+            <div class="trust-sec">
+                <div class="trust-grid">
+                    <div class="trust-card">
+                        <div class="trust-icon">🚚</div>
+                        <div class="trust-info">
+                            <h4>Free Delivery</h4>
+                            <p>Orders above ₹2999 · 3–7 days pan India</p>
+                        </div>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">✦</div>
+                        <div class="trust-info">
+                            <h4>100% Authentic</h4>
+                            <p>Every piece handcrafted & verified</p>
+                        </div>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">↩</div>
+                        <div class="trust-info">
+                            <h4>Easy Returns</h4>
+                            <p>7-day hassle-free return policy</p>
+                        </div>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">🔒</div>
+                        <div class="trust-info">
+                            <h4>Secure Payments</h4>
+                            <p>UPI, Cards, Net Banking & COD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEWSLETTER -->
+            <div class="nl-sec">
+                <div>
+                    <h2 class="nl-title">Join the <em>Nayasha</em><br>Inner Circle</h2>
+                    <p class="nl-desc">Get first access to new arrivals, exclusive offers, and style inspiration
+                        straight to
+                        your
+                        inbox. No spam, ever.</p>
+                    <div class="nl-perks">
+                        <span class="nl-perk">15% off first order</span>
+                        <span class="nl-perk">Early access</span>
+                        <span class="nl-perk">Style guides</span>
                     </div>
                 </div>
                 <div>
-                    <h5>Shop</h5>
-                    <a class="f-link" onclick="filterAndGo('Saree')">Sarees</a>
-                    <a class="f-link" onclick="filterAndGo('Lehnga')">Lehengas</a>
-                    <a class="f-link" onclick="filterAndGo('Sherwani')">Sherwani</a>
-                    <a class="f-link" onclick="filterAndGo('Gown')">Gowns</a>
-                    <a class="f-link" onclick="filterAndGo('All')">All Products</a>
-                </div>
-                <div>
-                    <h5>Help</h5>
-                    <a class="f-link">Track Order</a>
-                    <a class="f-link">Returns & Exchange</a>
-                    <a class="f-link">Size Guide</a>
-                    <a class="f-link">FAQs</a>
-                    <a class="f-link">Contact Us</a>
-                </div>
-                <div>
-                    <h5>Company</h5>
-                    <a class="f-link">About Nayasha</a>
-                    <a class="f-link">Our Artisans</a>
-                    <a class="f-link">Sustainability</a>
-                    <a class="f-link">Privacy Policy</a>
-                    <a class="f-link">Terms of Use</a>
+                    <div class="nl-form">
+                        <input class="nl-in" type="email" id="nl-email" placeholder="Your email address">
+                        <button class="nl-btn" onclick="subscribeNewsletter()">Subscribe</button>
+                    </div>
+                    <p style="font-size:11px;color:rgba(253,250,244,.18);margin-top:10px">No spam, ever. Unsubscribe any
+                        time.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>© 2025 Nayasha. All rights reserved. Made with ♥ in Jaipur, India.</p>
-                <div class="pay-chips">
-                    <span class="pay-chip">UPI</span>
-                    <span class="pay-chip">Visa</span>
-                    <span class="pay-chip">Mastercard</span>
-                    <span class="pay-chip">RuPay</span>
-                    <span class="pay-chip">COD</span>
+
+            <!-- FOOTER -->
+            <div class="footer">
+                <div class="footer-grid">
+                    <div>
+                        <span class="f-logo">Naya<em>sha</em></span>
+                        <p class="f-desc">India's finest luxury ethnic wear, handcrafted by master artisans. Celebrating
+                            the
+                            timeless
+                            beauty of Indian culture through contemporary fashion.</p>
+                        <div class="f-socials">
+                            <div class="f-social" title="Instagram">in</div>
+                            <div class="f-social" title="Facebook">fb</div>
+                            <div class="f-social" title="Pinterest">pt</div>
+                            <div class="f-social" title="YouTube">yt</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>Shop</h5>
+                        <a class="f-link" onclick="filterAndGo('Saree')">Sarees</a>
+                        <a class="f-link" onclick="filterAndGo('Lehnga')">Lehengas</a>
+                        <a class="f-link" onclick="filterAndGo('Sherwani')">Sherwani</a>
+                        <a class="f-link" onclick="filterAndGo('Gown')">Gowns</a>
+                        <a class="f-link" onclick="filterAndGo('All')">All Products</a>
+                    </div>
+                    <div>
+                        <h5>Help</h5>
+                        <a class="f-link">Track Order</a>
+                        <a class="f-link">Returns & Exchange</a>
+                        <a class="f-link">Size Guide</a>
+                        <a class="f-link">FAQs</a>
+                        <a class="f-link">Contact Us</a>
+                    </div>
+                    <div>
+                        <h5>Company</h5>
+                        <a class="f-link">About Nayasha</a>
+                        <a class="f-link">Our Artisans</a>
+                        <a class="f-link">Sustainability</a>
+                        <a class="f-link">Privacy Policy</a>
+                        <a class="f-link">Terms of Use</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 Nayasha. All rights reserved. Made with ♥ in Jaipur, India.</p>
+                    <div class="pay-chips">
+                        <span class="pay-chip">UPI</span>
+                        <span class="pay-chip">Visa</span>
+                        <span class="pay-chip">Mastercard</span>
+                        <span class="pay-chip">RuPay</span>
+                        <span class="pay-chip">COD</span>
+                    </div>
                 </div>
             </div>
-        </div>
         </div><!-- END SHOP PANEL -->
 
-    <!-- ABOUT PANEL -->
-    <div id="about-panel" style="display:none; background: var(--cream); min-height: 100vh; font-family: 'DM Sans', sans-serif;">
+        <!-- ABOUT PANEL -->
+        <div id="about-panel"
+            style="display:none; background: var(--cream); min-height: 100vh; font-family: 'DM Sans', sans-serif;">
 
-        <!-- HERO BANNER -->
-        <div style="background: var(--ink); height: 420px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-            <div style="position: absolute; inset: 0; background: radial-gradient(circle at 60% 50%, rgba(196,151,58,0.18) 0%, transparent 70%);"></div>
-            <!-- Decorative Gold Lines -->
-            <div style="position: absolute; top: 40px; left: 60px; width: 80px; height: 1px; background: rgba(196,151,58,0.4);"></div>
-            <div style="position: absolute; top: 55px; left: 60px; width: 40px; height: 1px; background: rgba(196,151,58,0.25);"></div>
-            <div style="position: absolute; bottom: 40px; right: 60px; width: 80px; height: 1px; background: rgba(196,151,58,0.4);"></div>
-            <div style="position: absolute; bottom: 55px; right: 60px; width: 40px; height: 1px; background: rgba(196,151,58,0.25);"></div>
-            <div style="text-align: center; color: #fff; position: relative; z-index: 2;">
-                <div style="font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--g2); margin-bottom: 20px; opacity: 0.9;">Established · Deoghar · Jharkhand</div>
-                <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 8vw, 72px); font-weight: 300; letter-spacing: 4px; margin-bottom: 16px; line-height: 1;">NAYASHA</h1>
-                <div style="font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: var(--g2);">— 4N Mall, Azad Chowk —</div>
+            <!-- HERO BANNER -->
+            <div
+                style="background: var(--ink); height: 420px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                <div
+                    style="position: absolute; inset: 0; background: radial-gradient(circle at 60% 50%, rgba(196,151,58,0.18) 0%, transparent 70%);">
+                </div>
+                <!-- Decorative Gold Lines -->
+                <div
+                    style="position: absolute; top: 40px; left: 60px; width: 80px; height: 1px; background: rgba(196,151,58,0.4);">
+                </div>
+                <div
+                    style="position: absolute; top: 55px; left: 60px; width: 40px; height: 1px; background: rgba(196,151,58,0.25);">
+                </div>
+                <div
+                    style="position: absolute; bottom: 40px; right: 60px; width: 80px; height: 1px; background: rgba(196,151,58,0.4);">
+                </div>
+                <div
+                    style="position: absolute; bottom: 55px; right: 60px; width: 40px; height: 1px; background: rgba(196,151,58,0.25);">
+                </div>
+                <div style="text-align: center; color: #fff; position: relative; z-index: 2;">
+                    <div
+                        style="font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--g2); margin-bottom: 20px; opacity: 0.9;">
+                        Established · Deoghar · Jharkhand</div>
+                    <h1
+                        style="font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 8vw, 72px); font-weight: 300; letter-spacing: 4px; margin-bottom: 16px; line-height: 1;">
+                        NAYASHA</h1>
+                    <div
+                        style="font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: var(--g2);">
+                        — 4N Mall, Azad Chowk —</div>
+                </div>
+            </div>
+
+            <!-- STATS BAR -->
+            <div
+                style="background: var(--g); padding: 24px 40px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;">
+                <div style="text-align: center; color: var(--ink);">
+                    <div style="font-size: 28px; font-weight: 700; font-family: 'Cormorant Garamond', serif;">500+</div>
+                    <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;">
+                        Products</div>
+                </div>
+                <div style="text-align: center; color: var(--ink);">
+                    <div style="font-size: 28px; font-weight: 700; font-family: 'Cormorant Garamond', serif;">10,000+
+                    </div>
+                    <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;">Happy
+                        Customers</div>
+                </div>
+                <div style="text-align: center; color: var(--ink);">
+                    <div style="font-size: 28px; font-weight: 700; font-family: 'Cormorant Garamond', serif;">12+</div>
+                    <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;">
+                        Categories</div>
+                </div>
+                <div style="text-align: center; color: var(--ink);">
+                    <div style="font-size: 28px; font-weight: 700; font-family: 'Cormorant Garamond', serif;">⭐ 4.5
+                    </div>
+                    <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;">
+                        Customer Rating</div>
+                </div>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div style="max-width: 900px; margin: 0 auto; padding: 70px 24px 80px;">
+
+                <!-- ABOUT INTRO -->
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <div
+                        style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 16px;">
+                        Our Story</div>
+                    <h2
+                        style="font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 400; color: var(--ink); margin-bottom: 24px;">
+                        A Legacy of Elegance in Deoghar</h2>
+                    <div style="width: 50px; height: 1.5px; background: var(--g); margin: 0 auto 32px;"></div>
+                    <p style="font-size: 17px; line-height: 1.9; color: #444; max-width: 680px; margin: 0 auto;">
+                        Situated at the heart of <strong>Azad Chowk, Deoghar</strong> — the sacred city of Baba
+                        Baidyanath — <strong>Nayasha (4N Mall)</strong> is Jharkhand's most beloved destination for
+                        premium ethnic and readymade fashion. For years, we have dressed the families of Deoghar for
+                        their most special moments: weddings, festivals, pujas, and milestones. Our commitment to
+                        quality, variety, and affordability has made us the first name in fashion for thousands of
+                        customers across the Santhal Parganas.
+                    </p>
+                </div>
+
+                <!-- WHAT WE OFFER -->
+                <div style="margin-bottom: 60px;">
+                    <div style="text-align: center; margin-bottom: 36px;">
+                        <div
+                            style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 12px;">
+                            What We Offer</div>
+                        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--ink);">Every
+                            Outfit for Every Occasion</h3>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+                        <div
+                            style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">👘</div>
+                            <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Bridal
+                                Sarees</h4>
+                            <p style="font-size: 13px; color: #777; line-height: 1.6;">Banarasi, Kanchipuram, georgette
+                                and silk sarees for brides and festive occasions.</p>
+                        </div>
+                        <div
+                            style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">👗</div>
+                            <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">
+                                Lehengas &amp; Gowns</h4>
+                            <p style="font-size: 13px; color: #777; line-height: 1.6;">Bridal and party lehengas,
+                                anarkalis, floor-length gowns for every grand event.</p>
+                        </div>
+                        <div
+                            style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">🕌</div>
+                            <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">
+                                Sherwani &amp; Menswear</h4>
+                            <p style="font-size: 13px; color: #777; line-height: 1.6;">Designer sherwanis, coat-pants,
+                                Indo-western suits for grooms and festive gentlemen.</p>
+                        </div>
+                        <div
+                            style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">👶</div>
+                            <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Kids'
+                                Wear</h4>
+                            <p style="font-size: 13px; color: #777; line-height: 1.6;">Adorable ethnic and western
+                                clothing for kids — from tiny tots to teenagers.</p>
+                        </div>
+                        <div
+                            style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">👙</div>
+                            <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Suits
+                                &amp; Dress Material</h4>
+                            <p style="font-size: 13px; color: #777; line-height: 1.6;">Premium suit pieces, dress
+                                materials, and ready-to-wear sets for all ages.</p>
+                        </div>
+                        <div
+                            style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">✨</div>
+                            <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">
+                                Accessories &amp; More</h4>
+                            <p style="font-size: 13px; color: #777; line-height: 1.6;">Lifestyle accessories, fashion
+                                jewellery and add-ons to complete your perfect look.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WHY CHOOSE US -->
+                <div
+                    style="background: var(--ink); border-radius: 8px; padding: 50px 40px; margin-bottom: 60px; color: #fff; text-align: center;">
+                    <div
+                        style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--g2); margin-bottom: 14px;">
+                        Why Deoghar Trusts Us</div>
+                    <h3
+                        style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; margin-bottom: 40px;">
+                        The Nayasha Difference</h3>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: left;">
+                        <div>
+                            <div style="color: var(--g); font-size: 20px; margin-bottom: 10px;">✦</div>
+                            <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--g2);">Handpicked Quality</h4>
+                            <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7;">Every piece is
+                                personally selected to meet our strict standards of fabric quality and craftsmanship.
+                            </p>
+                        </div>
+                        <div>
+                            <div style="color: var(--g); font-size: 20px; margin-bottom: 10px;">✦</div>
+                            <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--g2);">Perfect Fitting</h4>
+                            <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7;">Our expert
+                                tailoring team ensures every outfit fits you perfectly, with alteration support
+                                available in-store.</p>
+                        </div>
+                        <div>
+                            <div style="color: var(--g); font-size: 20px; margin-bottom: 10px;">✦</div>
+                            <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--g2);">Affordable Luxury</h4>
+                            <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7;">Premium designs
+                                and fabrics at prices that make luxury accessible to every family in Jharkhand.</p>
+                        </div>
+                        <div>
+                            <div style="color: var(--g); font-size: 20px; margin-bottom: 10px;">✦</div>
+                            <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--g2);">Trusted Since Day One
+                            </h4>
+                            <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7;">With thousands
+                                of loyal customers and glowing reviews, Nayasha is the most trusted fashion name in
+                                Deoghar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VISIT INFO -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 50px;">
+                    <div
+                        style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 32px; display: flex; gap: 18px; align-items: flex-start;">
+                        <div style="font-size: 28px; flex-shrink: 0;">📍</div>
+                        <div>
+                            <h4
+                                style="font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.5px;">
+                                STORE ADDRESS</h4>
+                            <p style="font-size: 14px; color: #555; line-height: 1.7;">Azad Chowk, Near Awantika
+                                Sweets<br>S.B. Ray Road, Deoghar<br>Jharkhand — 814112</p>
+                        </div>
+                    </div>
+                    <div
+                        style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 32px; display: flex; gap: 18px; align-items: flex-start;">
+                        <div style="font-size: 28px; flex-shrink: 0;">🕒</div>
+                        <div>
+                            <h4
+                                style="font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.5px;">
+                                STORE HOURS</h4>
+                            <p style="font-size: 14px; color: #555; line-height: 1.7;">Monday – Sunday<br><strong
+                                    style="color: var(--ink);">9:00 AM – 9:30 PM</strong><br><span
+                                    style="font-size: 12px; color: #999;">Open all days including holidays</span></p>
+                        </div>
+                    </div>
+                    <div
+                        style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 32px; display: flex; gap: 18px; align-items: flex-start;">
+                        <div style="font-size: 28px; flex-shrink: 0;">📞</div>
+                        <div>
+                            <h4
+                                style="font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.5px;">
+                                CONTACT US</h4>
+                            <p style="font-size: 14px; color: #555; line-height: 1.7;">Phone: <strong>06432
+                                    295066</strong><br>WhatsApp: <strong>+91 82522 76699</strong><br><span
+                                    style="font-size: 12px; color: #999;">We reply within a few hours</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div style="text-align: center; padding: 50px 0 10px;">
+                    <h3
+                        style="font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--ink); margin-bottom: 16px;">
+                        Ready to find your perfect outfit?</h3>
+                    <p style="font-size: 15px; color: var(--muted); margin-bottom: 32px;">Browse our catalogue online or
+                        visit us in-store at Azad Chowk, Deoghar.</p>
+                    <button class="btn-primary" style="padding: 16px 48px; font-size: 14px; letter-spacing: 2px;"
+                        onclick="switchView('shop')">Explore Catalogue →</button>
+                </div>
+
             </div>
         </div>
 
-        <!-- STATS BAR -->
-        <div style="background: var(--g); padding: 24px 40px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;">
-            <div style="text-align: center; color: var(--ink);">
-                <div style="font-size: 28px; font-weight: 700; font-family: 'Cormorant Garamond', serif;">500+</div>
-                <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;">Products</div>
+
+
+
+        <!-- ADMIN PANEL -->
+        <div id="admin-panel" style="display:none">
+            <div class="admin-hero">
+                <h2>Admin Console</h2>
+                <p>Manage Nayasha's product catalogue and orders</p>
             </div>
-            <div style="text-align: center; color: var(--ink);">
-                <div style="font-size: 28px; font-weight: 700; font-family: 'Cormorant Garamond', serif;">10,000+</div>
-                <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;">Happy Customers</div>
+            <div class="admin-stats" id="admin-stats">
+                <div class="a-stat">
+                    <div class="a-stat-n" id="stat-products">—</div>
+                    <div class="a-stat-l">Total Products</div>
+                </div>
+                <div class="a-stat">
+                    <div class="a-stat-n" id="stat-orders">—</div>
+                    <div class="a-stat-l">Total Orders</div>
+                </div>
+                <div class="a-stat">
+                    <div class="a-stat-n" id="stat-revenue">—</div>
+                    <div class="a-stat-l">Revenue</div>
+                </div>
+                <div class="a-stat">
+                    <div class="a-stat-n" id="stat-pending">—</div>
+                    <div class="a-stat-l">Pending Orders</div>
+                </div>
             </div>
-            <div style="text-align: center; color: var(--ink);">
-                <div style="font-size: 28px; font-weight: 700; font-family: 'Cormorant Garamond', serif;">12+</div>
-                <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;">Categories</div>
+            <div class="admin-tabs">
+                <button class="a-tab on" onclick="adminTab(this,'add-tab')">Add Product</button>
+                <button class="a-tab" onclick="adminTab(this,'list-tab')">All Products</button>
+                <button class="a-tab" onclick="adminTab(this,'orders-tab')">Orders</button>
+                <button class="a-tab" onclick="adminTab(this,'analytics-tab')">Analytics</button>
             </div>
-            <div style="text-align: center; color: var(--ink);">
-                <div style="font-size: 28px; font-weight: 700; font-family: 'Cormorant Garamond', serif;">⭐ 4.5</div>
-                <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;">Customer Rating</div>
+            <div id="add-tab">
+                <div id="admin-flash" class="flash"></div>
+                <div class="a-card">
+                    <h3>New Product Details</h3>
+                    <div class="frow">
+                        <div class="fg"><label class="fl">Product Name *</label><input class="fi" id="p-title"
+                                placeholder="e.g., Banarasi Silk Saree"></div>
+                        <div class="fg"><label class="fl">Category *</label>
+                            <select class="fsel" id="p-cat">
+                                <option value="">Select category</option>
+                                <option>Saree</option>
+                                <option>Ready to Wear Saree</option>
+                                <option>Lehnga</option>
+                                <option>Party wear Lehnga</option>
+                                <option>Sherwani</option>
+                                <option>Coat-Pant</option>
+                                <option>Suit pieces</option>
+                                <option>Gown</option>
+                                <option>Crop tops</option>
+                                <option>Indo-Western</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="frow">
+                        <div class="fg"><label class="fl">Brand</label>
+                            <select class="fsel" id="p-brand">
+                                <option value="Nayasha">Nayasha (Default)</option>
+                                <option value="Levi's">Levi's</option>
+                                <option value="Killer">Killer</option>
+                            </select>
+                        </div>
+                        <div class="frow" style="gap:12px">
+                            <div class="fg"><label class="fl">Price (₹) *</label><input class="fi" type="number"
+                                    id="p-price" placeholder="2999" min="1"></div>
+                            <div class="fg"><label class="fl">Quantity *</label><input class="fi" type="number"
+                                    id="p-qty" placeholder="50" min="0"></div>
+                        </div>
+                    </div>
+                    <div class="fg"><label class="fl">MRP (Original Price)</label><input class="fi" type="number"
+                            id="p-mrp" placeholder="3999 (optional)"></div>
+                    <div class="fg"><label class="fl">Description</label><textarea class="fta" id="p-desc"
+                            placeholder="Describe fabric, occasion, care instructions…"></textarea></div>
+                    <div class="fg"><label class="fl">Product Image *</label>
+                        <div class="upload-zone" id="upload-wrap">
+                            <input type="file" id="p-image" accept="image/*" onchange="previewImage(this)">
+                            <div id="upload-prompt" style="color:var(--muted)">
+                                <div style="font-size:32px;margin-bottom:10px;opacity:.35">📁</div>
+                                <div style="font-size:13px;margin-bottom:4px">Drop image here or <strong
+                                        style="color:var(--g4)">click to
+                                        browse</strong></div>
+                                <div style="font-size:11px;opacity:.4">JPG, PNG up to 5MB</div>
+                            </div>
+                            <img id="img-preview" class="upload-preview" alt="Preview">
+                        </div>
+                    </div>
+                    <button class="submit-btn" id="upload-btn" onclick="uploadProduct()"><span>Upload to
+                            Nayasha</span></button>
+                </div>
             </div>
+            <div id="list-tab" style="display:none">
+                <div class="a-card">
+                    <h3>All Products</h3>
+                    <div id="admin-product-list">
+                        <p style="color:var(--muted);font-size:13px">Loading…</p>
+                    </div>
+                </div>
+            </div>
+            <div id="orders-tab" style="display:none">
+                <div class="a-card">
+                    <h3>Orders</h3>
+                    <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
+                        <button class="fpill on" id="ord-all" onclick="filterOrders('All',this)">All</button>
+                        <button class="fpill" id="ord-Pending" onclick="filterOrders('Pending',this)">Pending</button>
+                        <button class="fpill" id="ord-Delivered"
+                            onclick="filterOrders('Delivered',this)">Delivered</button>
+                        <button class="fpill" id="ord-Cancelled"
+                            onclick="filterOrders('Cancelled',this)">Cancelled</button>
+                    </div>
+                    <div id="admin-orders-list">
+                        <p style="color:var(--muted);font-size:13px">Loading…</p>
+                    </div>
+                </div>
+            </div>
+            <div id="analytics-tab" style="display:none">
+                <div class="a-card">
+                    <h3>Analytics Overview</h3>
+                    <div id="analytics-content">
+                        <p style="color:var(--muted);font-size:13px">Loading…</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- END ADMIN PANEL -->
+    </main>
+
+    <!-- MOBILE NAV DRAWER -->
+    <div class="overlay" id="mobile-nav-overlay" onclick="toggleMobileMenu()"></div>
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="d-head">
+            <div class="d-title">Menu</div>
+            <button class="d-close" onclick="toggleMobileMenu()"><svg width="20" height="20" fill="none"
+                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg></button>
         </div>
-
-        <!-- MAIN CONTENT -->
-        <div style="max-width: 900px; margin: 0 auto; padding: 70px 24px 80px;">
-
-            <!-- ABOUT INTRO -->
-            <div style="text-align: center; margin-bottom: 60px;">
-                <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 16px;">Our Story</div>
-                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 400; color: var(--ink); margin-bottom: 24px;">A Legacy of Elegance in Deoghar</h2>
-                <div style="width: 50px; height: 1.5px; background: var(--g); margin: 0 auto 32px;"></div>
-                <p style="font-size: 17px; line-height: 1.9; color: #444; max-width: 680px; margin: 0 auto;">
-                    Situated at the heart of <strong>Azad Chowk, Deoghar</strong> — the sacred city of Baba Baidyanath — <strong>Nayasha (4N Mall)</strong> is Jharkhand's most beloved destination for premium ethnic and readymade fashion. For years, we have dressed the families of Deoghar for their most special moments: weddings, festivals, pujas, and milestones. Our commitment to quality, variety, and affordability has made us the first name in fashion for thousands of customers across the Santhal Parganas.
-                </p>
-            </div>
-
-            <!-- WHAT WE OFFER -->
-            <div style="margin-bottom: 60px;">
-                <div style="text-align: center; margin-bottom: 36px;">
-                    <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 12px;">What We Offer</div>
-                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--ink);">Every Outfit for Every Occasion</h3>
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-                    <div style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
-                        <div style="font-size: 32px; margin-bottom: 12px;">👘</div>
-                        <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Bridal Sarees</h4>
-                        <p style="font-size: 13px; color: #777; line-height: 1.6;">Banarasi, Kanchipuram, georgette and silk sarees for brides and festive occasions.</p>
-                    </div>
-                    <div style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
-                        <div style="font-size: 32px; margin-bottom: 12px;">👗</div>
-                        <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Lehengas &amp; Gowns</h4>
-                        <p style="font-size: 13px; color: #777; line-height: 1.6;">Bridal and party lehengas, anarkalis, floor-length gowns for every grand event.</p>
-                    </div>
-                    <div style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
-                        <div style="font-size: 32px; margin-bottom: 12px;">🕌</div>
-                        <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Sherwani &amp; Menswear</h4>
-                        <p style="font-size: 13px; color: #777; line-height: 1.6;">Designer sherwanis, coat-pants, Indo-western suits for grooms and festive gentlemen.</p>
-                    </div>
-                    <div style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
-                        <div style="font-size: 32px; margin-bottom: 12px;">👶</div>
-                        <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Kids' Wear</h4>
-                        <p style="font-size: 13px; color: #777; line-height: 1.6;">Adorable ethnic and western clothing for kids — from tiny tots to teenagers.</p>
-                    </div>
-                    <div style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
-                        <div style="font-size: 32px; margin-bottom: 12px;">👙</div>
-                        <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Suits &amp; Dress Material</h4>
-                        <p style="font-size: 13px; color: #777; line-height: 1.6;">Premium suit pieces, dress materials, and ready-to-wear sets for all ages.</p>
-                    </div>
-                    <div style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 28px 24px; text-align: center;">
-                        <div style="font-size: 32px; margin-bottom: 12px;">✨</div>
-                        <h4 style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Accessories &amp; More</h4>
-                        <p style="font-size: 13px; color: #777; line-height: 1.6;">Lifestyle accessories, fashion jewellery and add-ons to complete your perfect look.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- WHY CHOOSE US -->
-            <div style="background: var(--ink); border-radius: 8px; padding: 50px 40px; margin-bottom: 60px; color: #fff; text-align: center;">
-                <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--g2); margin-bottom: 14px;">Why Deoghar Trusts Us</div>
-                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; margin-bottom: 40px;">The Nayasha Difference</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: left;">
-                    <div>
-                        <div style="color: var(--g); font-size: 20px; margin-bottom: 10px;">✦</div>
-                        <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--g2);">Handpicked Quality</h4>
-                        <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7;">Every piece is personally selected to meet our strict standards of fabric quality and craftsmanship.</p>
-                    </div>
-                    <div>
-                        <div style="color: var(--g); font-size: 20px; margin-bottom: 10px;">✦</div>
-                        <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--g2);">Perfect Fitting</h4>
-                        <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7;">Our expert tailoring team ensures every outfit fits you perfectly, with alteration support available in-store.</p>
-                    </div>
-                    <div>
-                        <div style="color: var(--g); font-size: 20px; margin-bottom: 10px;">✦</div>
-                        <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--g2);">Affordable Luxury</h4>
-                        <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7;">Premium designs and fabrics at prices that make luxury accessible to every family in Jharkhand.</p>
-                    </div>
-                    <div>
-                        <div style="color: var(--g); font-size: 20px; margin-bottom: 10px;">✦</div>
-                        <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--g2);">Trusted Since Day One</h4>
-                        <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7;">With thousands of loyal customers and glowing reviews, Nayasha is the most trusted fashion name in Deoghar.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- VISIT INFO -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 50px;">
-                <div style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 32px; display: flex; gap: 18px; align-items: flex-start;">
-                    <div style="font-size: 28px; flex-shrink: 0;">📍</div>
-                    <div>
-                        <h4 style="font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.5px;">STORE ADDRESS</h4>
-                        <p style="font-size: 14px; color: #555; line-height: 1.7;">Azad Chowk, Near Awantika Sweets<br>S.B. Ray Road, Deoghar<br>Jharkhand — 814112</p>
-                    </div>
-                </div>
-                <div style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 32px; display: flex; gap: 18px; align-items: flex-start;">
-                    <div style="font-size: 28px; flex-shrink: 0;">🕒</div>
-                    <div>
-                        <h4 style="font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.5px;">STORE HOURS</h4>
-                        <p style="font-size: 14px; color: #555; line-height: 1.7;">Monday – Sunday<br><strong style="color: var(--ink);">9:00 AM – 9:30 PM</strong><br><span style="font-size: 12px; color: #999;">Open all days including holidays</span></p>
-                    </div>
-                </div>
-                <div style="background: var(--white); border: 1px solid var(--bd); border-radius: 6px; padding: 32px; display: flex; gap: 18px; align-items: flex-start;">
-                    <div style="font-size: 28px; flex-shrink: 0;">📞</div>
-                    <div>
-                        <h4 style="font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.5px;">CONTACT US</h4>
-                        <p style="font-size: 14px; color: #555; line-height: 1.7;">Phone: <strong>06432 295066</strong><br>WhatsApp: <strong>+91 82522 76699</strong><br><span style="font-size: 12px; color: #999;">We reply within a few hours</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div style="text-align: center; padding: 50px 0 10px;">
-                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--ink); margin-bottom: 16px;">Ready to find your perfect outfit?</h3>
-                <p style="font-size: 15px; color: var(--muted); margin-bottom: 32px;">Browse our catalogue online or visit us in-store at Azad Chowk, Deoghar.</p>
-                <button class="btn-primary" style="padding: 16px 48px; font-size: 14px; letter-spacing: 2px;" onclick="switchView('shop')">Explore Catalogue →</button>
-            </div>
-
+        <div class="mobile-nav-links">
+            <a href="#" onclick="switchView('shop'); toggleMobileMenu();">Shop</a>
+            <a href="#" onclick="toggleMegaNav(); toggleMobileMenu();">Collections</a>
+            <a href="#" onclick="filterAndGo('New Arrivals'); toggleMobileMenu();">New Arrivals</a>
+            <a href="#" onclick="switchView('about'); toggleMobileMenu();">About Us</a>
+            <a href="exp.html">Experience ✦</a>
         </div>
     </div>
 
-
-
-
-    <!-- ADMIN PANEL -->
-    <div id="admin-panel" style="display:none">
-        <div class="admin-hero">
-            <h2>Admin Console</h2>
-            <p>Manage Nayasha's product catalogue and orders</p>
-        </div>
-        <div class="admin-stats" id="admin-stats">
-            <div class="a-stat">
-                <div class="a-stat-n" id="stat-products">—</div>
-                <div class="a-stat-l">Total Products</div>
-            </div>
-            <div class="a-stat">
-                <div class="a-stat-n" id="stat-orders">—</div>
-                <div class="a-stat-l">Total Orders</div>
-            </div>
-            <div class="a-stat">
-                <div class="a-stat-n" id="stat-revenue">—</div>
-                <div class="a-stat-l">Revenue</div>
-            </div>
-            <div class="a-stat">
-                <div class="a-stat-n" id="stat-pending">—</div>
-                <div class="a-stat-l">Pending Orders</div>
-            </div>
-        </div>
-        <div class="admin-tabs">
-            <button class="a-tab on" onclick="adminTab(this,'add-tab')">Add Product</button>
-            <button class="a-tab" onclick="adminTab(this,'list-tab')">All Products</button>
-            <button class="a-tab" onclick="adminTab(this,'orders-tab')">Orders</button>
-            <button class="a-tab" onclick="adminTab(this,'analytics-tab')">Analytics</button>
-        </div>
-        <div id="add-tab">
-            <div id="admin-flash" class="flash"></div>
-            <div class="a-card">
-                <h3>New Product Details</h3>
-                <div class="frow">
-                    <div class="fg"><label class="fl">Product Name *</label><input class="fi" id="p-title"
-                            placeholder="e.g., Banarasi Silk Saree"></div>
-                    <div class="fg"><label class="fl">Category *</label>
-                        <select class="fsel" id="p-cat">
-                            <option value="">Select category</option>
-                            <option>Saree</option>
-                            <option>Ready to Wear Saree</option>
-                            <option>Lehnga</option>
-                            <option>Party wear Lehnga</option>
-                            <option>Sherwani</option>
-                            <option>Coat-Pant</option>
-                            <option>Suit pieces</option>
-                            <option>Gown</option>
-                            <option>Crop tops</option>
-                            <option>Indo-Western</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="frow">
-                    <div class="fg"><label class="fl">Brand</label>
-                        <select class="fsel" id="p-brand">
-                            <option value="Nayasha">Nayasha (Default)</option>
-                            <option value="Levi's">Levi's</option>
-                            <option value="Killer">Killer</option>
-                        </select>
-                    </div>
-                    <div class="frow" style="gap:12px">
-                        <div class="fg"><label class="fl">Price (₹) *</label><input class="fi" type="number"
-                                id="p-price" placeholder="2999" min="1"></div>
-                        <div class="fg"><label class="fl">Quantity *</label><input class="fi" type="number" id="p-qty"
-                                placeholder="50" min="0"></div>
-                    </div>
-                </div>
-                <div class="fg"><label class="fl">MRP (Original Price)</label><input class="fi" type="number" id="p-mrp"
-                        placeholder="3999 (optional)"></div>
-                <div class="fg"><label class="fl">Description</label><textarea class="fta" id="p-desc"
-                        placeholder="Describe fabric, occasion, care instructions…"></textarea></div>
-                <div class="fg"><label class="fl">Product Image *</label>
-                    <div class="upload-zone" id="upload-wrap">
-                        <input type="file" id="p-image" accept="image/*" onchange="previewImage(this)">
-                        <div id="upload-prompt" style="color:var(--muted)">
-                            <div style="font-size:32px;margin-bottom:10px;opacity:.35">📁</div>
-                            <div style="font-size:13px;margin-bottom:4px">Drop image here or <strong
-                                    style="color:var(--g4)">click to
-                                    browse</strong></div>
-                            <div style="font-size:11px;opacity:.4">JPG, PNG up to 5MB</div>
-                        </div>
-                        <img id="img-preview" class="upload-preview" alt="Preview">
-                    </div>
-                </div>
-                <button class="submit-btn" id="upload-btn" onclick="uploadProduct()"><span>Upload to
-                        Nayasha</span></button>
-            </div>
-        </div>
-        <div id="list-tab" style="display:none">
-            <div class="a-card">
-                <h3>All Products</h3>
-                <div id="admin-product-list">
-                    <p style="color:var(--muted);font-size:13px">Loading…</p>
-                </div>
-            </div>
-        </div>
-        <div id="orders-tab" style="display:none">
-            <div class="a-card">
-                <h3>Orders</h3>
-                <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
-                    <button class="fpill on" id="ord-all" onclick="filterOrders('All',this)">All</button>
-                    <button class="fpill" id="ord-Pending" onclick="filterOrders('Pending',this)">Pending</button>
-                    <button class="fpill" id="ord-Delivered" onclick="filterOrders('Delivered',this)">Delivered</button>
-                    <button class="fpill" id="ord-Cancelled" onclick="filterOrders('Cancelled',this)">Cancelled</button>
-                </div>
-                <div id="admin-orders-list">
-                    <p style="color:var(--muted);font-size:13px">Loading…</p>
-                </div>
-            </div>
-        </div>
-        <div id="analytics-tab" style="display:none">
-            <div class="a-card">
-                <h3>Analytics Overview</h3>
-                <div id="analytics-content">
-                    <p style="color:var(--muted);font-size:13px">Loading…</p>
-                </div>
-            </div>
-        </div>
-    </div><!-- END ADMIN PANEL -->
-    </main>
     <!-- WISHLIST DRAWER -->
     <div class="overlay" id="wl-overlay" onclick="closeWishlist()"></div>
     <div class="wishlist-drawer" id="wishlist-drawer">
@@ -6775,12 +7064,12 @@
             closeMegaNav(); closeSearch(); switchView('shop');
             activeCat = cat;
             currentPage = 1;
-            
+
             // Highlight pill if exists
             document.querySelectorAll('.fpill').forEach(p => {
                 if (p.dataset && p.dataset.cat) p.classList.toggle('on', p.dataset.cat.toLowerCase() === cat.toLowerCase());
             });
-            
+
             applyFilters();
             // Scroll to products grid — give enough time for layout
             setTimeout(() => {
@@ -6858,7 +7147,7 @@
                 const c = activeCat.toLowerCase();
                 if (c === 'new arrivals') {
                     // Logic for new arrivals: Latest 12 products
-                    f = [...allProducts].sort((a,b) => (b.ID || '').localeCompare(a.ID || '')).slice(0, 12);
+                    f = [...allProducts].sort((a, b) => (b.ID || '').localeCompare(a.ID || '')).slice(0, 12);
                 } else if (c === 'best sellers') {
                     // Best sellers: high quantity or random for now
                     f = allProducts.filter(p => Number(p.Quantity) > 0).slice(0, 10);
@@ -7022,11 +7311,11 @@
     <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px;">
       <div style="display:flex; flex-direction:column;">
         ${p.Images && p.Images.length > 0 ? `
-          <div class="c-carousel" data-images="${escH(JSON.stringify(p.Images))}" style="aspect-ratio:3/4; border-radius:4px; overflow:hidden">
+          <div class="c-carousel autoplay-on-load" data-images="${escH(JSON.stringify(p.Images))}" style="aspect-ratio:3/4; border-radius:4px; overflow:hidden">
             <div class="c-carousel-track"></div>
             <div class="c-carousel-dots"></div>
           </div>` : (p.ThumbnailURL ? `<img src="${p.ThumbnailURL}" style="width:100%; height:auto; aspect-ratio: 3/4; object-fit:cover; border-radius:4px" alt="${escH(p.Name)}">` :
-          `<div style="width:100%; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; background:var(--warm); border-radius:4px"><div class="devnagari" style="font-size:64px; color:var(--bd2)">${getCatDeco(p.Category)}</div></div>`)}
+                    `<div style="width:100%; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; background:var(--warm); border-radius:4px"><div class="devnagari" style="font-size:64px; color:var(--bd2)">${getCatDeco(p.Category)}</div></div>`)}
       </div>
       <div style="display:flex; flex-direction:column; justify-content:center;">
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--g4);margin-bottom:6px">${escH(p.Brand || 'Nayasha')}</div>
@@ -7185,6 +7474,14 @@
             document.getElementById('cart-drawer').classList.toggle('open', open);
             document.getElementById('overlay').classList.toggle('open', open);
             if (open) renderCartDrawer();
+        }
+        function toggleMobileMenu() {
+            const drw = document.getElementById('mobile-drawer');
+            const ovl = document.getElementById('mobile-nav-overlay');
+            if (drw && ovl) {
+                drw.classList.toggle('open');
+                ovl.classList.toggle('open');
+            }
         }
         function renderCartDrawer() {
             const list = document.getElementById('cart-items-list'); const foot = document.getElementById('cart-footer');
@@ -7615,7 +7912,7 @@
                 el.dataset.init = '1';
 
                 let imgs;
-                try { imgs = JSON.parse(el.dataset.images); } catch(e) { return; }
+                try { imgs = JSON.parse(el.dataset.images); } catch (e) { return; }
                 if (!imgs || !imgs.length) return;
 
                 let cur = 0, timer;
@@ -7659,7 +7956,9 @@
                 el.addEventListener('mouseenter', () => { clearInterval(timer); autoPlay(); });
                 el.addEventListener('mouseleave', () => { clearInterval(timer); goCarousel(el, 0); });
 
-                autoPlay();
+                if (el.classList.contains('autoplay-on-load')) {
+                    autoPlay();
+                }
             });
         }
 

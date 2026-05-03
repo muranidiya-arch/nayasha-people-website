@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayasha collection | Clothing in Dhanbad | Luxury Ethnic Wear</title>
-    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1bkWjg6e4gNP74B-eyZYb5uvyL6haqbny">
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1ZGmBPr5Zxm5v3X5nBT2n4Dk4Ox8IkqZ9">
 
     <!-- SEO & Meta Information -->
     <meta name="description"
@@ -963,13 +963,13 @@
 
         .hero-slider {
             display: flex;
-            width: 500%;
+            width: 400%;
             height: 100%;
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hero-slide {
-            width: 20%;
+            width: 25%;
             height: 100%;
             position: relative;
             flex-shrink: 0;
@@ -4754,11 +4754,15 @@
             }
 
             .h-left {
+                display: flex;
+            }
+
+            .h-left .h-navbtn {
                 display: none;
             }
 
             .h-hamburger {
-                display: block;
+                display: block !important;
             }
 
             .h-top {
@@ -4819,19 +4823,27 @@
         }
 
         .mobile-nav-links a {
-            padding: 18px 24px;
+            padding: 16px 24px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 500;
             color: var(--ink);
-            border-bottom: 1px solid var(--bd);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+            display: block;
             transition: background .2s;
         }
 
         .mobile-nav-links a:active {
-            background: var(--warm);
+            background: rgba(0,0,0,0.05);
+        }
+
+        .mobile-nav-links .nav-label {
+            padding: 24px 24px 10px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted);
         }
 
         .h-hamburger {
@@ -5535,7 +5547,7 @@
                 </div>
                 <!-- Grid of items horizontally scrolling -->
                 <div class="bargain-scroll"
-                    style="display: flex; overflow-x: auto; gap: 16px; scrollbar-width: none; width: 100%; justify-content: center; padding-bottom: 12px;">
+                    style="display: flex; overflow-x: auto; gap: 16px; scrollbar-width: none; width: 100%; justify-content: flex-start; padding: 0 20px 12px; -webkit-overflow-scrolling: touch;">
                     <!-- Card 1 -->
                     <div class="bargain-card"
                         style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
@@ -5598,6 +5610,70 @@
                             <div style="font-size: 10px; opacity: 0.9;">Under</div>
                             <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹2299</div>
                             <div style="font-size: 12px; margin-top: 2px;">Gowns</div>
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="bargain-card"
+                        style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Saree')">
+                        <div
+                            style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/1fDK_48Yvj0pu2ygXXPEgNuhtmqMybbo3=w800') center/cover;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
+                        </div>
+                        <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
+                            <div style="font-size: 10px; opacity: 0.9;">Under</div>
+                            <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹1099</div>
+                            <div style="font-size: 12px; margin-top: 2px;">Sarees</div>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="bargain-card"
+                        style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Lehnga')">
+                        <div
+                            style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/1kVJXlmknKByghtXv6lnAVpDnMTYiW5Tm=w800') center/cover;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
+                        </div>
+                        <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
+                            <div style="font-size: 10px; opacity: 0.9;">Under</div>
+                            <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹1999</div>
+                            <div style="font-size: 12px; margin-top: 2px;">Lehengas</div>
+                        </div>
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="bargain-card"
+                        style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Crop tops')">
+                        <div
+                            style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/1YXma2Edq_v9ieFbhhBlJyMgGJCDhhUiE=w800') center/cover;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
+                        </div>
+                        <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
+                            <div style="font-size: 10px; opacity: 0.9;">Under</div>
+                            <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹499</div>
+                            <div style="font-size: 12px; margin-top: 2px;">Crop Tops</div>
+                        </div>
+                    </div>
+                    <!-- Card 8 -->
+                    <div class="bargain-card"
+                        style="min-width: 130px; height: 180px; position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; flex-shrink: 0;"
+                        onclick="filterAndGo('Sherwani')">
+                        <div
+                            style="position: absolute; top:0; left:0; width:100%; height:100%; background:url('https://lh3.googleusercontent.com/d/1y07eKlHBx46gt4m6neaD5MINudQL_wTA=w800') center/cover;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(transparent, rgba(0,0,0,0.8));">
+                        </div>
+                        <div style="position: absolute; bottom:12px; left:12px; color:#fff;">
+                            <div style="font-size: 10px; opacity: 0.9;">Under</div>
+                            <div style="font-size: 18px; font-weight: 800; line-height: 1;">₹2999</div>
+                            <div style="font-size: 12px; margin-top: 2px;">Sherwanis</div>
                         </div>
                     </div>
                 </div>
@@ -6604,20 +6680,32 @@
     <!-- MOBILE NAV DRAWER -->
     <div class="overlay" id="mobile-nav-overlay" onclick="toggleMobileMenu()"></div>
     <div class="mobile-drawer" id="mobile-drawer">
-        <div class="d-head">
-            <div class="d-title">Menu</div>
-            <button class="d-close" onclick="toggleMobileMenu()"><svg width="20" height="20" fill="none"
-                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                </svg></button>
+        <div class="mob-drawer-head" style="background: var(--ink); color: #fff; padding: 30px 24px; position: relative;">
+            <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Welcome to Nayasha</div>
+            <div style="font-size: 11px; opacity: 0.7; margin-top: 4px;">Experience Luxury Ethnic Wear</div>
+            <button class="d-close" onclick="toggleMobileMenu()" style="position: absolute; top: 20px; right: 20px; color: #fff; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
         </div>
-        <div class="mobile-nav-links">
-            <a href="#" onclick="switchView('shop'); toggleMobileMenu();">Shop</a>
-            <a href="#" onclick="toggleMegaNav(); toggleMobileMenu();">Collections</a>
-            <a href="#" onclick="filterAndGo('New Arrivals'); toggleMobileMenu();">New Arrivals</a>
-            <a href="#" onclick="switchView('about'); toggleMobileMenu();">About Us</a>
-            <a href="exp.html">Experience ✦</a>
+        <div class="mobile-nav-links" style="flex: 1; overflow-y: auto; padding: 10px 0;">
+            <a href="#" onclick="switchView('shop'); toggleMobileMenu();" style="font-weight: 700;">SHOP</a>
+            
+            <div class="nav-label">COLLECTIONS</div>
+            <a href="#" onclick="filterAndGo('Saree'); toggleMobileMenu();" style="padding-left: 40px; font-size: 13px; opacity: 0.8;">Sarees</a>
+            <a href="#" onclick="filterAndGo('Ready to Wear Saree'); toggleMobileMenu();" style="padding-left: 40px; font-size: 13px; opacity: 0.8;">Ready-to-Wear</a>
+            <a href="#" onclick="filterAndGo('Lehnga'); toggleMobileMenu();" style="padding-left: 40px; font-size: 13px; opacity: 0.8;">Lehengas</a>
+            <a href="#" onclick="filterAndGo('Gown'); toggleMobileMenu();" style="padding-left: 40px; font-size: 13px; opacity: 0.8;">Gowns</a>
+            <a href="#" onclick="filterAndGo('Sherwani'); toggleMobileMenu();" style="padding-left: 40px; font-size: 13px; opacity: 0.8;">Sherwanis</a>
+            <a href="#" onclick="filterAndGo('Indo-Western'); toggleMobileMenu();" style="padding-left: 40px; font-size: 13px; opacity: 0.8;">Indo-Western</a>
+            
+            <a href="#" onclick="filterAndGo('New Arrivals'); toggleMobileMenu();">NEW ARRIVALS</a>
+            <a href="#" onclick="switchView('about'); toggleMobileMenu();">ABOUT US</a>
+            <a href="exp.html" style="color: var(--g); font-weight: 700;">EXPERIENCE ✦</a>
+            
+            <div class="nav-label">MY ACCOUNT</div>
+            <a href="#" onclick="openWishlist(); toggleMobileMenu();">Wishlist</a>
+            <a href="#" onclick="toggleCart(true); toggleMobileMenu();">Bag / Cart</a>
+        </div>
+        <div style="padding: 20px 24px; border-top: 1px solid var(--bd); font-size: 11px; color: var(--muted); text-align: center;">
+            © 2026 NAYASHA COLLECTION
         </div>
     </div>
 
@@ -7780,14 +7868,14 @@
         // HERO SLIDER
         // ══════════════════════════════════════════
         let currentSlide = 0;
-        const totalSlides = 5;
+        const totalSlides = 4;
         let slideInterval;
         function startSlider() { stopSlider(); slideInterval = setInterval(nextSlide, 5000); }
         function stopSlider() { clearInterval(slideInterval); }
         function updateSlider() {
             const slider = document.getElementById('hero-slider');
             if (!slider) return;
-            slider.style.transform = `translateX(-${currentSlide * 20}%)`;
+            slider.style.transform = `translateX(-${currentSlide * 25}%)`;
             document.querySelectorAll('.hero-slide').forEach((s, idx) => s.classList.toggle('active', idx === currentSlide));
             document.querySelectorAll('.slider-dot').forEach((d, idx) => d.classList.toggle('active', idx === currentSlide));
         }

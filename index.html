@@ -7718,7 +7718,7 @@
                         <div style="height:1px; background:var(--bd); margin: 24px 0;"></div>
                         
                         <h4 style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin-bottom:12px">Description</h4>
-                        <p style="font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:32px; font-weight:300; max-width: 480px;">${escH(p.Description || 'A beautiful piece carefully crafted to celebrate elegance and tradition. Premium finish, sustainable styling, crafted for the modern Indian wardrobe.')}</p>
+                        <p style="font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:32px; font-weight:300; max-width: 480px; white-space: pre-line;">${escH(p.Description || 'A beautiful piece carefully crafted to celebrate elegance and tradition. Premium finish, sustainable styling, crafted for the modern Indian wardrobe.')}</p>
                         
                         <div style="display:flex; gap:16px; margin-bottom:40px; max-width: 480px;">
                             <button class="place-btn" style="flex:1" onclick="event.stopPropagation();addToCart(${allProducts.indexOf(p)}); showToast('Added to Bag', 'ok');">Add to Bag</button>
@@ -7966,33 +7966,33 @@
             const disc = couponApplied ? Math.round(sub * .15) : 0;
             const shipping = sub >= 2999 ? 0 : 99; const total = sub - disc + shipping;
             document.getElementById('checkout-body').innerHTML = `
-    <div class="co-steps">
-      <div class="co-step active"><div class="co-num">1</div><div class="co-lbl">Details</div></div>
-      <div class="co-sep"></div>
-      <div class="co-step"><div class="co-num">2</div><div class="co-lbl">Payment</div></div>
-      <div class="co-sep"></div>
-      <div class="co-step"><div class="co-num">3</div><div class="co-lbl">Confirm</div></div>
-    </div>
-    <div class="order-mini">
-      ${cart.map(c => `<div class="om-item"><span>${escH(c.Name)} × ${c.qty}</span><span>₹${(Number(c.Price) * c.qty).toLocaleString('en-IN')}</span></div>`).join('')}
-      ${disc ? `<div class="om-item" style="color:var(--ok)"><span>Discount (NAYASHA15)</span><span>-₹${disc.toLocaleString('en-IN')}</span></div>` : ''}
-      <div class="om-item"><span>Shipping</span><span>${shipping ? '₹' + shipping : 'Free'}</span></div>
-      <div class="om-total"><span style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)">Total</span><span class="om-tv">₹${total.toLocaleString('en-IN')}</span></div>
-    </div>
-    <div class="fg"><label class="fl">Full Name *</label><input class="fi" id="co-name" placeholder="Your full name" autocomplete="name"></div>
-    <div class="frow">
-      <div class="fg"><label class="fl">Phone *</label><input class="fi" id="co-phone" type="tel" placeholder="10-digit mobile number" autocomplete="tel"></div>
-      <div class="fg"><label class="fl">Email (for confirmation)</label><input class="fi" id="co-email" type="email" placeholder="your@email.com" autocomplete="email"></div>
-    </div>
-    <div class="fg"><label class="fl">Delivery Address *</label><textarea class="fta" id="co-addr" placeholder="Full address with pincode…" autocomplete="street-address"></textarea></div>
-    <div class="fg"><label class="fl">Payment Method *</label>
-      <div class="pay-grid">
-        <label class="pay-card on" onclick="selPay(this,'Online')"><input type="radio" name="pay" value="Online" checked><div class="pay-icon">📱</div><div class="pay-t">UPI / Card</div><div class="pay-s">Instant</div></label>
-        <label class="pay-card" onclick="selPay(this,'COD')"><input type="radio" name="pay" value="COD"><div class="pay-icon">💵</div><div class="pay-t">Cash on Delivery</div><div class="pay-s">Pay on delivery</div></label>
-      </div>
-    </div>
-    <button class="place-btn" id="place-btn" onclick="placeOrder()">Place Order · ₹${total.toLocaleString('en-IN')}</button>
-    <div class="secure-note" style="margin-top:14px"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> 100% Secure & Encrypted Payment</div>`;
+            <div class="order-mini">
+              ${cart.map(c => `<div class="om-item"><span>${escH(c.Name)} × ${c.qty}</span><span>₹${(Number(c.Price) * c.qty).toLocaleString('en-IN')}</span></div>`).join('')}
+              ${disc ? `<div class="om-item" style="color:var(--ok)"><span>Discount (NAYASHA15)</span><span>-₹${disc.toLocaleString('en-IN')}</span></div>` : ''}
+              <div class="om-item"><span>Shipping</span><span>${shipping ? '₹' + shipping : 'Free'}</span></div>
+              <div class="om-total"><span>Total</span><span class="om-tv">₹${total.toLocaleString('en-IN')}</span></div>
+            </div>
+            <div class="fg"><label class="fl">Full Name *</label><input class="fi" id="co-name" placeholder="Your full name" autocomplete="name"></div>
+            <div class="frow">
+              <div class="fg"><label class="fl">Phone *</label><input class="fi" id="co-phone" type="tel" placeholder="10-digit mobile number" autocomplete="tel"></div>
+              <div class="fg"><label class="fl">Email (for confirmation)</label><input class="fi" id="co-email" type="email" placeholder="your@email.com" autocomplete="email"></div>
+            </div>
+            <div class="fg"><label class="fl">Street Address *</label><textarea class="fta" id="co-addr" placeholder="House No, Street, Area…" autocomplete="street-address"></textarea></div>
+            <div class="frow">
+              <div class="fg"><label class="fl">City *</label><input class="fi" id="co-city" placeholder="City" autocomplete="address-level2"></div>
+              <div class="fg"><label class="fl">Pincode *</label><input class="fi" id="co-pin" type="number" placeholder="6-digit PIN" autocomplete="postal-code"></div>
+            </div>
+            <div class="frow">
+              <div class="fg"><label class="fl">State *</label><input class="fi" id="co-state" placeholder="State" autocomplete="address-level1"></div>
+              <div class="fg"><label class="fl">Country *</label><input class="fi" id="co-country" value="India" readonly></div>
+            </div>
+            <div class="fg"><label class="fl">Payment Method *</label>
+              <div class="pay-grid" style="grid-template-columns: 1fr;">
+                <label class="pay-card on" onclick="selPay(this,'COD')"><input type="radio" name="pay" value="COD" checked><div class="pay-icon">💵</div><div class="pay-t">Cash on Delivery</div><div class="pay-s">Pay when you receive your order</div></label>
+              </div>
+            </div>
+            <button class="place-btn" id="place-btn" onclick="placeOrder()">Place Order · ₹${total.toLocaleString('en-IN')}</button>
+            <div class="secure-note" style="margin-top:14px"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> 100% Secure & Encrypted Payment</div>`;
             document.getElementById('checkout-overlay').classList.add('open');
             setTimeout(() => document.getElementById('co-name').focus(), 150);
         }
@@ -8003,15 +8003,24 @@
             const phone = document.getElementById('co-phone').value.trim();
             const email = document.getElementById('co-email').value.trim();
             const addr = document.getElementById('co-addr').value.trim();
+            const city = document.getElementById('co-city').value.trim();
+            const pin = document.getElementById('co-pin').value.trim();
+            const state = document.getElementById('co-state').value.trim();
+            const country = document.getElementById('co-country').value.trim();
+
             if (!name) { showToast('Please enter your name', true); document.getElementById('co-name').focus(); return }
             if (!phone) { showToast('Please enter your phone', true); document.getElementById('co-phone').focus(); return }
             if (!/^\d{10}$/.test(phone)) { showToast('Enter a valid 10-digit number', true); return }
             if (!addr) { showToast('Please enter your address', true); document.getElementById('co-addr').focus(); return }
+            if (!city) { showToast('Please enter your city', true); document.getElementById('co-city').focus(); return }
+            if (!pin || pin.length !== 6) { showToast('Please enter a valid 6-digit pincode', true); document.getElementById('co-pin').focus(); return }
+            if (!state) { showToast('Please enter your state', true); document.getElementById('co-state').focus(); return }
+
             const btn = document.getElementById('place-btn'); btn.disabled = true; btn.innerHTML = '<div class="spin"></div> Placing Order…';
             const sub = cart.reduce((s, c) => s + Number(c.Price) * c.qty, 0);
             const disc = couponApplied ? Math.round(sub * .15) : 0; const shipping = sub >= 2999 ? 0 : 99; const total = sub - disc + shipping;
             const items = cart.map(c => ({ id: c.ID, name: c.Name, qty: c.qty, price: c.Price }));
-            api('placeOrder', { name, phone, email, address: addr, items: JSON.stringify(items), total, method: selectedPayment })
+            api('placeOrder', { name, phone, email, address: addr, city, pincode: pin, state, country, items: JSON.stringify(items), total, method: 'COD' })
                 .then(r => {
                     if (r.success) { cart = []; saveCart(); renderCartCount(); couponApplied = false; showSuccess(r.orderId, total); }
                     else { showToast('Order failed: ' + (r.message || 'Unknown'), true); btn.disabled = false; btn.innerHTML = 'Place Order · ₹' + total.toLocaleString('en-IN'); }

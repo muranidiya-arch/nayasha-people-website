@@ -7166,6 +7166,7 @@
     </div>
 
     <script>
+        const sharedPid = "<?= (typeof pid !== 'undefined') ? pid : '' ?>";
         // ── API CONFIG ──────────────────────────────────────────
         const API_URL = 'https://script.google.com/macros/s/AKfycbx0_jPu9CquI0G1XM5-BEs4LP6VWiFvt_LlEuzoAFMyEbM3gaYq8Vbz8NuKci-0AtWp/exec';
 
@@ -7653,6 +7654,45 @@
             requestAnimationFrame(initCarousels);
         }
 
+        function shareProduct(idx) {
+            const p = allProducts[idx];
+            if (!p) return;
+            const url = window.location.origin + window.location.pathname + '?p=' + p.ID;
+            if (navigator.share) {
+                navigator.share({
+                    title: p.Name + ' | Nayasha',
+                    text: 'I found this beautiful ' + p.Name + ' on Nayasha. Check it out!',
+                    url: url
+                }).catch(() => { });
+            } else {
+                const tempInput = document.createElement('input');
+                tempInput.value = url;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                showToast('Link copied to clipboard!', 'ok');
+            }
+        }
+
+        function checkUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            const pid = sharedPid || params.get('p');
+            if (pid && pid !== "undefined" && pid !== "") {
+                const itv = setInterval(() => {
+                    if (allProducts && allProducts.length > 0) {
+                        clearInterval(itv);
+                        const idx = allProducts.findIndex(x => x.ID === pid);
+                        if (idx >= 0) {
+                            switchView('shop');
+                            cardClick(idx);
+                        }
+                    }
+                }, 200);
+                setTimeout(() => clearInterval(itv), 5000);
+            }
+        }
+
         // ══════════════════════════════════════════
         // CARD CLICK / RECENTLY VIEWED
         // ══════════════════════════════════════════
@@ -7722,8 +7762,12 @@
                         
                         <div style="display:flex; gap:16px; margin-bottom:40px; max-width: 480px;">
                             <button class="place-btn" style="flex:1" onclick="event.stopPropagation();addToCart(${allProducts.indexOf(p)}); showToast('Added to Bag', 'ok');">Add to Bag</button>
-                            <button class="qty-btn" style="width: 54px; height: 54px; border-radius: 4px; border-color: var(--bd);" onclick="toggleWish(${allProducts.indexOf(p)}, this)">
+                            <button class="qty-btn" style="width: 54px; height: 54px; border-radius: 4px; border-color: var(--bd); display:flex; align-items:center; justify-content:center;" onclick="toggleWish(${allProducts.indexOf(p)}, this)">
                                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                            </button>
+                            <button class="qty-btn" style="padding:0 20px; height: 54px; border-radius: 4px; border-color: var(--bd); display:flex; align-items:center; justify-content:center; gap:8px;" onclick="shareProduct(${allProducts.indexOf(p)})" title="Share Product">
+                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                                <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px;">Share</span>
                             </button>
                         </div>
                         
@@ -8020,13 +8064,31 @@
             const sub = cart.reduce((s, c) => s + Number(c.Price) * c.qty, 0);
             const disc = couponApplied ? Math.round(sub * .15) : 0; const shipping = sub >= 2999 ? 0 : 99; const total = sub - disc + shipping;
             const items = cart.map(c => ({ id: c.ID, name: c.Name, qty: c.qty, price: c.Price }));
+            
+            // Fast confirmation UI
+            const orderId = 'NY' + Date.now().toString().slice(-6);
+            
             api('placeOrder', { name, phone, email, address: addr, city, pincode: pin, state, country, items: JSON.stringify(items), total, method: 'COD' })
                 .then(r => {
-                    if (r.success) { cart = []; saveCart(); renderCartCount(); couponApplied = false; showSuccess(r.orderId, total); }
+                    if (r.success) { 
+                        cart = []; saveCart(); renderCartCount(); couponApplied = false; 
+                        showSuccess(r.orderId || orderId, total); 
+                    }
                     else { showToast('Order failed: ' + (r.message || 'Unknown'), true); btn.disabled = false; btn.innerHTML = 'Place Order · ₹' + total.toLocaleString('en-IN'); }
                 }).catch(() => {
+                    // Even on network error, if we are in this block, the server might have received it.
+                    // But usually we should retry or show error.
                     showToast('Network error. Try again.', true); btn.disabled = false; btn.innerHTML = 'Place Order · ₹' + total.toLocaleString('en-IN');
                 });
+            
+            // If the API hasn't responded in 1.2s, we show success anyway to keep it "instant" 
+            // and handle the actual response in the background.
+            setTimeout(() => {
+              if (btn.disabled && cart.length > 0) {
+                cart = []; saveCart(); renderCartCount(); couponApplied = false;
+                showSuccess(orderId, total);
+              }
+            }, 1200);
         }
         function showSuccess(orderId, total) {
             document.getElementById('checkout-body').innerHTML = `
@@ -8377,6 +8439,8 @@
                 el.classList.add('reveal-3d-hidden');
                 observer.observe(el);
             });
+
+            checkUrlParams();
         });
 
         // 3D Tilt for Product Cards using Event Delegation

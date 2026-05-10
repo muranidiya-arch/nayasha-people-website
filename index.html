@@ -160,6 +160,21 @@
             font-family: 'Noto Sans Devanagari', sans-serif
         }
 
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+        }
+
         /* ═══════════════════════════ LOADER ═══════════════════════════ */
         #ldr {
             position: fixed;
@@ -7727,7 +7742,7 @@
             `).join('');
 
             body.innerHTML = `
-                <div class="modal-grid" style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; padding: 40px;">
+                <div class="modal-grid">
                     <div class="modal-gallery-column">
                         <div class="modal-viewport" id="modal-viewport" style="box-shadow: var(--sh);">
                             ${upscaledImages.length > 0 ? upscaledImages.map((img, i) => `
@@ -7760,7 +7775,7 @@
                         <h4 style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin-bottom:12px">Description</h4>
                         <p style="font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:32px; font-weight:300; max-width: 480px; white-space: pre-line;">${escH(p.Description || 'A beautiful piece carefully crafted to celebrate elegance and tradition. Premium finish, sustainable styling, crafted for the modern Indian wardrobe.')}</p>
                         
-                        <div style="display:flex; gap:16px; margin-bottom:40px; max-width: 480px;">
+                        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:40px; max-width: 480px;">
                             <button class="place-btn" style="flex:1" onclick="event.stopPropagation();addToCart(${allProducts.indexOf(p)}); showToast('Added to Bag', 'ok');">Add to Bag</button>
                             <button class="qty-btn" style="width: 54px; height: 54px; border-radius: 4px; border-color: var(--bd); display:flex; align-items:center; justify-content:center;" onclick="toggleWish(${allProducts.indexOf(p)}, this)">
                                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>

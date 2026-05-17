@@ -34,6 +34,7 @@
         content="Explore Nayasha's exclusive collection of premium Banarasi sarees, bridal lehengas, and authentic ethnic menswear.">
     <meta property="twitter:image" content="https://lh3.googleusercontent.com/d/1ZGmBPr5Zxm5v3X5nBT2n4Dk4Ox8IkqZ9">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Noto+Sans+Devanagari:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -4809,6 +4810,43 @@
                 font-size: 14px !important;
                 margin-bottom: 24px !important;
             }
+
+            /* Responsive Checkout Modal and COD Styles */
+            .modal-body {
+                padding: 16px !important;
+            }
+            .co-pay-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+            .co-pay-card {
+                padding: 16px 18px !important;
+                border-radius: 8px !important;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+            }
+            .co-pay-card.active {
+                box-shadow: 0 4px 12px rgba(196, 151, 58, 0.12) !important;
+            }
+            .co-pay-title {
+                font-size: 14px !important;
+            }
+            .co-pay-desc {
+                font-size: 12px !important;
+                margin-bottom: 2px !important;
+            }
+            .co-pay-cod-note {
+                font-size: 11px !important;
+                margin-top: 6px !important;
+            }
+            .co-trust-icons {
+                margin-top: 10px !important;
+                gap: 10px !important;
+                flex-wrap: wrap !important;
+            }
+            .co-badges-grid {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 8px !important;
+            }
         }
 
         /* Product Modal Gallery Enhancements */
@@ -7693,7 +7731,847 @@
         // ══════════════════════════════════════════
         // STATE
         // ══════════════════════════════════════════
-        let allProducts = [], cart = [], wishlist = [], compareList = [], recentlyViewed = [];
+        const inlinedProducts = [
+    {
+        "ID": "NY-1778359882457",
+        "Category": "Lehnga",
+        "Name": "Royal Bridal Lehenga ",
+        "Description": "👑❤️ 𝐑𝐎𝐘𝐀𝐋 𝐁𝐑𝐈𝐃𝐀𝐋 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 ❤️👑\n\nMake your wedding moments unforgettable with this breathtaking bridal lehenga ✨💖  \nDesigned with rich embroidery, royal detailing and luxurious flair, this outfit is pure elegance for every bride-to-be 👰🌸\n\nA perfect blend of traditional charm & modern royal fashion 🌹✨\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n💖 Stunning Rani Pink Shade  \n✨ Heavy Bridal Embroidery Work  \n👑 Royal Designer Dupatta  \n💫 Premium Wedding Collection  \n🌸 Elegant Flared Lehenga  \n🎀 Rich Traditional Look  \n📸 Picture Perfect Bridal Outfit  \n💎 Luxurious Finishing & Detailing\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💖\n\n👗 Product Type : Bridal Lehenga  \n🎨 Colour : Rani Pink  \n🧵 Fabric : Premium Quality Fabric  \n✨ Work : Heavy Embroidery & Sequins Work  \n👑 Dupatta : Embroidered Soft Net Dupatta  \n💫 Style : Designer Bridal Collection  \n🌸 Occasion : Wedding, Reception, Engagement & Bridal Wear\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 🔥\n\n👰 Bridal Wear  \n💍 Wedding Functions  \n✨ Engagement Ceremony  \n💃 Sangeet Night  \n📸 Bridal Photoshoot  \n🌹 Reception Look  \n👑 Royal Festive Styling\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 💎\n\n✔ Royal Bridal Appearance  \n✔ Elegant Heavy Work  \n✔ Premium Designer Finish  \n✔ Stunning Traditional Vibes  \n✔ Graceful Dupatta Look  \n✔ Rich Wedding Collection  \n✔ Perfect For Grand Occasions\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐓𝐏 : ₹6195/-  \n🔥 𝐒𝐀𝐋𝐄 𝐏𝐑𝐈𝐂𝐄 : ₹5017/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available  \n💯 Premium Quality Assured  \n⚡ Limited Stock Available  \n❤️ Step into your royal bridal era with this gorgeous lehenga 👑✨",
+        "Price": 5017,
+        "Quantity": 16,
+        "ImageURL1": "https://drive.google.com/file/d/1wFrJCs0TB0uMD0nVBbyzuX1Wn6xEirW_/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1RuPWHo-nxchgtttp-lW19lZKWEhKJ7CS/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1WARTqFQEDt5ocKKvE5G5WKcfUI-v204d/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1AYCrnNVuX3Xcuv1a-OSVL87Tu1NLnxSm/view?usp=drive_link",
+        "MRP": 6195,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1wFrJCs0TB0uMD0nVBbyzuX1Wn6xEirW_=w400",
+            "https://lh3.googleusercontent.com/d/1RuPWHo-nxchgtttp-lW19lZKWEhKJ7CS=w400",
+            "https://lh3.googleusercontent.com/d/1WARTqFQEDt5ocKKvE5G5WKcfUI-v204d=w400",
+            "https://lh3.googleusercontent.com/d/1AYCrnNVuX3Xcuv1a-OSVL87Tu1NLnxSm=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1wFrJCs0TB0uMD0nVBbyzuX1Wn6xEirW_=w400"
+    },
+    {
+        "ID": 2,
+        "Category": "Ready-To-Wear",
+        "Name": "Kurti Plazo",
+        "Description": "✨ Elegant Printed Kurti Plazo Set\nAdd a touch of grace to your ethnic wardrobe with this stunning mustard printed kurti plazo set. Designed with beautiful floral and traditional motifs, this outfit perfectly blends comfort with elegance. The soft fabric, stylish sleeves, and flowy plazo make it an ideal choice for festive wear, casual outings, and special occasions.\n✔ Premium Fabric\n✔ Unique Artistic Print\n✔ Comfortable & Stylish Fit\n✔ Comes with Matching Dupatta\n💰 MRP: ₹4149\n🔥 Offer Price: ₹3360",
+        "Price": 3360,
+        "Quantity": 7,
+        "ImageURL1": "https://drive.google.com/file/d/1oJ-ue6sMBf4JPIBVY0lTcjCulaZEgYAG/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/14jNsBAyqssT5y4Ue0nnjp1ar2JniLlHb/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1KbibUJWxhr3P5JjfcAoBFn_5W1ygwzjm/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1b9N83aPUeg3zLkj0hBqasFwBJVavBbOz/view?usp=drive_link",
+        "MRP": 4149,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1oJ-ue6sMBf4JPIBVY0lTcjCulaZEgYAG=w400",
+            "https://lh3.googleusercontent.com/d/14jNsBAyqssT5y4Ue0nnjp1ar2JniLlHb=w400",
+            "https://lh3.googleusercontent.com/d/1KbibUJWxhr3P5JjfcAoBFn_5W1ygwzjm=w400",
+            "https://lh3.googleusercontent.com/d/1b9N83aPUeg3zLkj0hBqasFwBJVavBbOz=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1oJ-ue6sMBf4JPIBVY0lTcjCulaZEgYAG=w400"
+    },
+    {
+        "ID": 3,
+        "Category": "Lehangas",
+        "Name": "Crop Top Skirt Set",
+        "Description": "✨ Elegant Crop Top Skirt Set (Lehenga Style)\nTurn heads with this stunning mustard crop top skirt set, designed to give you a graceful and royal festive look. Featuring a beautifully embroidered crop top paired with a flowy net skirt, this outfit adds the perfect blend of elegance and glamour. The lightweight dupatta completes the look with a soft, dreamy finish.\nPerfect for weddings, festive occasions, and special events where you want to stand out effortlessly.\n✔ Premium Net Fabric with Inner Lining\n✔ Elegant Embroidery Work\n✔ Flowy & Comfortable Fit\n✔ Comes with Matching Dupatta\n💰 MRP: ₹4599\n🔥 Offer Price: ₹3725",
+        "Price": 3725,
+        "Quantity": 7,
+        "ImageURL1": "https://drive.google.com/file/d/1YbFm9WhEUr0hlCBHS45vxCd9zu-UpDkJ/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1PENx9gofO2RCVQhs7HtCM9r-x3f3n56S/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1Nw6GKDtJzJTATJrNI4OQbvid65TfSKJI/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1GEHSEJmQ66gImkBwhcEFYH4J612yNC4n/view?usp=drive_link",
+        "MRP": 4599,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1YbFm9WhEUr0hlCBHS45vxCd9zu-UpDkJ=w400",
+            "https://lh3.googleusercontent.com/d/1PENx9gofO2RCVQhs7HtCM9r-x3f3n56S=w400",
+            "https://lh3.googleusercontent.com/d/1Nw6GKDtJzJTATJrNI4OQbvid65TfSKJI=w400",
+            "https://lh3.googleusercontent.com/d/1GEHSEJmQ66gImkBwhcEFYH4J612yNC4n=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1YbFm9WhEUr0hlCBHS45vxCd9zu-UpDkJ=w400"
+    },
+    {
+        "ID": 4,
+        "Category": "Suit Pieces",
+        "Name": "Anarkali Suit",
+        "Description": "✨ Royal Anarkali Suit Set with Dupatta\nEmbrace timeless elegance with this stunning deep pink Anarkali suit set, designed to give you a graceful and royal look. Featuring intricate embroidery on the yoke and a beautifully flared silhouette, this outfit flows effortlessly with every step. The rich floral dupatta adds a luxurious touch, making it perfect for weddings, festive occasions, and special celebrations.\nCrafted with premium fabric, this Anarkali ensures both comfort and style, so you can shine with confidence all day long.\n✔ Elegant Embroidery Work\n✔ Flowy & Royal Anarkali Flair\n✔ Premium Fabric for Comfort\n✔ Comes with Designer Dupatta\n💰 MRP: ₹5599\n🔥 Offer Price: ₹4535",
+        "Price": 4535,
+        "Quantity": 6,
+        "ImageURL1": "https://drive.google.com/file/d/1AOxPUOeHQuBZZ6-ZVdn7Kog-GltZabl4/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/10TsixnIl1yPDx2M8i_Uq7py0xkQuyKUk/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1tjlnhTQujisPLLmea6hHFa4cvI-pJn8H/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1vqaBcSx0zmwYef6u4VUSa2-SpsURUbfB/view?usp=drive_link",
+        "MRP": 5599,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1AOxPUOeHQuBZZ6-ZVdn7Kog-GltZabl4=w400",
+            "https://lh3.googleusercontent.com/d/10TsixnIl1yPDx2M8i_Uq7py0xkQuyKUk=w400",
+            "https://lh3.googleusercontent.com/d/1tjlnhTQujisPLLmea6hHFa4cvI-pJn8H=w400",
+            "https://lh3.googleusercontent.com/d/1vqaBcSx0zmwYef6u4VUSa2-SpsURUbfB=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1AOxPUOeHQuBZZ6-ZVdn7Kog-GltZabl4=w400"
+    },
+    {
+        "ID": 6,
+        "Category": "Suit Pieces",
+        "Name": "Anarkali Dress",
+        "Description": "✨ Royal Designer Anarkali Dress with Banarasi Dupatta\nStep into pure elegance with this luxurious ivory Anarkali dress, crafted for those who love timeless royal fashion. Designed with a graceful flare and detailed golden embroidery on the hem and sleeves, this outfit gives you a rich and sophisticated look.\nPaired with a stunning maroon Banarasi dupatta featuring intricate zari work, this set perfectly blends tradition with modern elegance — making it an ideal choice for weddings, receptions, and grand festive occasions.\n✔ Premium Fabric with Rich Finish\n✔ Intricate Golden Embroidery Detailing\n✔ Flowy Royal Silhouette\n✔ Designer Banarasi Dupatta\n💰 MRP: ₹9499\n🔥 Offer Price: ₹7694",
+        "Price": 7694,
+        "Quantity": 9,
+        "ImageURL1": "https://drive.google.com/file/d/1YIE0_jPnFDjOj6WjrUM8hpZX7UXwKKUV/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1H4FgZQlJn8--2ctNfiSulV4M7erfbKLa/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1yow6AppClGM4sKbmgtN5KK_buk0Qbj5A/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1s3mCYPZUAoa1xaa2mLosUqo7eCyWry9b/view?usp=drive_link",
+        "MRP": 9499,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1YIE0_jPnFDjOj6WjrUM8hpZX7UXwKKUV=w400",
+            "https://lh3.googleusercontent.com/d/1H4FgZQlJn8--2ctNfiSulV4M7erfbKLa=w400",
+            "https://lh3.googleusercontent.com/d/1yow6AppClGM4sKbmgtN5KK_buk0Qbj5A=w400",
+            "https://lh3.googleusercontent.com/d/1s3mCYPZUAoa1xaa2mLosUqo7eCyWry9b=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1YIE0_jPnFDjOj6WjrUM8hpZX7UXwKKUV=w400"
+    },
+    {
+        "ID": 7,
+        "Category": "Lehangas",
+        "Name": "Crop Top Lehanga",
+        "Description": "✨ Premium Designer Crop Top Lehenga Set\nStep into a world of elegance with this breathtaking blush pink crop top lehenga set, crafted for those who love luxury and grace. Adorned with intricate thread, zari, and sequin embroidery, this outfit reflects fine craftsmanship and timeless beauty.\nThe beautifully designed crop top paired with a heavily embroidered lehenga creates a rich, royal look, while the soft net dupatta adds a dreamy and ethereal touch. Perfect for weddings, receptions, and grand celebrations where you want to stand out effortlessly.\n✔ Premium Net Fabric\n✔ Heavy Thread, Zari & Sequin Work\n✔ Designer Crop Top with Elegant Fit\n✔ Flowy Lehenga with Rich Detailing\n✔ Lightweight Net Dupatta\n💰 MRP: ₹15199\n🔥 Offer Price: ₹12311",
+        "Price": 12311,
+        "Quantity": 5,
+        "ImageURL1": "https://drive.google.com/file/d/1SqvRguK5q15Vd0vk_rx6qiFYD8bQrPuS/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1AzbcKV5I3sfwSRquhEw8Sl9oowBAcwxQ/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/18LuqCxDfuesSJBZm5QOrY91E73Fqp0Sc/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1wbuV0hnYJmZogX4Scp82NhuHeQfoe9A4/view?usp=drive_link",
+        "MRP": 15199,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1SqvRguK5q15Vd0vk_rx6qiFYD8bQrPuS=w400",
+            "https://lh3.googleusercontent.com/d/1AzbcKV5I3sfwSRquhEw8Sl9oowBAcwxQ=w400",
+            "https://lh3.googleusercontent.com/d/18LuqCxDfuesSJBZm5QOrY91E73Fqp0Sc=w400",
+            "https://lh3.googleusercontent.com/d/1wbuV0hnYJmZogX4Scp82NhuHeQfoe9A4=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1SqvRguK5q15Vd0vk_rx6qiFYD8bQrPuS=w400"
+    },
+    {
+        "ID": 8,
+        "Category": "Kurti",
+        "Name": "Kurti",
+        "Description": "✨ Stylish Kurti Skirt Set with Dupatta\nUpgrade your festive wardrobe with this elegant deep purple kurti skirt set, designed to give you a graceful and royal look at an affordable price. The beautifully crafted kurti features subtle embroidery and detailed border work, paired with a flared skirt that adds volume and charm.\nThe lightweight dupatta with delicate golden detailing completes the outfit, making it perfect for festive occasions, family functions, and celebrations.\n✔ Soft & Comfortable Fabric\n✔ Elegant Embroidery Work\n✔ Flowy Skirt with Rich Look\n✔ Stylish Neck Design\n✔ Lightweight Dupatta\n💰 MRP: ₹4499\n🔥 Offer Price: ₹3644",
+        "Price": 3644,
+        "Quantity": 8,
+        "ImageURL1": "https://drive.google.com/file/d/1XpWoPI7zwj0L-brIrYqWzXO1HZ4vizUL/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1FWs2381ImlBPApbHihFiFTtmtdsyBlXR/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1qt0wdh5dbyPoHwhavPJusjiMstoOpFDv/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/13jK-mt2EDAflPphXtGJXWsZ4AI_FkSD2/view?usp=drive_link",
+        "MRP": 4499,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1XpWoPI7zwj0L-brIrYqWzXO1HZ4vizUL=w400",
+            "https://lh3.googleusercontent.com/d/1FWs2381ImlBPApbHihFiFTtmtdsyBlXR=w400",
+            "https://lh3.googleusercontent.com/d/1qt0wdh5dbyPoHwhavPJusjiMstoOpFDv=w400",
+            "https://lh3.googleusercontent.com/d/13jK-mt2EDAflPphXtGJXWsZ4AI_FkSD2=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1XpWoPI7zwj0L-brIrYqWzXO1HZ4vizUL=w400"
+    },
+    {
+        "ID": 9,
+        "Category": "Lehangas",
+        "Name": "Lehanga Set",
+        "Description": "✨ Elegant Teal Blue Partywear Lehenga Set\nStep into timeless elegance with this stunning teal blue lehenga, beautifully designed with intricate golden embroidery that gives a rich royal finish. The detailed patterns on the skirt paired with a stylish blouse create a perfect festive and wedding-ready look.\nThe soft net dupatta with delicate embroidery enhances the overall grace, making it an ideal outfit for weddings, receptions, and grand celebrations.\n✔ Premium Quality Fabric\n✔ Rich Golden Embroidery Work\n✔ Flared Designer Lehenga\n✔ Elegant Blouse Design\n✔ Lightweight Embroidered Dupatta\n💰 MRP: ₹7699\n🔥 Special Price: ₹3999",
+        "Price": 3999,
+        "Quantity": 7,
+        "ImageURL1": "https://drive.google.com/file/d/1a9DFwhm-Ee1nMjnOwknmBdbeA6Wzxo2i/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1gpSw9r7kPjVOCkmmYOSJd6lZhRqz8uIt/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1M8dW_CEeZiIiEZfj5U5iZ8Frp2XKHN3R/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1uTT2VLiv6yHD9lXWxP8A4j8xJ8I7Rime/view?usp=drive_link",
+        "MRP": 7699,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1a9DFwhm-Ee1nMjnOwknmBdbeA6Wzxo2i=w400",
+            "https://lh3.googleusercontent.com/d/1gpSw9r7kPjVOCkmmYOSJd6lZhRqz8uIt=w400",
+            "https://lh3.googleusercontent.com/d/1M8dW_CEeZiIiEZfj5U5iZ8Frp2XKHN3R=w400",
+            "https://lh3.googleusercontent.com/d/1uTT2VLiv6yHD9lXWxP8A4j8xJ8I7Rime=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1a9DFwhm-Ee1nMjnOwknmBdbeA6Wzxo2i=w400"
+    },
+    {
+        "ID": 10,
+        "Category": "Saare",
+        "Name": "Bridal saare",
+        "Description": "❤️ Royal Red Bridal Lehenga Set\nMake your big day unforgettable with this stunning red bridal lehenga, crafted with intricate golden embroidery that reflects pure tradition and elegance. The rich detailing on the lehenga combined with a beautifully designed blouse gives a perfect royal bridal look.\nPaired with a heavy embroidered dupatta, this outfit is designed to make you shine like a queen on your special day.\n✔ Premium Bridal Fabric\n✔ Heavy Golden Embroidery Work\n✔ Grand Flared Lehenga\n✔ Designer Blouse\n✔ Rich Embroidered Dupatta\n💰 MRP: ₹5499 \n🔥 Special Price: ₹3499",
+        "Price": 3499,
+        "Quantity": 6,
+        "ImageURL1": "https://drive.google.com/file/d/1R_02K5kUWaBU-yKaLGofceMRG_8tRG-9/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1mgGOd6sgITp6wD3a-EPCzl6TCgvv5yPf/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1yaxoT-cCI2ALLiJIQjvXe9rChYPLkPhH/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1DaQ8nA_hfJ3aPt0dmS1PFp7OcVuMXYqV/view?usp=drive_link",
+        "MRP": 5499,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1R_02K5kUWaBU-yKaLGofceMRG_8tRG-9=w400",
+            "https://lh3.googleusercontent.com/d/1mgGOd6sgITp6wD3a-EPCzl6TCgvv5yPf=w400",
+            "https://lh3.googleusercontent.com/d/1yaxoT-cCI2ALLiJIQjvXe9rChYPLkPhH=w400",
+            "https://lh3.googleusercontent.com/d/1DaQ8nA_hfJ3aPt0dmS1PFp7OcVuMXYqV=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1R_02K5kUWaBU-yKaLGofceMRG_8tRG-9=w400"
+    },
+    {
+        "ID": 11,
+        "Category": "Lehangas",
+        "Name": "Lehanga Set",
+        "Description": "🌸 Elegant Partywear Lehenga Set\nGrace aur elegance ka perfect combo 💖\nYe soft pink lehenga beautifully crafted hai delicate embroidery aur subtle shine ke saath, jo aapko ek royal aur classy look deta hai.\nLightweight feel + premium finish isse perfect banata hai weddings, receptions aur special occasions ke liye.\n✔ Soft Net Dupatta with Fine Embroidery\n✔ Intricate Sequin & Thread Work\n✔ Elegant Blouse Design\n✔ Comfortable & Premium Fabric\n💰 MRP: ₹5999\n🔥 Special Price: ₹4999",
+        "Price": 4999,
+        "Quantity": 8,
+        "ImageURL1": "https://drive.google.com/file/d/1OMYw_Fk3rfkrI4zVTZvWz5aQkEnaiYpk/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1w72A9WhYK_lmL0GAWLup18-JcwBQBDYy/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1wnU853QdQEt3c1RnoF-MtyCVx9A3mVSb/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1N911xIebMFBHya94i7rwT8YOmgls9EKx/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1OMYw_Fk3rfkrI4zVTZvWz5aQkEnaiYpk=w400",
+            "https://lh3.googleusercontent.com/d/1w72A9WhYK_lmL0GAWLup18-JcwBQBDYy=w400",
+            "https://lh3.googleusercontent.com/d/1wnU853QdQEt3c1RnoF-MtyCVx9A3mVSb=w400",
+            "https://lh3.googleusercontent.com/d/1N911xIebMFBHya94i7rwT8YOmgls9EKx=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1OMYw_Fk3rfkrI4zVTZvWz5aQkEnaiYpk=w400"
+    },
+    {
+        "ID": 12,
+        "Category": "Lehangas",
+        "Name": "Floral Lehanga",
+        "Description": "White Pastel Floral Designer Lehenga Set\nA perfect blend of elegance and softness, this white pastel lehenga is designed for a graceful yet modern look. Featuring delicate multicolor floral embroidery, it gives a rich and refined finish without being heavy.\nThe structured blouse enhances the silhouette, while the lightweight net dupatta with a detailed scalloped border adds a subtle royal touch.\n✔ Premium Soft Fabric\n✔ Multicolor Floral Embroidery\n✔ Elegant Flared Lehenga\n✔ Designer Blouse Fit\n✔ Net Dupatta with Embroidered Border\nMRP: ₹4,799\nSpecial Price: ₹3,599",
+        "Price": 3599,
+        "Quantity": 9,
+        "ImageURL1": "https://drive.google.com/file/d/1S-RGa1BqSa5QQXyXdMpQ-WSRzS6300nT/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1df9O0DvMrV14Kei16-NnCRyKqMhTFsUj/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1Y7SKvNPpyVbmGwMVcJvIktKbQzL0Dn6n/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1MBHrNL10wqRxKpJ5RySgvUsWMDOK0fI1/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1S-RGa1BqSa5QQXyXdMpQ-WSRzS6300nT=w400",
+            "https://lh3.googleusercontent.com/d/1df9O0DvMrV14Kei16-NnCRyKqMhTFsUj=w400",
+            "https://lh3.googleusercontent.com/d/1Y7SKvNPpyVbmGwMVcJvIktKbQzL0Dn6n=w400",
+            "https://lh3.googleusercontent.com/d/1MBHrNL10wqRxKpJ5RySgvUsWMDOK0fI1=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1S-RGa1BqSa5QQXyXdMpQ-WSRzS6300nT=w400"
+    },
+    {
+        "ID": 13,
+        "Category": "Lehangas",
+        "Name": "Pink Embroidered Lehanga",
+        "Description": "✨ Royal Pink Embroidered Partywear Lehenga\n\nVibrant hot pink shade ke saath elegant golden floral & leaf embroidery is lehenga ko ek rich aur eye-catching look deta hai. Heavy scalloped border flare ko beautifully highlight karta hai, jabki structured blouse clean aur stylish finish deta hai.\n\nSoft peach net dupatta with subtle motifs aur heavy embroidered border poore outfit ko graceful aur premium touch deta hai — perfect for wedding functions aur festive occasions.\n\n✔ Rich Fabric Finish\n✔ Golden Embroidery Work\n✔ Heavy Designer Border\n✔ Stylish Blouse\n✔ Soft Net Dupatta\n\n💰 MRP: ₹5,999\n🔥 Special Price: ₹4,199",
+        "Price": 4199,
+        "Quantity": 7,
+        "ImageURL1": "https://drive.google.com/file/d/1SYUaRSZeC6AThFUoXXwBzYI4lnqn5Ezb/view?usp=drive_link ",
+        "ImageURL2": "https://drive.google.com/file/d/1nxoxCqivd_PSHTOoghepkhGH6WpvbT5Z/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1HC4TKBR3v-LCLvV07JqDS2QRx39Nj8Ux/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1ytTnlXktDYLFS94WbQ7pdT6ue2qhAZI2/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1SYUaRSZeC6AThFUoXXwBzYI4lnqn5Ezb=w400",
+            "https://lh3.googleusercontent.com/d/1nxoxCqivd_PSHTOoghepkhGH6WpvbT5Z=w400",
+            "https://lh3.googleusercontent.com/d/1HC4TKBR3v-LCLvV07JqDS2QRx39Nj8Ux=w400",
+            "https://lh3.googleusercontent.com/d/1ytTnlXktDYLFS94WbQ7pdT6ue2qhAZI2=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1SYUaRSZeC6AThFUoXXwBzYI4lnqn5Ezb=w400"
+    },
+    {
+        "ID": 14,
+        "Category": "Lehangas",
+        "Name": "Teal & Pink Designer Lehanga",
+        "Description": "✨ Royal Teal & Rani Pink Designer Partywear Lehenga\n\nRich teal green base par intricate golden embroidery is lehenga ko ek classy aur royal look deti hai, jabki contrast rani pink net dupatta with detailed border poore outfit ko standout banata hai. Flowy flare aur heavy bottom design ise perfect festive & wedding wear banata hai.\n\nBlouse ka clean yet elegant design overall look ko modern touch deta hai — simple but premium vibe.\n\n✔ Premium Fabric Finish\n✔ Heavy Golden Embroidery\n✔ Grand Flare Lehenga\n✔ Elegant Designer Blouse\n✔ Contrast Net Dupatta (Heavy Border)\n\n💰 MRP: ₹4,199\n🔥 Special Price: ₹3,149",
+        "Price": 3149,
+        "Quantity": 8,
+        "ImageURL1": "https://drive.google.com/file/d/1I4_RKFDdSpnwlj48RI_kaw-VJvPx7oKN/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1Hq3BdJT4GPWkdx6TicsUTFrRqS3mg_Gt/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1I4_RKFDdSpnwlj48RI_kaw-VJvPx7oKN/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1lrqbEk65NJ8pBUy8X16LLo6djtLyk8oV/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1I4_RKFDdSpnwlj48RI_kaw-VJvPx7oKN=w400",
+            "https://lh3.googleusercontent.com/d/1Hq3BdJT4GPWkdx6TicsUTFrRqS3mg_Gt=w400",
+            "https://lh3.googleusercontent.com/d/1lrqbEk65NJ8pBUy8X16LLo6djtLyk8oV=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1I4_RKFDdSpnwlj48RI_kaw-VJvPx7oKN=w400"
+    },
+    {
+        "ID": 16,
+        "Category": "Lehangas",
+        "Name": "Blush Pink Lehanga",
+        "Description": "Step into timeless elegance with our  Blush Pink Partywear Lehenga Set, crafted for modern women who love grace and sophistication.\n\nThis beautifully designed lehenga features delicate golden embroidery all over with a rich detailed border that enhances its premium appeal. The soft, flowy fabric creates a graceful silhouette, making it ideal for long wear without compromising comfort.\n\nThe blouse comes in a matching tone with subtle embroidery, giving a classy and minimal look. Paired with a lightweight net dupatta featuring intricate embroidery and elegant borders, this outfit completes a royal and refined ensemble.\n\nPerfect for weddings, engagement functions, festive celebrations, and special occasions — this lehenga ensures you stand out effortlessly.\n\nKEY FEATURES:\n• Premium blush pink color (soft elegant tone)\n• Heavy golden thread & sequence embroidery\n• Full flare lehenga with rich border\n• Lightweight and comfortable fabric\n• Designer embroidered net dupatta\n• Modern + traditional fusion look\n\n---\n\nPRODUCT DETAILS:\nProduct Code: ST-4099\nCategory: Lehenga Set\nOccasion: Partywear / Wedding / Festive\n\nFabric:\n• Lehenga: Net / Georgette with embroidery\n• Blouse: Matching embroidered fabric\n• Dupatta: Soft net with heavy border\n\nWork: Thread & Sequence Embroidery\nColor: Blush Pink / Nude Pink\nFit: Semi-Stitched / Ready to Wear\nFlare: Full\nDupatta Length: Approx 2.3 Meter\n\n---\n\nWHAT’S INCLUDED:\n• 1 Lehenga\n• 1 Blouse\n• 1 Dupatta\n\n---\n\nCARE INSTRUCTIONS:\n• Dry clean only\n• Do not bleach\n• Store in a cool & dry place\n\n---\n\nSHIPPING & DELIVERY:\n• Dispatch within 1–2 working days\n• Delivery within 4–7 days\n• Cash on Delivery Available\n\n---\n\nRETURN POLICY:\n• Easy 3-day return available\n• Product should be unused with original packaging\n\n",
+        "Price": 4099,
+        "Quantity": 16,
+        "ImageURL1": "https://drive.google.com/file/d/1Ij-v6HTESIBTRRk7M8V-cgiVX21zZu4x/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1NZI1Sud88VOCZMPmlhbOg3bN8nQUSxE0/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1H1a3fNWh3O-z25lTmSLScYeVMIhmXNGN/view?usp=drive_link",
+        "ImageURL4": "",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1Ij-v6HTESIBTRRk7M8V-cgiVX21zZu4x=w400",
+            "https://lh3.googleusercontent.com/d/1NZI1Sud88VOCZMPmlhbOg3bN8nQUSxE0=w400",
+            "https://lh3.googleusercontent.com/d/1H1a3fNWh3O-z25lTmSLScYeVMIhmXNGN=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1Ij-v6HTESIBTRRk7M8V-cgiVX21zZu4x=w400"
+    },
+    {
+        "ID": "NY-1778215470439",
+        "Category": "Gown",
+        "Name": "Printed Straight Kurti Set",
+        "Description": "🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n💖 Elegant Straight Kurti Design\n✨ Premium Ethnic Printed Pattern\n👑 Rich Traditional Look\n🌸 Soft & Comfortable Fabric\n🎀 Matching Dupatta Included\n💃 Stylish Slim Fit Bottom\n🔥 Beautiful Festive Colour Combination\n🧵 Fine Detailing & Border Work\n📸 Perfect for Ethnic Photoshoots\n💫 Lightweight & Easy To Carry\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Straight Kurti Set\n🎨 Colour : Pink Wine Multi Tone\n🧵 Fabric : Premium Silk Blend\n✨ Work : Digital Print & Ethnic Detailing\n👑 Includes : Kurti + Pant + Dupatta\n💫 Fit : Straight Fit\n🌸 Neck Style : Stylish Designer Neck\n🎀 Sleeves : Sleeveless\n💃 Occasion : Festive, Casual, Party & Traditional Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n🎉 Festive Celebrations\n🌸 Family Functions\n📸 Ethnic Photoshoots\n💃 Casual Traditional Styling\n✨ College & Office Ethnic Days\n🔥 Day Events & Gatherings\n🛍 Stylish Everyday Wear\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Elegant Premium Look\n✔ Soft & Comfortable Fabric\n✔ Trendy Traditional Design\n✔ Lightweight Daily Wear\n✔ Rich Colour Combination\n✔ Perfect Blend of Style & Comfort\n✔ Easy To Style For Any Occasion\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹3699/-\n🔥 𝐒𝐏𝐄𝐂𝐈𝐀𝐋 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹2996/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n❤️ Upgrade your ethnic wardrobe with timeless elegance ✨",
+        "Price": 2996,
+        "Quantity": 9,
+        "ImageURL1": "https://drive.google.com/file/d/16ag23MhtnGCx3osSbWHA1Aa6Q2jP6e45/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/14zcdyxfoVDn9ReYYIG8MPgqP4Yu-pfpk/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1LShsSybySX8vsXfiCb0H7t15d20vrSPN/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1mRu47BAgqq3zwF2zhcIiyA45drhO4-l-/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/16ag23MhtnGCx3osSbWHA1Aa6Q2jP6e45=w400",
+            "https://lh3.googleusercontent.com/d/14zcdyxfoVDn9ReYYIG8MPgqP4Yu-pfpk=w400",
+            "https://lh3.googleusercontent.com/d/1LShsSybySX8vsXfiCb0H7t15d20vrSPN=w400",
+            "https://lh3.googleusercontent.com/d/1mRu47BAgqq3zwF2zhcIiyA45drhO4-l-=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/16ag23MhtnGCx3osSbWHA1Aa6Q2jP6e45=w400"
+    },
+    {
+        "ID": "NY-1778217066983",
+        "Category": "Kurtis",
+        "Name": "Red Kurti Skirt Set",
+        "Description": "Turn every celebration into a royal moment with this breathtaking Red Kurti Skirt Set 👑🔥  \nDesigned with luxurious embroidery, elegant detailing & graceful flare, this outfit is the perfect blend of traditional beauty and premium fashion 💃✨\n\nA timeless ethnic masterpiece crafted for weddings, festive occasions & grand celebrations ❤️🌸\n\n",
+        "Price": 5345,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/16pKpobx27Zu9I7kyhJMiHA0vWX5DFril/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1D9mazwAFiLc_Av4pN3aGe58opnhiQ5nl/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1RqOgeppvbt5jXUNwkAjhtmP1RYC5pC8-/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1BbYa4_tN1oP2Ot6o5wzeCk2WYZ8xvqVt/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/16pKpobx27Zu9I7kyhJMiHA0vWX5DFril=w400",
+            "https://lh3.googleusercontent.com/d/1D9mazwAFiLc_Av4pN3aGe58opnhiQ5nl=w400",
+            "https://lh3.googleusercontent.com/d/1RqOgeppvbt5jXUNwkAjhtmP1RYC5pC8-=w400",
+            "https://lh3.googleusercontent.com/d/1BbYa4_tN1oP2Ot6o5wzeCk2WYZ8xvqVt=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/16pKpobx27Zu9I7kyhJMiHA0vWX5DFril=w400"
+    },
+    {
+        "ID": "NY-1778303860949",
+        "Category": "Kurtis",
+        "Name": "peplum sharara set",
+        "Description": "✨🌸 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 𝐃𝐄𝐒𝐈𝐆𝐍𝐄𝐑 𝐏𝐄𝐏𝐋𝐔𝐌 𝐒𝐇𝐀𝐑𝐀𝐑𝐀 𝐒𝐄𝐓 🌸✨\n\nBring elegance, grace & luxury to your festive wardrobe with this stunning Rani Pink Peplum Sharara Set 💖\nDesigned for women who love premium ethnic fashion with a modern royal touch 👑✨\n\n━━━━━━━━━━━━━━━━━━\n\n💃 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 💃\n\n✨ Elegant Designer Peplum Style\n✨ Rich Premium Jacquard Weaving\n✨ Beautiful Flowy Sharara Pattern\n✨ Soft Organza Designer Dupatta\n✨ Luxury Ethnic Partywear Collection\n✨ Classy Traditional Yet Modern Look\n✨ Lightweight & Comfortable Fit\n✨ Premium Finishing & Detailing\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n🌸 Product Type : Peplum Sharara Set\n🎨 Colour : Rani Pink\n🧵 Fabric : Premium Quality Fabric\n✨ Work : Rich Jacquard Woven Design\n👗 Bottom Style : Flowy Sharara\n🧣 Dupatta : Soft Organza Dupatta\n💫 Look : Elegant Premium Ethnic Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n💍 Wedding Functions\n🎉 Festive Celebrations\n🥂 Party Wear\n📸 Traditional Photoshoots\n🌸 Family Gatherings\n✨ Special Occasions\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹3999/-\n🔥 𝐒𝐏𝐄𝐂𝐈𝐀𝐋 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹3239/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n✔ Premium Quality Assured\n✔ Elegant Designer Finish\n✔ Comfortable All-Day Wear\n✔ Limited Stock Available\n📦 All India Shipping Available\n\n✨ A perfect outfit to make every celebration look royal & unforgettable ✨",
+        "Price": 3239,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/1eX5CoEewrGu5TdX0nAAJoa4DhFpGviue/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1nsOyrXw7YnT1NFDzRbR-Jo4rUKW3yXfP/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1JaKuk2E5pKVZZo30t3EoQ3mwwvKtzi2l/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1notvX8bcZQB8PVICCPr9F1lpAuLAi_Hy/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1eX5CoEewrGu5TdX0nAAJoa4DhFpGviue=w400",
+            "https://lh3.googleusercontent.com/d/1nsOyrXw7YnT1NFDzRbR-Jo4rUKW3yXfP=w400",
+            "https://lh3.googleusercontent.com/d/1JaKuk2E5pKVZZo30t3EoQ3mwwvKtzi2l=w400",
+            "https://lh3.googleusercontent.com/d/1notvX8bcZQB8PVICCPr9F1lpAuLAi_Hy=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1eX5CoEewrGu5TdX0nAAJoa4DhFpGviue=w400"
+    },
+    {
+        "ID": "NY-1778304509842",
+        "Category": "Crop tops",
+        "Name": "Crop Top & Skirt Set",
+        "Description": "✨🌸 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 𝐃𝐄𝐒𝐈𝐆𝐍𝐄𝐑 𝐂𝐑𝐎𝐏 𝐓𝐎𝐏 & 𝐒𝐊𝐈𝐑𝐓 𝐒𝐄𝐓 🌸✨\n\nStep into timeless elegance with this stunning designer Crop Top & Skirt Set crafted for modern women who love luxurious ethnic fashion 💖👑\n\nFeaturing rich multi-tone detailing, premium finishing & a graceful soft net dupatta, this outfit creates the perfect royal festive look ✨\n\n━━━━━━━━━━━━━━━━━━\n\n💃 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 💃\n\n✨ Premium Designer Crop Top\n✨ Elegant Flowy Skirt Pattern\n✨ Rich Multi-Color Ethnic Design\n✨ Soft Net Designer Dupatta\n✨ Luxury Festive & Partywear Collection\n✨ Stylish Modern Ethnic Look\n✨ Lightweight & Comfortable Fabric\n✨ Premium Finishing & Detailing\n✨ Royal Traditional Appeal\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n🌸 Product Type : Crop Top & Skirt Set\n🎨 Colour : Multi-Color Wine Tone\n🧵 Fabric : Premium Quality Fabric\n✨ Work : Designer Digital Ethnic Print\n👗 Bottom Style : Flowy Full Flair Skirt\n🧣 Dupatta : Soft Net Dupatta with Border\n💫 Look : Elegant Premium Partywear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n💍 Wedding Functions\n🎉 Festive Celebrations\n🥂 Party Wear\n📸 Pre-Wedding Shoots\n🌸 Family Gatherings\n✨ Special Occasions\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹3449/-\n🔥 𝐒𝐏𝐄𝐂𝐈𝐀𝐋 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹2793/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n✔ Premium Quality Assured\n✔ Elegant Designer Finish\n✔ Comfortable All-Day Wear\n✔ Trendy & Stylish Collection\n✔ Limited Stock Available\n📦 All India Shipping Available\n\n✨ A perfect blend of elegance, glamour & modern ethnic fashion ✨",
+        "Price": 2793,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/1CbDaIXLv94PX5mNGMrFXq-bV23PFhR4w/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/15e6Qld60NBw6Sc8_l_PLycIta6Hdq2sr/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1_eRoqfrXB6fpEwX2sXV2svzr1gT2SFy6/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1mp_5pVaJf84vDQqonozzerUzz9IVhslO/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1CbDaIXLv94PX5mNGMrFXq-bV23PFhR4w=w400",
+            "https://lh3.googleusercontent.com/d/15e6Qld60NBw6Sc8_l_PLycIta6Hdq2sr=w400",
+            "https://lh3.googleusercontent.com/d/1_eRoqfrXB6fpEwX2sXV2svzr1gT2SFy6=w400",
+            "https://lh3.googleusercontent.com/d/1mp_5pVaJf84vDQqonozzerUzz9IVhslO=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1CbDaIXLv94PX5mNGMrFXq-bV23PFhR4w=w400"
+    },
+    {
+        "ID": "NY-1778304848479",
+        "Category": "Kurtis",
+        "Name": "Embroidered Kurti PLazo",
+        "Description": "✨💙 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 𝐄𝐌𝐁𝐑𝐎𝐈𝐃𝐄𝐑𝐄𝐃 𝐊𝐔𝐑𝐓𝐈 𝐏𝐋𝐀𝐙𝐎 𝐒𝐄𝐓 💙✨\n\nGrace meets elegance with this stunning designer Kurti Plazo Set crafted for women who love classy ethnic fashion with a luxurious touch 👑🌸\n\nBeautiful embroidery detailing, premium fabric & elegant flowy silhouette make this outfit a perfect choice for festive occasions, parties & celebrations ✨\n\n━━━━━━━━━━━━━━━━━━\n\n💃 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 💃\n\n✨ Premium Embroidered Kurti\n✨ Elegant Wide Plazo Bottom\n✨ Rich Heavy Neck Work\n✨ Soft & Lightweight Dupatta\n✨ Luxury Ethnic Partywear Look\n✨ Stylish Straight Fit Design\n✨ Fine Golden Embroidery Detailing\n✨ Comfortable All-Day Wear\n✨ Premium Designer Finish\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n🌸 Product Type : Kurti Plazo Set\n🎨 Colour : Royal Teal Blue\n🧵 Fabric : Premium Quality Fabric\n✨ Work : Heavy Embroidery Work\n👗 Bottom Style : Flowy Plazo\n🧣 Dupatta : Soft Designer Dupatta\n💫 Fit : Elegant & Comfortable\n👑 Occasion : Festive | Party | Traditional Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n💍 Wedding Functions\n🎉 Festive Celebrations\n🌸 Family Gatherings\n📸 Traditional Photoshoots\n🥂 Evening Parties\n✨ Special Occasions\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹3549/-\n🔥 𝐒𝐏𝐄𝐂𝐈𝐀𝐋 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹2874/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n✔ Premium Quality Assured\n✔ Elegant Designer Collection\n✔ Lightweight & Comfortable\n✔ Rich Embroidery Finish\n✔ Trendy & Stylish Look\n✔ Limited Stock Available\n📦 All India Shipping Available\n\n✨ Elevate your ethnic wardrobe with timeless elegance & royal charm ✨",
+        "Price": 2874,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/1T-ZSWGoQxXiGxq__x9rJD_WJQJVhXnLb/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1GmeG6refC5f_3_yowzu4hBPe98o_z5vI/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1gYf_0VdcIvzhyrpmGkQQ_iMYBOpMixZG/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1eoEWmP41VfxneZmtl_IBKGzmzPj1q4oS/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1T-ZSWGoQxXiGxq__x9rJD_WJQJVhXnLb=w400",
+            "https://lh3.googleusercontent.com/d/1GmeG6refC5f_3_yowzu4hBPe98o_z5vI=w400",
+            "https://lh3.googleusercontent.com/d/1gYf_0VdcIvzhyrpmGkQQ_iMYBOpMixZG=w400",
+            "https://lh3.googleusercontent.com/d/1eoEWmP41VfxneZmtl_IBKGzmzPj1q4oS=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1T-ZSWGoQxXiGxq__x9rJD_WJQJVhXnLb=w400"
+    },
+    {
+        "ID": "NY-1778350710260",
+        "Category": "Kurtis",
+        "Name": "Elegant Yellow Straight Kurti Set",
+        "Description": "🌼✨ 𝐄𝐋𝐄𝐆𝐀𝐍𝐓 𝐘𝐄𝐋𝐋𝐎𝐖 𝐒𝐓𝐑𝐀𝐈𝐆𝐇𝐓 𝐊𝐔𝐑𝐓𝐈 𝐒𝐄𝐓 ✨🌼\n\nAdd sunshine to your ethnic wardrobe with this graceful Yellow Straight Kurti Set designed for women who love elegance with comfort 💛👑\n\nBeautiful embroidery detailing paired with a soft floral dupatta creates a rich festive & classy look perfect for every special occasion 🌸✨\n\n━━━━━━━━━━━━━━━━━━\n\n💃 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 💃\n\n✨ Elegant Straight Fit Kurti\n✨ Premium Embroidery Neck Work\n✨ Soft & Comfortable Fabric\n✨ Stylish Matching Bottom\n✨ Lightweight Floral Dupatta\n✨ Rich Ethnic Designer Look\n✨ Perfect Festive Wear Collection\n✨ Graceful & Trendy Finish\n✨ Comfortable All-Day Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n🌼 Product Type : Straight Kurti Set\n🎨 Colour : Bright Sunshine Yellow\n🧵 Fabric : Premium Soft Fabric\n✨ Work : Heavy Embroidery Work\n👗 Fit : Straight Fit\n🧣 Dupatta : Floral Designer Dupatta\n💫 Style : Elegant Traditional Wear\n👑 Occasion : Festive | Casual | Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n🎉 Festive Celebrations\n🌸 Family Functions\n📸 Traditional Photoshoots\n💛 Haldi Functions\n🥂 Casual Gatherings\n✨ Daily Elegant Wear",
+        "Price": 1659,
+        "Quantity": 11,
+        "ImageURL1": "https://drive.google.com/file/d/1tZpD9maj7SxuC_Eq166qpDLHKsy_02NB/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1XS7i1Evo7jsTvRM4f_9YUWrNbdUyOIPn/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1cHBlxFspIBsdaEiKIzlIhWBIHNhfsYAp/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1ILQ0f08CY17y9pcrkhJGYpy9jbdgU6BP/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1tZpD9maj7SxuC_Eq166qpDLHKsy_02NB=w400",
+            "https://lh3.googleusercontent.com/d/1XS7i1Evo7jsTvRM4f_9YUWrNbdUyOIPn=w400",
+            "https://lh3.googleusercontent.com/d/1cHBlxFspIBsdaEiKIzlIhWBIHNhfsYAp=w400",
+            "https://lh3.googleusercontent.com/d/1ILQ0f08CY17y9pcrkhJGYpy9jbdgU6BP=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1tZpD9maj7SxuC_Eq166qpDLHKsy_02NB=w400"
+    },
+    {
+        "ID": "NY-1778350988500",
+        "Category": "Indo-Western",
+        "Name": "Luxury Real Indo-Western Drape Set",
+        "Description": "💙✨ 𝐋𝐔𝐗𝐔𝐑𝐘 𝐓𝐄𝐀𝐋 𝐈𝐍𝐃𝐎-𝐖𝐄𝐒𝐓𝐄𝐑𝐍 𝐃𝐑𝐀𝐏𝐄 𝐒𝐄𝐓 ✨💙\n\nStep into the spotlight with this stunning Teal Indo-Western Outfit designed for modern women who love bold elegance & royal fashion 👑🔥\n\nFeaturing a heavily embroidered designer blouse with stylish drape detailing and flowy cape sleeves, this outfit creates a glamorous celebrity-inspired look perfect for parties & grand occasions ✨🌟\n\n━━━━━━━━━━━━━━━━━━\n\n💃 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 💃\n\n✨ Premium Indo-Western Design\n✨ Heavy Sequins & Embroidery Work\n✨ Stylish Drape Saree Pattern\n✨ Elegant Cape Style Sleeves\n✨ Luxury Party Wear Collection\n✨ Rich Designer Finish\n✨ Lightweight & Comfortable Fit\n✨ Modern Glamorous Look\n✨ Trendy Celebrity Inspired Outfit\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n💙 Product Type : Indo-Western Drape Set\n🎨 Colour : Royal Teal Blue\n🧵 Fabric : Premium Soft Fabric\n✨ Work : Heavy Embroidery & Sequins Work\n👗 Fit : Stylish Designer Fit\n🪄 Style : Modern Ethnic Glam\n🌟 Sleeves : Cape Style Designer Sleeves\n👑 Occasion : Party | Reception | Wedding | Festive Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n💃 Cocktail Parties\n👑 Wedding Functions\n📸 Fashion Photoshoots\n✨ Reception Looks\n🎉 Festive Celebrations\n🌟 Premium Party Wear Styling\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐋 𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Elegant Luxury Appearance\n✔ Eye-Catching Designer Pattern\n✔ Comfortable Yet Glamorous\n✔ Premium Quality Finishing\n✔ Flowing Stylish Drape\n✔ Fashionable Modern Ethnic Look\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹4999/-\n🔥 𝐒𝐏𝐄𝐂𝐈𝐀𝐋 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹4049/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 All India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n✨ Upgrade your festive wardrobe with this breathtaking Indo-Western designer outfit ✨",
+        "Price": 4049,
+        "Quantity": 12,
+        "ImageURL1": "https://drive.google.com/file/d/1SfoL9I95i8UYHpgmsu8iuKxp3fArjvgg/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1FAuTCYLsmu9g3i2bRXJylJ1eHRELzEUU/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1zdNqztMichoa9OZql1HgI09W7ima4oCt/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1gXZQxy2Q_RDFHH9yNTG98jPfu9bwRiZ0/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1SfoL9I95i8UYHpgmsu8iuKxp3fArjvgg=w400",
+            "https://lh3.googleusercontent.com/d/1FAuTCYLsmu9g3i2bRXJylJ1eHRELzEUU=w400",
+            "https://lh3.googleusercontent.com/d/1zdNqztMichoa9OZql1HgI09W7ima4oCt=w400",
+            "https://lh3.googleusercontent.com/d/1gXZQxy2Q_RDFHH9yNTG98jPfu9bwRiZ0=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1SfoL9I95i8UYHpgmsu8iuKxp3fArjvgg=w400"
+    },
+    {
+        "ID": "NY-1778351419145",
+        "Category": "Gown",
+        "Name": "Royal Golden Front Cut Gown With Skirt",
+        "Description": "✨👑 𝐑𝐎𝐘𝐀𝐋 𝐆𝐎𝐋𝐃𝐄𝐍 𝐅𝐑𝐎𝐍𝐓 𝐂𝐔𝐓 𝐆𝐎𝐖𝐍 𝐖𝐈𝐓𝐇 𝐒𝐊𝐈𝐑𝐓 👑✨\n\nMake every entrance unforgettable with this breathtaking Designer Front Cut Gown Set crafted for women who love luxury, elegance & royal ethnic fashion 💛🌟\n\nFeaturing intricate heavy embroidery, graceful front-cut silhouette, flared skirt styling, and a beautifully detailed dupatta — this outfit gives a true celebrity wedding look 👑💃\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 💖\n\n✨ Premium Designer Front Cut Style\n✨ Heavy Sequins & Zari Embroidery\n✨ Royal Flared Skirt Pattern\n✨ Elegant Dupatta with Border Work\n✨ Rich Ethnic Luxury Look\n✨ Full Sleeves Designer Finish\n✨ Wedding & Festive Collection\n✨ Grand Princess Style Flair\n✨ Premium Handcrafted Appearance\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Front Cut Gown with Skirt\n🎨 Colour : Royal Mustard Gold\n🧵 Fabric : Premium Soft Net & Georgette Blend\n✨ Work : Heavy Embroidery, Sequins & Zari Work\n👑 Style : Luxury Ethnic Designer Wear\n💃 Fit : Elegant Flared Fit\n🪄 Sleeves : Full Sleeves\n🌟 Dupatta : Embroidered Designer Dupatta\n\n━━━━━━━━━━━━━━━━━━\n\n💫 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💫\n\n👰 Wedding Functions\n💍 Engagement Ceremony\n🎉 Festive Celebrations\n📸 Bridal Photoshoots\n✨ Reception & Sangeet\n👑 Royal Party Wear Look\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐋 𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Luxurious Heavy Embroidery\n✔ Elegant Royal Appearance\n✔ Stunning Twirl & Flair\n✔ Premium Designer Finish\n✔ Comfortable Yet Glamorous\n✔ Perfect Ethnic Fashion Statement\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹7749/-\n🔥 𝐒𝐏𝐄𝐂𝐈𝐀𝐋 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹6273/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 All India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n✨ Add royal elegance to your wardrobe with this luxurious designer outfit ✨",
+        "Price": 6273,
+        "Quantity": 20,
+        "ImageURL1": "https://drive.google.com/file/d/1Sp0etu--7un8CdNIU6n8FLlXrAMNmfdj/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1FnCpBjs52TykddY5hp8r0VubBEG5ZIt1/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1E5EThmEO32VMzdEztP6R3zZXxOSG71Ac/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1-DPGr4Rw2gqk_mkJv9blFyMO4L_HyzQ2/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1Sp0etu--7un8CdNIU6n8FLlXrAMNmfdj=w400",
+            "https://lh3.googleusercontent.com/d/1FnCpBjs52TykddY5hp8r0VubBEG5ZIt1=w400",
+            "https://lh3.googleusercontent.com/d/1E5EThmEO32VMzdEztP6R3zZXxOSG71Ac=w400",
+            "https://lh3.googleusercontent.com/d/1-DPGr4Rw2gqk_mkJv9blFyMO4L_HyzQ2=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1Sp0etu--7un8CdNIU6n8FLlXrAMNmfdj=w400"
+    },
+    {
+        "ID": "NY-1778351676929",
+        "Category": "Indo-Western",
+        "Name": "Royal Purple Indo - Western Drape Set",
+        "Description": "💜✨ 𝐑𝐎𝐘𝐀𝐋 𝐏𝐔𝐑𝐏𝐋𝐄 𝐈𝐍𝐃𝐎-𝐖𝐄𝐒𝐓𝐄𝐑𝐍 𝐃𝐑𝐀𝐏𝐄 𝐒𝐄𝐓 ✨💜\n\nStep into luxury & elegance with this stunning Designer Indo-Western Outfit crafted for modern women who love classy ethnic fashion with a glamorous twist 👑💃\n\nFeaturing a beautifully embroidered blouse, stylish drape dhoti skirt, and flowy cape sleeves — this outfit creates a perfect fusion of traditional charm & modern fashion 🌸✨\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 💖\n\n✨ Trendy Indo-Western Design\n✨ Stylish Draped Dhoti Pattern\n✨ Premium Embroidered Blouse\n✨ Elegant Flowing Cape Sleeves\n✨ Rich Purple Royal Look\n✨ Lightweight & Comfortable Fit\n✨ Fashionable Party Wear Collection\n✨ Celebrity Inspired Designer Outfit\n✨ Graceful Modern Ethnic Vibes\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Indo-Western Drape Set\n🎨 Colour : Royal Purple\n🧵 Fabric : Premium Soft Georgette & Net Blend\n✨ Work : Heavy Floral Embroidery & Sequins Work\n👑 Style : Fusion Ethnic Designer Wear\n💃 Fit : Elegant Flowy Fit\n🪄 Sleeves : Designer Cape Sleeves\n🌟 Pattern : Draped Dhoti Style Bottom\n\n━━━━━━━━━━━━━━━━━━\n\n💫 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💫\n\n🎉 Party Wear\n💍 Engagement Functions\n👑 Wedding Celebrations\n📸 Fashion Photoshoots\n✨ Reception & Cocktail Events\n🌸 Festive Occasions\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐋 𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Elegant Indo-Western Styling\n✔ Unique Designer Draping\n✔ Premium Embroidery Finish\n✔ Glamorous Yet Comfortable\n✔ Perfect Modern Ethnic Look\n✔ Lightweight & Easy To Carry\n✔ Luxury Fashion Statement Piece\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹6399/-\n🔥 𝐒𝐏𝐄𝐂𝐈𝐀𝐋 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹5183/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 All India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n💜 Elevate your festive wardrobe with this breathtaking royal purple designer outfit 💜",
+        "Price": 5183,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/16hgebf8TveKKagCIuTxidRRIOM5d2nt0/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1yR31g9HsAX-Ql3sWJKn-mH7-XyaP_e6g/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1s3cKkyIo5gpH5SQW2C3du4GUPFZGSYN5/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/19vKQAWKbNuvQ6cTiQ7HO0PnHoumYu2YI/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/16hgebf8TveKKagCIuTxidRRIOM5d2nt0=w400",
+            "https://lh3.googleusercontent.com/d/1yR31g9HsAX-Ql3sWJKn-mH7-XyaP_e6g=w400",
+            "https://lh3.googleusercontent.com/d/1s3cKkyIo5gpH5SQW2C3du4GUPFZGSYN5=w400",
+            "https://lh3.googleusercontent.com/d/19vKQAWKbNuvQ6cTiQ7HO0PnHoumYu2YI=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/16hgebf8TveKKagCIuTxidRRIOM5d2nt0=w400"
+    },
+    {
+        "ID": "NY-1778351913875",
+        "Category": "Crop tops",
+        "Name": "Blush Pink Designer Crop Top Lehenga ",
+        "Description": "🌸✨ 𝐁𝐋𝐔𝐒𝐇 𝐏𝐈𝐍𝐊 𝐃𝐄𝐒𝐈𝐆𝐍𝐄𝐑 𝐂𝐑𝐎𝐏 𝐓𝐎𝐏 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 ✨🌸\n\nGrace meets glamour in this dreamy blush pink designer outfit 💖👑  \nCrafted with luxurious embroidery, elegant cape-style drape, and stylish mermaid flair — this outfit is made for women who love modern ethnic fashion with royal elegance ✨💃\n\nPerfect for weddings, receptions, engagements & premium festive occasions 🌷\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 💎\n\n✨ Trendy Designer Crop Top\n✨ Elegant Mermaid Style Lehenga\n✨ Stylish Cape Drape Dupatta\n✨ Premium Floral Embroidery Work\n✨ Soft Blush Pink Luxury Shade\n✨ Glamorous Modern Ethnic Look\n✨ Lightweight & Comfortable Fit\n✨ Perfect Celebrity Inspired Design\n✨ Rich Party Wear Collection\n\n━━━━━━━━━━━━━━━━━━\n\n🌸 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 🌸\n\n👗 Product Type : Designer Crop Top Lehenga Set\n🎨 Colour : Blush Pink\n🧵 Fabric : Premium Net & Soft Georgette\n✨ Work : Heavy Embroidery, Sequins & Thread Work\n👑 Style : Indo-Western Fusion Wear\n💃 Fit : Slim Elegant Fit\n🪄 Dupatta Style : Attached Cape Style Drape\n🌟 Bottom Pattern : Mermaid Flare Lehenga\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n💍 Engagement Ceremony\n👑 Wedding Functions\n🎉 Reception Party\n🌸 Festive Celebrations\n📸 Fashion Photoshoots\n✨ Cocktail & Sangeet Nights\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐋 𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Premium Luxury Look\n✔ Modern Elegant Styling\n✔ Gorgeous Embroidery Finish\n✔ Soft & Comfortable Fabric\n✔ Flattering Mermaid Silhouette\n✔ Perfect Blend Of Glamour & Grace\n✔ Eye-Catching Designer Outfit",
+        "Price": 4049,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/1B9LWOGbf0a05M0ilFSGd7gCYexMTQIkg/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/12QczpG1RPl3E2fed0Nc2Y6DFGPZ9VcHj/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/11Ij87Wx_SJDN9vUANq2UtrkuObpxWp9w/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1XyKjaqaL5oWvyiDcfnF7l4I9nDWnATC3/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1B9LWOGbf0a05M0ilFSGd7gCYexMTQIkg=w400",
+            "https://lh3.googleusercontent.com/d/12QczpG1RPl3E2fed0Nc2Y6DFGPZ9VcHj=w400",
+            "https://lh3.googleusercontent.com/d/11Ij87Wx_SJDN9vUANq2UtrkuObpxWp9w=w400",
+            "https://lh3.googleusercontent.com/d/1XyKjaqaL5oWvyiDcfnF7l4I9nDWnATC3=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1B9LWOGbf0a05M0ilFSGd7gCYexMTQIkg=w400"
+    },
+    {
+        "ID": "NY-1778352190702",
+        "Category": "Crop tops",
+        "Name": "Royal Art Inspired Crop Top & Plazo Set",
+        "Description": "✨👑 𝐑𝐎𝐘𝐀𝐋 𝐀𝐑𝐓 𝐈𝐍𝐒𝐏𝐈𝐑𝐄𝐃 𝐂𝐑𝐎𝐏 𝐓𝐎𝐏 & 𝐏𝐋𝐀𝐙𝐎 𝐒𝐄𝐓 👑✨\n\nStep into timeless elegance with this luxury designer Indo-Western outfit 💙✨  \nInspired by royal heritage artwork and crafted with premium detailing, this stunning crop top & plazo set is made for modern queens who love artistic fashion with a classy ethnic touch 🌸💃\n\nA perfect blend of traditional artistry & contemporary glamour 🔥\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 💎\n\n✨ Designer Crop Top\n✨ Heavy Printed Palazzo Pants\n✨ Elegant Cape Style Dupatta\n✨ Royal Heritage Artwork Print\n✨ Premium Embroidery & Pearl Detailing\n✨ Trendy Indo-Western Look\n✨ Stylish Party Wear Collection\n✨ Soft Luxury Fabric\n✨ Perfect Statement Outfit\n\n━━━━━━━━━━━━━━━━━━\n\n🌸 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 🌸\n\n👗 Product Type : Designer Crop Top Palazzo Set\n🎨 Colour : Dusty Blue Multi-Tone\n🧵 Fabric : Premium Silk Blend & Soft Net\n✨ Work : Artistic Print, Embroidery & Pearl Work\n👑 Style : Indo-Western Designer Wear\n💃 Fit : Comfortable Elegant Fit\n🪄 Dupatta Style : Cape Style Net Drape\n🌟 Bottom Pattern : Wide Flare Palazzo\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n💍 Engagement Functions\n👑 Wedding Celebrations\n🎉 Reception & Cocktail Parties\n🌸 Festive Events\n📸 Fashion Photoshoots\n✨ Sangeet & Special Occasions\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐋 𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Royal Luxury Look\n✔ Unique Artistic Print Design\n✔ Premium Embroidery Finish\n✔ Lightweight & Comfortable\n✔ Modern Fashion Statement\n✔ Celebrity Inspired Styling\n✔ Elegant Indo-Western Vibes",
+        "Price": 5993,
+        "Quantity": 15,
+        "ImageURL1": "https://drive.google.com/file/d/1HmCX1H5NsTdU1UgITbCjbEjdDkBFfi-O/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1jnQ1ZlUum_8F0ZEe1tHBYNeZqpCibdd4/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1SwRbsh7Ttt3avEXnN1nQiaivWpg3MrsD/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1YXOXsYQmtRyiZgsmKNF6lMScjejig2mT/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1HmCX1H5NsTdU1UgITbCjbEjdDkBFfi-O=w400",
+            "https://lh3.googleusercontent.com/d/1jnQ1ZlUum_8F0ZEe1tHBYNeZqpCibdd4=w400",
+            "https://lh3.googleusercontent.com/d/1SwRbsh7Ttt3avEXnN1nQiaivWpg3MrsD=w400",
+            "https://lh3.googleusercontent.com/d/1YXOXsYQmtRyiZgsmKNF6lMScjejig2mT=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1HmCX1H5NsTdU1UgITbCjbEjdDkBFfi-O=w400"
+    },
+    {
+        "ID": "NY-1778352971577",
+        "Category": "Ready to Wear Saree",
+        "Name": "Luxury Ready To Wear Saree",
+        "Description": "❤️✨ 𝐋𝐔𝐗𝐔𝐑𝐘 𝐑𝐄𝐀𝐃𝐘 𝐓𝐎 𝐖𝐄𝐀𝐑 𝐒𝐀𝐑𝐄𝐄 ✨❤️\n\nTurn every moment into a royal fashion statement with this stunning Ready To Wear Saree ❤️👑  \nDesigned for modern women who love elegance with comfort, this glamorous outfit features a beautifully embroidered blouse paired with a stylish pre-draped saree silhouette 💃🔥\n\nPerfect blend of traditional charm & contemporary fashion ✨\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n❤️ Ready To Wear Saree\n✨ Heavy Embroidered Designer Blouse\n👑 Premium Party Wear Collection\n💫 Elegant Pre-Draped Saree Style\n🔥 Rich Sequin & Zari Work\n🌸 Lightweight & Comfortable\n💃 Modern Ethnic Glam Look\n✨ Stylish Back Design with Tassels\n👗 Perfect Celebrity Inspired Outfit\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Ready To Wear Saree\n🎨 Colour : Bold Scarlet Red\n🧵 Fabric : Premium Georgette & Net\n✨ Work : Heavy Embroidery, Zari & Sequin Work\n👑 Blouse Type : Designer Embroidered Blouse\n💃 Saree Style : Pre-Stitched Ready Draped Saree\n🌸 Occasion : Party, Wedding & Festive Wear\n🪄 Fit : Elegant Comfortable Fit\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n💍 Wedding Functions\n🎉 Reception Parties\n🌟 Festive Celebrations\n💃 Cocktail",
+        "Price": 3077,
+        "Quantity": 12,
+        "ImageURL1": "https://drive.google.com/file/d/1sbPBpZUu0Bm7_9mobUH-RR0msSkLB-XC/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1JHJtsn-BDL_FMOUllXTkbfrAqunjBa9K/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/11e9dHRGmMHHPavvs6Dv3aW6L4ynY2Crg/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/13V3gzN4O_lvwbF24AxgUQKM6JLwByyt6/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1sbPBpZUu0Bm7_9mobUH-RR0msSkLB-XC=w400",
+            "https://lh3.googleusercontent.com/d/1JHJtsn-BDL_FMOUllXTkbfrAqunjBa9K=w400",
+            "https://lh3.googleusercontent.com/d/11e9dHRGmMHHPavvs6Dv3aW6L4ynY2Crg=w400",
+            "https://lh3.googleusercontent.com/d/13V3gzN4O_lvwbF24AxgUQKM6JLwByyt6=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1sbPBpZUu0Bm7_9mobUH-RR0msSkLB-XC=w400"
+    },
+    {
+        "ID": "NY-1778353233879",
+        "Category": "Kurtis",
+        "Name": "Elegant Pastel Pink Straight Kurti Set",
+        "Description": "🌸✨ 𝐄𝐋𝐄𝐆𝐀𝐍𝐓 𝐏𝐀𝐒𝐓𝐄𝐋 𝐏𝐈𝐍𝐊 𝐒𝐓𝐑𝐀𝐈𝐆𝐇𝐓 𝐊𝐔𝐑𝐓𝐈 𝐒𝐄𝐓 ✨🌸\n\nGrace meets comfort in this beautifully crafted Straight Kurti Set 💖  \nDesigned for women who love classy ethnic fashion with a soft elegant vibe 🌷✨  \nThis stunning pastel pink outfit comes with a matching pant & delicate dupatta, making it a perfect choice for festive wear, casual elegance & timeless traditional looks 👑\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n🌸 Elegant Straight Kurti Design\n✨ Premium Embroidered Detailing\n💖 Soft Pastel Pink Shade\n🧵 Fine Thread & Chikankari Style Work\n👑 Matching Pant & Dupatta Set\n🌿 Lightweight & Comfortable Fabric\n💫 Graceful Traditional Look\n🎀 Elegant Dupatta Border Work\n💃 Perfect Blend Of Simplicity & Luxury\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Straight Kurti Set\n🎨 Colour : Pastel Baby Pink\n🧵 Fabric : Premium Cotton Blend\n✨ Work : Elegant Embroidery & Thread Work\n👑 Includes : Kurti + Pant + Dupatta\n🌸 Fit : Straight Comfortable Fit\n💫 Sleeves : 3/4 Sleeves\n🎀 Neck Style : V Neck Design\n💃 Occasion : Festive, Casual, Office & Family Functions\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n🌷 Daily Elegant Wear\n🎉 Festive Celebrations\n💃 Family Gatherings\n✨ Traditional Functions\n📸 Ethnic Photoshoots\n🌸 Casual Luxury Styling\n👑 Office & Day Events\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐋 𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Soft & Premium Fabric\n✔ Elegant Feminine Look\n✔ Comfortable All Day Wear\n✔ Beautiful Pastel Colour\n✔ Minimal Yet Royal Design\n✔ Trendy Traditional Outfit\n✔ Perfect For Every Occasion\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹8199/-\n🔥 𝐒𝐏𝐄𝐂𝐈𝐀𝐋 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹6641/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n🌸 Add timeless elegance to your wardrobe with this stunning pastel kurti set ✨",
+        "Price": 6641,
+        "Quantity": 14,
+        "ImageURL1": "https://drive.google.com/file/d/1dEia5KpsgEovqk89ZSbDFbz8C_BQMlM0/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1NwIOab7fz2-__alnnMTrE31rzasxXYxE/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1jt2Fl-tCpmlHkU45DoEd9Md6QXhI2Zyj/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1rR7VZ-LVCXrFVE2Gx7gnLxRat6YFvNRm/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1dEia5KpsgEovqk89ZSbDFbz8C_BQMlM0=w400",
+            "https://lh3.googleusercontent.com/d/1NwIOab7fz2-__alnnMTrE31rzasxXYxE=w400",
+            "https://lh3.googleusercontent.com/d/1jt2Fl-tCpmlHkU45DoEd9Md6QXhI2Zyj=w400",
+            "https://lh3.googleusercontent.com/d/1rR7VZ-LVCXrFVE2Gx7gnLxRat6YFvNRm=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1dEia5KpsgEovqk89ZSbDFbz8C_BQMlM0=w400"
+    },
+    {
+        "ID": "NY-1778353403480",
+        "Category": "Kurtis",
+        "Name": "Royal Purple Straight Kurti Set",
+        "Description": "💜✨ 𝐑𝐎𝐘𝐀𝐋 𝐏𝐔𝐑𝐏𝐋𝐄 𝐒𝐓𝐑𝐀𝐈𝐆𝐇𝐓 𝐊𝐔𝐑𝐓𝐈 𝐒𝐄𝐓 ✨💜\n\nStep into elegance with this luxurious Royal Purple Straight Kurti Set 👑  \nCrafted for women who love timeless ethnic fashion with a graceful royal touch 🌸✨  \nThis stunning outfit features rich traditional detailing, elegant weaving patterns & a beautifully designed dupatta that creates the perfect festive and premium ethnic look 💫\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n💜 Rich Royal Purple Shade\n✨ Premium Traditional Weaving\n🌸 Elegant Straight Kurti Design\n👑 Beautiful Matching Dupatta\n🧵 Fine Detailed Embroidery Work\n💫 Elegant Ethnic Pattern\n🎀 Designer Border Detailing\n🌿 Soft & Comfortable Fabric\n💃 Graceful Festive Look\n🔥 Premium Luxury Finish\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Straight Kurti Set\n🎨 Colour : Royal Purple\n🧵 Fabric : Premium Silk Blend\n✨ Work : Woven & Embroidered Detailing\n👑 Includes : Kurti + Pant + Dupatta\n🌸 Fit : Straight Comfortable Fit\n💫 Sleeves : 3/4 Sleeves\n🎀 Neck Style : V Neck Design\n💃 Occasion : Festive, Wedding, Party & Traditional Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n🎉 Festive Celebrations\n👑 Wedding Functions\n💃 Family Gatherings\n📸 Ethnic Photoshoots\n✨ Traditional Events\n🌸 Day & Evening Wear\n🔥 Elegant Party Styling\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐋 𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Royal & Premium Look\n✔ Lightweight & Comfortable\n✔ Elegant Traditional Design\n✔ Soft Luxury Fabric\n✔ Rich Ethnic Appeal\n✔ Perfect Festive Outfit\n✔ Stylish Yet Graceful\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹5299/-\n🔥 𝐒𝐏𝐄𝐂𝐈𝐀𝐋 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹4292/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n💜 Add royal elegance to your wardrobe with this stunning ethnic kurti set ✨",
+        "Price": 4292,
+        "Quantity": 17,
+        "ImageURL1": "https://drive.google.com/file/d/1RyOn5rwcqKiE42mCJmr3Bi4CuKR2xc1B/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/15TmUlj6N6zfpEdOlBrVDmhBZMlRKD0PN/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1EZRV43B12nMJyF0dZrttrCSryLcshKuo/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1CdlaT9h42wFMEfpJgzZ-GOOVEZ0r4xSg/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1RyOn5rwcqKiE42mCJmr3Bi4CuKR2xc1B=w400",
+            "https://lh3.googleusercontent.com/d/15TmUlj6N6zfpEdOlBrVDmhBZMlRKD0PN=w400",
+            "https://lh3.googleusercontent.com/d/1EZRV43B12nMJyF0dZrttrCSryLcshKuo=w400",
+            "https://lh3.googleusercontent.com/d/1CdlaT9h42wFMEfpJgzZ-GOOVEZ0r4xSg=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1RyOn5rwcqKiE42mCJmr3Bi4CuKR2xc1B=w400"
+    },
+    {
+        "ID": "NY-1778353599691",
+        "Category": "Kurtis",
+        "Name": "Royal Red Kurti Skirt Set",
+        "Description": "❤️✨ 𝐑𝐎𝐘𝐀𝐋 𝐑𝐄𝐃 𝐊𝐔𝐑𝐓𝐈 𝐒𝐊𝐈𝐑𝐓 𝐒𝐄𝐓 ✨❤️\n\nTurn every celebration into a royal moment with this breathtaking Red Kurti Skirt Set 👑🔥  \nDesigned with luxurious embroidery, elegant detailing & graceful flare, this outfit is the perfect blend of traditional beauty and premium fashion 💃✨\n\nA timeless ethnic masterpiece crafted for weddings, festive occasions & grand celebrations ❤️🌸\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n❤️ Rich Royal Red Colour\n✨ Heavy Premium Embroidery Work\n👑 Elegant Designer Kurti\n💃 Beautiful Flared Skirt\n🎀 Soft Net Dupatta with Border\n🧵 Intricate Golden Detailing\n🌸 Traditional Ethnic Look\n🔥 Luxury Festive Wear\n💫 Graceful Royal Finish\n📸 Perfect Wedding Collection\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Kurti Skirt Set\n🎨 Colour : Royal Red\n🧵 Fabric : Premium Silk Blend\n✨ Work : Heavy Embroidery & Zari Work\n👑 Includes : Kurti + Skirt + Dupatta\n💫 Fit : Flared Elegant Fit\n🎀 Sleeves : 3/4 Sleeves\n🌸 Neck Style : Designer Neckline\n💃 Occasion : Wedding, Festive, Party & Traditional Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n👰 Wedding Functions\n🎉 Festive Celebrations\n💃 Sangeet & Mehendi\n📸 Bridal Photoshoots\n✨ Traditional Gatherings\n🌸 Family Events\n🔥 Grand Party Styling\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐋 𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Premium Royal Look\n✔ Elegant Heavy Work\n✔ Comfortable Luxury Fabric\n✔ Beautiful Flowy Flare\n✔ Rich Ethnic Appearance\n✔ Stunning Wedding Wear\n✔ Perfect Traditional Glam\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹6599/-\n🔥 𝐒𝐏𝐄𝐂𝐈𝐀𝐋 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹5345/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n❤️ Make every occasion unforgettable with this royal ethnic masterpiece ✨",
+        "Price": 5345,
+        "Quantity": 20,
+        "ImageURL1": "https://drive.google.com/file/d/1dvGmmjOZMBQbxbAS2I5PaVzdId57Px6n/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1hN8NZCkgd8BAmYvI8ebAGyHL8_5HqnlK/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1fOzS-yF9ZXsN2v7Ty1NoeFglMJg6JLxp/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1KpBvgu_TRpZZ2cteTUXZevu1N6J5k0TQ/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1dvGmmjOZMBQbxbAS2I5PaVzdId57Px6n=w400",
+            "https://lh3.googleusercontent.com/d/1hN8NZCkgd8BAmYvI8ebAGyHL8_5HqnlK=w400",
+            "https://lh3.googleusercontent.com/d/1fOzS-yF9ZXsN2v7Ty1NoeFglMJg6JLxp=w400",
+            "https://lh3.googleusercontent.com/d/1KpBvgu_TRpZZ2cteTUXZevu1N6J5k0TQ=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1dvGmmjOZMBQbxbAS2I5PaVzdId57Px6n=w400"
+    },
+    {
+        "ID": "NY-1778354429086",
+        "Category": "Lehnga",
+        "Name": "Royal Banarasi Lehenga Collection ",
+        "Description": "👑✨ 𝐑𝐎𝐘𝐀𝐋 𝐁𝐀𝐍𝐀𝐑𝐀𝐒𝐈 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 𝐂𝐎𝐋𝐋𝐄𝐂𝐓𝐈𝐎𝐍 ✨👑\n\nStep into pure royalty with this luxurious Banarasi Lehenga Set 💛💚  \nCrafted with rich woven detailing, premium festive vibes & timeless ethnic elegance, this outfit is made to make you shine like a queen 👑🔥\n\nA perfect masterpiece for weddings, receptions & grand festive occasions 💫\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n👑 Premium Banarasi Weaving\n✨ Rich Traditional Royal Look\n💚 Elegant Designer Blouse\n💛 Heavy Banarasi Dupatta\n🔥 Luxury Golden Zari Work\n🎀 Intricate Border Detailing\n💃 Grand Flared Lehenga\n🌸 Elegant Colour Combination\n📸 Perfect For Bridal & Festive Shoots\n💫 Premium Ethnic Fashion Statement\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Banarasi Lehenga Set\n🎨 Colour : Olive Green & Mustard Gold\n🧵 Fabric : Premium Banarasi Silk Blend\n✨ Work : Rich Zari Weaving & Banarasi Design\n👑 Includes : Lehenga + Blouse + Dupatta\n💫 Fit : Flared Royal Fit\n🌸 Neck Style : Sweetheart Neck\n🎀 Sleeves : Sleeveless\n💃 Occasion : Wedding, Reception, Festive & Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n💍 Wedding Functions\n👑 Bridal Festivities\n🎉 Reception Parties\n🌸 Traditional Celebrations\n📸 Royal Ethnic Photoshoots\n✨ Sangeet & Mehendi Events\n🔥 Grand Festive Looks\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Luxurious Royal Appearance\n✔ Rich Banarasi Weaving\n✔ Elegant Heavy Dupatta\n✔ Premium Quality Fabric\n✔ Stunning Flared Lehenga\n✔ Perfect Blend Of Tradition & Glamour\n✔ Eye-Catching Festive Outfit\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹5999/-\n🔥 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹4999/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n❤️ Make every celebration look royal & unforgettable 👑✨",
+        "Price": 4999,
+        "Quantity": 13,
+        "ImageURL1": "https://drive.google.com/file/d/18Xw3kQYtoR-nAeJ7vp6_cz5oPRsWceaE/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1GL8dOIznQ_uV8Q7P5F72Dsn7lDO_4oUp/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1en6zhPgGEe5FqHHB0cQVe4ptrwDaYV2_/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1UF96e3nvcV7UJsNglsIiabn5lez0y-El/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/18Xw3kQYtoR-nAeJ7vp6_cz5oPRsWceaE=w400",
+            "https://lh3.googleusercontent.com/d/1GL8dOIznQ_uV8Q7P5F72Dsn7lDO_4oUp=w400",
+            "https://lh3.googleusercontent.com/d/1en6zhPgGEe5FqHHB0cQVe4ptrwDaYV2_=w400",
+            "https://lh3.googleusercontent.com/d/1UF96e3nvcV7UJsNglsIiabn5lez0y-El=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/18Xw3kQYtoR-nAeJ7vp6_cz5oPRsWceaE=w400"
+    },
+    {
+        "ID": "NY-1778354704962",
+        "Category": "Lehnga",
+        "Name": "Luxury Party Wear Lehenga ",
+        "Description": "✨🤍 𝐋𝐔𝐗𝐔𝐑𝐘 𝐏𝐀𝐑𝐓𝐘 𝐖𝐄𝐀𝐑 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 🤍✨\n\nTurn every celebration into a royal fashion moment with this stunning designer Party Wear Lehenga Set 👑💫  \nCrafted with premium shimmer detailing, elegant embroidery & graceful flow, this masterpiece is made for modern queens who love timeless elegance 🌸✨\n\nPerfect blend of glamour, sophistication & luxury 💎\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n👑 Premium Designer Party Wear\n✨ Heavy Sequin & Embroidery Work\n🤍 Elegant Soft Ivory Shade\n💎 Luxury Sparkle Finish\n🌸 Stylish Sleeveless Blouse\n🎀 Beautiful Embroidered Dupatta\n💃 Grand Flared Lehenga\n🔥 Premium Bridal & Party Look\n📸 Picture Perfect Ethnic Outfit\n✨ Rich Royal Vibes\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Party Wear Lehenga Set\n🎨 Colour : Ivory White / Champagne Beige\n🧵 Fabric : Premium Net & Silk Blend\n✨ Work : Heavy Embroidery, Sequin & Thread Work\n👑 Includes : Lehenga + Blouse + Dupatta\n💫 Fit : Flared Elegant Fit\n🌸 Neck Style : Round Neck\n🎀 Sleeves : Sleeveless\n💃 Occasion : Wedding, Reception, Engagement & Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n💍 Engagement Functions\n👑 Reception Look\n🎉 Cocktail & Party Events\n🌸 Wedding Celebrations\n📸 Luxury Photoshoots\n✨ Bridesmaid Styling\n🔥 Festive Glam Looks\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Premium Luxury Finish\n✔ Elegant Royal Appearance\n✔ Stunning Flowy Flair\n✔ Rich Embroidery Detailing\n✔ Lightweight Yet Grand Look\n✔ Perfect For Day & Night Events\n✔ Stylish Modern Ethnic Fashion\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹7199/-\n🔥 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹5831/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n❤️ Add timeless elegance to your wardrobe with this dreamy party wear lehenga ✨👑",
+        "Price": 5831,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/1wDUhda9Moilp-sXXfsD7mIMYeR-DBsC3/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1Q429-rL89rp1r_02PNVNa3I-_-EwQk-H/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/10ByGn6KfN12o1Ev3AITeIebWAzTnzPCQ/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1Z-gyUC-RyR7bDk9RQesJ68zvz47rynF8/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1wDUhda9Moilp-sXXfsD7mIMYeR-DBsC3=w400",
+            "https://lh3.googleusercontent.com/d/1Q429-rL89rp1r_02PNVNa3I-_-EwQk-H=w400",
+            "https://lh3.googleusercontent.com/d/10ByGn6KfN12o1Ev3AITeIebWAzTnzPCQ=w400",
+            "https://lh3.googleusercontent.com/d/1Z-gyUC-RyR7bDk9RQesJ68zvz47rynF8=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1wDUhda9Moilp-sXXfsD7mIMYeR-DBsC3=w400"
+    },
+    {
+        "ID": "NY-1778355095391",
+        "Category": "Lehnga",
+        "Name": "Elegant Party Wear Lehenga",
+        "Description": "💜✨ 𝐄𝐋𝐄𝐆𝐀𝐍𝐓 𝐏𝐀𝐑𝐓𝐘𝐖𝐄𝐀𝐑 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 ✨💜\n\nStep into royal elegance with this gorgeous lavender partywear lehenga set 👑🌸  \nDesigned with luxurious detailing, graceful embroidery & rich festive vibes, this outfit is perfect for making heads turn at every celebration 💫\n\nA perfect blend of traditional charm & modern glam 💖\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n💜 Premium Lavender Shade\n✨ Heavy Embroidery & Sequin Work\n👑 Royal Peacock Design Border\n🌸 Elegant Sleeveless Blouse\n🎀 Soft Designer Dupatta\n💃 Grand Flared Lehenga\n💎 Rich Ethnic Party Look\n📸 Perfect For Stunning Photos\n🔥 Trendy & Premium Finish\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Partywear Lehenga Set\n🎨 Colour : Lavender Purple\n🧵 Fabric : Premium Silk Blend\n✨ Work : Embroidery, Sequin & Zari Work\n👑 Includes : Lehenga + Blouse + Dupatta\n💫 Fit : Flared Royal Fit\n🌸 Neck Style : Round Neck\n🎀 Sleeves : Sleeveless\n💃 Occasion : Wedding, Festive, Reception & Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n👑 Wedding Functions\n💍 Engagement Ceremonies\n🎉 Party & Festive Events\n🌸 Bridesmaid Styling\n📸 Traditional Photoshoots\n✨ Family Celebrations\n🔥 Glam Ethnic Looks\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Elegant Royal Appearance\n✔ Premium Embroidery Finish\n✔ Comfortable & Stylish Fit\n✔ Beautiful Rich Colour\n✔ Lightweight Yet Grand Look\n✔ Perfect Day & Night Outfit\n✔ Modern Ethnic Fashion Statement\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹3299/-\n🔥 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹2969/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n❤️ Add royal elegance to your wardrobe with this dreamy lavender lehenga ✨👑",
+        "Price": 2969,
+        "Quantity": 25,
+        "ImageURL1": "https://drive.google.com/file/d/1cdyVbPkoNyyOzMBcoXI2hbMf0ItexVeA/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1cHJWCCjGtb-MzrVgLrkO_UhV7hJTWX0y/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1s6YzT4WcoNBtd8QoWCeN7EEidJINqL3d/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1QsAbz3PvT9zjKXtnCwZ54CiDX9-PXxcu/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1cdyVbPkoNyyOzMBcoXI2hbMf0ItexVeA=w400",
+            "https://lh3.googleusercontent.com/d/1cHJWCCjGtb-MzrVgLrkO_UhV7hJTWX0y=w400",
+            "https://lh3.googleusercontent.com/d/1s6YzT4WcoNBtd8QoWCeN7EEidJINqL3d=w400",
+            "https://lh3.googleusercontent.com/d/1QsAbz3PvT9zjKXtnCwZ54CiDX9-PXxcu=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1cdyVbPkoNyyOzMBcoXI2hbMf0ItexVeA=w400"
+    },
+    {
+        "ID": "NY-1778355255565",
+        "Category": "Lehnga",
+        "Name": "Elegant Party Wear Lehenga",
+        "Description": "💜✨ 𝐄𝐋𝐄𝐆𝐀𝐍𝐓 𝐏𝐀𝐑𝐓𝐘𝐖𝐄𝐀𝐑 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 ✨💜\n\nStep into royal elegance with this gorgeous lavender partywear lehenga set 👑🌸  \nDesigned with luxurious detailing, graceful embroidery & rich festive vibes, this outfit is perfect for making heads turn at every celebration 💫\n\nA perfect blend of traditional charm & modern glam 💖\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n💜 Premium Lavender Shade\n✨ Heavy Embroidery & Sequin Work\n👑 Royal Peacock Design Border\n🌸 Elegant Sleeveless Blouse\n🎀 Soft Designer Dupatta\n💃 Grand Flared Lehenga\n💎 Rich Ethnic Party Look\n📸 Perfect For Stunning Photos\n🔥 Trendy & Premium Finish\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Partywear Lehenga Set\n🎨 Colour : Lavender Purple\n🧵 Fabric : Premium Silk Blend\n✨ Work : Embroidery, Sequin & Zari Work\n👑 Includes : Lehenga + Blouse + Dupatta\n💫 Fit : Flared Royal Fit\n🌸 Neck Style : Round Neck\n🎀 Sleeves : Sleeveless\n💃 Occasion : Wedding, Festive, Reception & Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n👑 Wedding Functions\n💍 Engagement Ceremonies\n🎉 Party & Festive Events\n🌸 Bridesmaid Styling\n📸 Traditional Photoshoots\n✨ Family Celebrations\n🔥 Glam Ethnic Looks\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Elegant Royal Appearance\n✔ Premium Embroidery Finish\n✔ Comfortable & Stylish Fit\n✔ Beautiful Rich Colour\n✔ Lightweight Yet Grand Look\n✔ Perfect Day & Night Outfit\n✔ Modern Ethnic Fashion Statement\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹3299/-\n🔥 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹2969/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n❤️ Add royal elegance to your wardrobe with this dreamy lavender lehenga ✨👑",
+        "Price": 2969,
+        "Quantity": 25,
+        "ImageURL1": "https://drive.google.com/file/d/1kNAA2_C4iMM1Nvj4i0VFBR9dxuhy5vuY/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/12anv-QrURlvD5cvPSF0CudG-pruakZ75/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1_8WzMv8vrwg3oc0A06U2j2kkENFnaWdo/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1WHT1XFdrcqD8eMtwKfqj8gMpI-tBQDUB/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1kNAA2_C4iMM1Nvj4i0VFBR9dxuhy5vuY=w400",
+            "https://lh3.googleusercontent.com/d/12anv-QrURlvD5cvPSF0CudG-pruakZ75=w400",
+            "https://lh3.googleusercontent.com/d/1_8WzMv8vrwg3oc0A06U2j2kkENFnaWdo=w400",
+            "https://lh3.googleusercontent.com/d/1WHT1XFdrcqD8eMtwKfqj8gMpI-tBQDUB=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1kNAA2_C4iMM1Nvj4i0VFBR9dxuhy5vuY=w400"
+    },
+    {
+        "ID": "NY-1778355395962",
+        "Category": "Lehnga",
+        "Name": "Luxury Party Wear Lehenga ",
+        "Description": "✨🤎 𝐋𝐔𝐗𝐔𝐑𝐘 𝐏𝐀𝐑𝐓𝐘𝐖𝐄𝐀𝐑 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 🤎✨\n\nGrace, elegance & royal charm — all in one dreamy lehenga set 👑💫  \nThis stunning peach-golden partywear lehenga is crafted for the modern queen who loves timeless ethnic fashion 💖\n\nPerfect for weddings, receptions & festive celebrations 🌸✨\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n🤎 Elegant Peach-Golden Shade\n✨ Heavy Embroidery & Sequin Work\n👑 Royal Heritage Border Design\n🌸 Premium Designer Blouse\n🎀 Soft Net Designer Dupatta\n💃 Beautiful Flared Lehenga\n💎 Rich Ethnic Party Look\n📸 Perfect For Wedding Shoots\n🔥 Luxury Premium Finish\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Partywear Lehenga Set\n🎨 Colour : Peach Gold\n🧵 Fabric : Premium Silk Blend\n✨ Work : Embroidery, Zari & Sequin Work\n👑 Includes : Lehenga + Blouse + Dupatta\n💫 Fit : Royal Flared Fit\n🌸 Neck Style : Round Neck\n🎀 Sleeves : Half Sleeves\n💃 Occasion : Wedding, Reception, Festive & Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n👑 Wedding Functions\n💍 Engagement & Reception\n🎉 Festive Celebrations\n🌸 Bridesmaid Looks\n📸 Royal Photoshoots\n✨ Traditional Events\n🔥 Glam Ethnic Styling\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Elegant Royal Appearance\n✔ Rich Embroidery Detailing\n✔ Lightweight Yet Premium Feel\n✔ Stunning Traditional Design\n✔ Comfortable & Stylish Fit\n✔ Perfect Day & Evening Wear\n✔ Trendy Luxury Ethnic Look\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹5499/-\n🔥 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹4455/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n❤️ Make every celebration extra royal with this gorgeous designer lehenga ✨👑",
+        "Price": 4455,
+        "Quantity": 11,
+        "ImageURL1": "https://drive.google.com/file/d/1gKzBolGNmCEH2MBeDKiyuXTs9eYyPzIL/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1YD6aTzP7RzOCHf-kEQPxJ6AiPEVQ8WR0/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1pzr0oad0_B4WH1BppiXY-w8izYLt7nNj/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1I9ZGzVvIP0nWCnKKGOaXP9WhwxRu94di/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1gKzBolGNmCEH2MBeDKiyuXTs9eYyPzIL=w400",
+            "https://lh3.googleusercontent.com/d/1YD6aTzP7RzOCHf-kEQPxJ6AiPEVQ8WR0=w400",
+            "https://lh3.googleusercontent.com/d/1pzr0oad0_B4WH1BppiXY-w8izYLt7nNj=w400",
+            "https://lh3.googleusercontent.com/d/1I9ZGzVvIP0nWCnKKGOaXP9WhwxRu94di=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1gKzBolGNmCEH2MBeDKiyuXTs9eYyPzIL=w400"
+    },
+    {
+        "ID": "NY-1778355720769",
+        "Category": "Lehnga",
+        "Name": "Elegant Designer Party Wear Lehenga ",
+        "Description": "💙✨ 𝐄𝐋𝐄𝐆𝐀𝐍𝐓 𝐃𝐄𝐒𝐈𝐆𝐍𝐄𝐑 𝐏𝐀𝐑𝐓𝐘𝐖𝐄𝐀𝐑 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 ✨💙\n\nStep into timeless elegance with this breathtaking teal blue lehenga set 💫👑  \nDesigned with intricate embroidery and royal detailing, this outfit is perfect for weddings, festive occasions & glamorous celebrations 💖\n\nA graceful blend of tradition and luxury that makes every moment look magical ✨🌸\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n💙 Stunning Teal Blue Colour\n✨ Heavy Embroidery & Zari Work\n👑 Premium Designer Finish\n🌸 Elegant Flared Lehenga\n🎀 Soft Flowing Dupatta\n💎 Rich Ethnic Look\n📸 Perfect For Royal Photoshoots\n🔥 Lightweight & Comfortable\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Partywear Lehenga Set\n🎨 Colour : Teal Blue\n🧵 Fabric : Premium Silk Blend\n✨ Work : Embroidery, Zari & Sequin Work\n👑 Includes : Lehenga + Blouse + Dupatta\n💫 Fit : Flared Designer Fit\n🌸 Neck Style : Round Neck\n🎀 Sleeves : Short Sleeves\n💃 Occasion : Wedding, Reception, Festive & Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n👑 Wedding Functions\n💍 Engagement & Reception\n🎉 Festive Celebrations\n🌸 Bridesmaid Styling\n📸 Traditional Photoshoots\n✨ Family Events\n🔥 Glam Ethnic Looks\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Elegant Royal Design\n✔ Premium Embroidery Work\n✔ Comfortable All-Day Wear\n✔ Trendy Traditional Look\n✔ Perfect For Every Occasion\n✔ Rich & Graceful Appearance\n✔ Beautiful Flowy Dupatta\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹3599/-\n🔥 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹2915/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n❤️ Add royal elegance to your wardrobe with this gorgeous designer lehenga ✨👑",
+        "Price": 2915,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/1Xzzd9cUEMOVXCDX44iIH43VvVMq0PbVc/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1AkyX25eYioJE79ioNGaQkZJ9XRt1Cbmv/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1_eNaQ6BWyi2AkaSZN8-O3siaZl0mnaDJ/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1kalYHmQiQyUT4Ty3nU_ay-coSVwOcwxC/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1Xzzd9cUEMOVXCDX44iIH43VvVMq0PbVc=w400",
+            "https://lh3.googleusercontent.com/d/1AkyX25eYioJE79ioNGaQkZJ9XRt1Cbmv=w400",
+            "https://lh3.googleusercontent.com/d/1_eNaQ6BWyi2AkaSZN8-O3siaZl0mnaDJ=w400",
+            "https://lh3.googleusercontent.com/d/1kalYHmQiQyUT4Ty3nU_ay-coSVwOcwxC=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1Xzzd9cUEMOVXCDX44iIH43VvVMq0PbVc=w400"
+    },
+    {
+        "ID": "NY-1778355967696",
+        "Category": "Indo-Western",
+        "Name": "Luxury Indo - Western Party Wear",
+        "Description": "✨🌟 𝐋𝐔𝐗𝐔𝐑𝐘 𝐈𝐍𝐃𝐎-𝐖𝐄𝐒𝐓𝐄𝐑𝐍 𝐏𝐀𝐑𝐓𝐘 𝐖𝐄𝐀𝐑 🌟✨\n\nTurn every occasion into a fashion statement with this stunning golden indo-western drape outfit 💫👑  \nA perfect blend of modern glamour and ethnic elegance designed for women who love classy & bold fashion 💖\n\nIts shimmering fabric, stylish drape pattern and heavily embellished blouse create the ultimate royal party look ✨🔥\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n✨ Elegant Golden Shimmer Look\n👑 Stylish Indo-Western Drape Design\n💎 Heavy Embroidered Designer Blouse\n🔥 Premium Glam Partywear\n🎀 Modern Saree Drape Style\n💫 Rich & Classy Finish\n📸 Perfect For Luxury Photoshoots\n🌸 Comfortable & Trendy Fit\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Indo-Western Partywear\n🎨 Colour : Golden Beige\n🧵 Fabric : Premium Shimmer Fabric\n✨ Work : Heavy Embroidery & Sequin Work\n👑 Includes : Drape Saree + Designer Blouse\n💫 Fit : Stylish Slim Fit\n🌸 Neck Style : Sweetheart Neck\n🎀 Sleeves : Sleeveless\n💃 Occasion : Party, Reception, Cocktail & Wedding Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n💃 Cocktail Parties\n👑 Wedding Functions\n💍 Reception Look\n🎉 Glam Night Events\n📸 Fashion Photoshoots\n✨ Festive Celebrations\n🔥 Celebrity Inspired Styling\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Trendy Indo-Western Style\n✔ Rich Designer Look\n✔ Premium Embroidery Work\n✔ Glamorous Party Outfit\n✔ Lightweight & Comfortable\n✔ Modern Yet Traditional Vibe\n✔ Perfect Statement Piece\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹5699/-\n🔥 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹4616/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n❤️ Add luxury, elegance & glamour to your wardrobe with this stunning indo-western outfit ✨👑",
+        "Price": 4616,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/1F82vpfPrXLHnISBw3369dze7SwuoeteA/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1u4xVQG8VRkKIG-7o8X_Dd7pTD31Hwa-y/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1cFONFCicPSorTN7vTncXi3W1ccBbFw4k/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1QrwXTUdN8hNziQhaRD6xtCF4d3s9fEZE/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1F82vpfPrXLHnISBw3369dze7SwuoeteA=w400",
+            "https://lh3.googleusercontent.com/d/1u4xVQG8VRkKIG-7o8X_Dd7pTD31Hwa-y=w400",
+            "https://lh3.googleusercontent.com/d/1cFONFCicPSorTN7vTncXi3W1ccBbFw4k=w400",
+            "https://lh3.googleusercontent.com/d/1QrwXTUdN8hNziQhaRD6xtCF4d3s9fEZE=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1F82vpfPrXLHnISBw3369dze7SwuoeteA=w400"
+    },
+    {
+        "ID": "NY-1778356192969",
+        "Category": "Gown",
+        "Name": "Dreamy Pastel Party Gown",
+        "Description": "❄️✨ 𝐃𝐑𝐄𝐀𝐌𝐘 𝐏𝐀𝐒𝐓𝐄𝐋 𝐏𝐀𝐑𝐓𝐘 𝐆𝐎𝐖𝐍 ✨❄️\n\nStep into elegance with this breathtaking sky blue designer gown 💎👑  \nCrafted with graceful detailing, sparkling embellishments and a royal flowy silhouette that gives pure princess vibes 💙✨\n\nThis luxurious gown is perfect for receptions, engagement parties, cocktail nights and every special occasion where you want all eyes on you 🌸💫\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n❄️ Elegant Pastel Blue Shade\n👑 Premium Designer Party Gown\n✨ Heavy Sequin & Embroidery Work\n💎 Soft Net Layered Flare\n🎀 Stylish Shoulder Drape Design\n🌸 Princess Inspired Look\n📸 Perfect For Photoshoots\n💫 Rich & Luxury Finish\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💎\n\n👗 Product Type : Designer Party Gown\n🎨 Colour : Pastel Sky Blue\n🧵 Fabric : Premium Soft Net\n✨ Work : Sequin, Embroidery & Glitter Work\n👑 Style : Flowy Princess Cut\n💫 Neck Style : Sweetheart Neck\n🎀 Sleeves : Sleeveless With Drape\n🌸 Occasion : Reception, Party, Engagement & Wedding Wear\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 💖\n\n👑 Reception Look\n💍 Engagement Parties\n🎉 Cocktail Events\n📸 Pre Wedding Photoshoots\n✨ Birthday Celebrations\n🌸 Festive Glam Look\n💃 Luxury Evening Wear\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 🔥\n\n✔ Royal Princess Look\n✔ Premium Designer Finish\n✔ Lightweight & Comfortable\n✔ Glamorous Flowy Flair\n✔ Trendy Modern Design\n✔ Elegant Pastel Colour\n✔ Perfect Statement Outfit\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹7449/-\n🔥 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹6033/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n💙 Add elegance, charm & luxury to your wardrobe with this dreamy designer gown ✨👑",
+        "Price": 6033,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/1S4J3QkEQG1ijCEpFdQFNzph8A84_m7oj/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1ShvXaOrUhWpJZ2yBEvUsqTwRqlvoat69/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1lIxf_JeQjq8OgnFj1o_aS59Nb1ljNQ80/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1Wy0fiH9fL3sWrts4r9qnpf60Js7J2rfP/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1S4J3QkEQG1ijCEpFdQFNzph8A84_m7oj=w400",
+            "https://lh3.googleusercontent.com/d/1ShvXaOrUhWpJZ2yBEvUsqTwRqlvoat69=w400",
+            "https://lh3.googleusercontent.com/d/1lIxf_JeQjq8OgnFj1o_aS59Nb1ljNQ80=w400",
+            "https://lh3.googleusercontent.com/d/1Wy0fiH9fL3sWrts4r9qnpf60Js7J2rfP=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1S4J3QkEQG1ijCEpFdQFNzph8A84_m7oj=w400"
+    },
+    {
+        "ID": "NY-1778358400936",
+        "Category": "Lehnga",
+        "Name": "Royal Maroon Party Wear Lehenga",
+        "Description": "❤️👑 𝐑𝐎𝐘𝐀𝐋 𝐌𝐀𝐑𝐎𝐎𝐍 𝐏𝐀𝐑𝐓𝐘𝐖𝐄𝐀𝐑 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 👑❤️\n\nMake every celebration unforgettable with this luxurious maroon designer lehenga ✨  \nCrafted with heavy embroidery, rich detailing and a graceful royal look that gives pure wedding season vibes 💃❤️\n\nA perfect choice for girls who love classy elegance with modern ethnic charm 👑🌸\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n❤️ Rich Royal Maroon Colour\n✨ Premium Heavy Embroidery Work\n👑 Luxury Designer Partywear Look\n💫 Elegant Flowy Flair\n🌸 Beautiful Detailed Dupatta Border\n🎀 Stylish Trendy Blouse Design\n📸 Perfect For Bridal & Wedding Functions\n💎 Glamorous Festive Finish\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💖\n\n👗 Product Type : Designer Lehenga Choli\n🎨 Colour : Maroon\n🧵 Fabric : Premium Fabric With Net Dupatta\n✨ Work : Heavy Embroidery & Sequins Work\n👑 Style : Partywear / Wedding Wear\n💫 Blouse : Stylish Sleeveless Blouse\n🌸 Dupatta : Soft Net Dupatta With Border Work\n🎉 Occasion : Wedding, Reception, Festive & Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 🔥\n\n💍 Wedding Functions\n👑 Engagement Parties\n🌸 Sangeet & Mehendi\n🎉 Festive Celebrations\n📸 Bridal Photoshoots\n✨ Reception Glam Look\n💃 Grand Party Styling\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 💎\n\n✔ Royal & Elegant Look\n✔ Premium Designer Finish\n✔ Rich Heavy Embroidery\n✔ Comfortable & Stylish Fit\n✔ Perfect Grand Flair\n✔ Trendy Ethnic Fashion\n✔ Eye Catching Partywear Design\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹4999/-\n🔥 𝐎𝐅𝐅𝐄𝐑 𝐏𝐑𝐈𝐂𝐄 : ₹4099/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available\n💯 Premium Quality Assured\n⚡ Limited Stock Available\n❤️ Upgrade your festive wardrobe with this stunning royal maroon lehenga ✨👑",
+        "Price": 4099,
+        "Quantity": 10,
+        "ImageURL1": "https://drive.google.com/file/d/1e1I2xWqm4qwmNjR2v5TpbTGLsi7A3VDf/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/10aUK9FjH9u6OjgptJiHIPVVJ9iwIC6mB/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1z_cPVByPcpD1zRApTaOQ7JwItbYDCNhK/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1GEhHseIhWeZeZWVjxYQWcoxRR-Y7PY8u/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1e1I2xWqm4qwmNjR2v5TpbTGLsi7A3VDf=w400",
+            "https://lh3.googleusercontent.com/d/10aUK9FjH9u6OjgptJiHIPVVJ9iwIC6mB=w400",
+            "https://lh3.googleusercontent.com/d/1z_cPVByPcpD1zRApTaOQ7JwItbYDCNhK=w400",
+            "https://lh3.googleusercontent.com/d/1GEhHseIhWeZeZWVjxYQWcoxRR-Y7PY8u=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1e1I2xWqm4qwmNjR2v5TpbTGLsi7A3VDf=w400"
+    },
+    {
+        "ID": "NY-1778358627194",
+        "Category": "Lehnga",
+        "Name": "Elegant Party Wear Lehenga",
+        "Description": "💛✨ 𝐄𝐋𝐄𝐆𝐀𝐍𝐓 𝐏𝐀𝐑𝐓𝐘𝐖𝐄𝐀𝐑 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 ✨💛\n\nStep into every celebration with timeless elegance in this stunning pastel yellow designer lehenga 🌸👑  \nBeautiful embroidery detailing with graceful dupatta gives a soft royal look perfect for wedding & festive occasions 💃✨\n\nA dreamy outfit for girls who love classy ethnic fashion with modern charm 💫💖\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n💛 Elegant Pastel Yellow Shade  \n✨ Premium Embroidery Work  \n👑 Stylish Designer Partywear Look  \n🌸 Beautiful Flowy Flair  \n💫 Soft Net Dupatta With Border Work  \n🎀 Trendy Sleeveless Blouse Design  \n📸 Perfect Wedding Season Outfit  \n💎 Rich Ethnic Finish\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💖\n\n👗 Product Type : Lehenga Choli  \n🎨 Colour : Pastel Yellow  \n🧵 Fabric : Premium Fabric With Soft Net Dupatta  \n✨ Work : Embroidery & Designer Work  \n👑 Style : Partywear / Festive Wear  \n💫 Blouse : Stylish Sleeveless Blouse  \n🌸 Dupatta : Soft Net Dupatta With Elegant Border  \n🎉 Occasion : Wedding, Reception, Mehendi & Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 🔥\n\n💍 Wedding Functions  \n🌸 Mehendi Ceremony  \n👑 Engagement Parties  \n🎉 Festive Celebrations  \n📸 Ethnic Photoshoots  \n💃 Sangeet Nights  \n✨ Family Functions\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 💎\n\n✔ Elegant Royal Look  \n✔ Lightweight & Comfortable  \n✔ Premium Designer Finish  \n✔ Beautiful Embroidery Detailing  \n✔ Perfect Grand Flair  \n✔ Trendy Ethnic Style  \n✔ Eye Catching Partywear Design\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹3799/-  \n🔥 𝐒𝐓 𝐏𝐑𝐈𝐂𝐄 : ₹2499/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available  \n💯 Premium Quality Assured  \n⚡ Limited Stock Available  \n💛 Make your festive look extra special with this gorgeous designer lehenga ✨👑",
+        "Price": 2499,
+        "Quantity": 20,
+        "ImageURL1": "https://drive.google.com/file/d/1xTaK2RqSC3BIPI9BTo9XZayyop6qztQm/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1avp_pwmKdglceKu3o0rkCk4IlO_Jzxl9/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1G_TsTbDWT0EKDKj-2RbX_AP5WBECSgf8/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1kWTcSyqaXROmqtorRZYI4DGci0uGr64r/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1xTaK2RqSC3BIPI9BTo9XZayyop6qztQm=w400",
+            "https://lh3.googleusercontent.com/d/1avp_pwmKdglceKu3o0rkCk4IlO_Jzxl9=w400",
+            "https://lh3.googleusercontent.com/d/1G_TsTbDWT0EKDKj-2RbX_AP5WBECSgf8=w400",
+            "https://lh3.googleusercontent.com/d/1kWTcSyqaXROmqtorRZYI4DGci0uGr64r=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1xTaK2RqSC3BIPI9BTo9XZayyop6qztQm=w400"
+    },
+    {
+        "ID": "NY-1778358865674",
+        "Category": "Lehnga",
+        "Name": "Luxury Banarsi Lehenga Collection ",
+        "Description": "🌿✨ 𝐋𝐔𝐗𝐔𝐑𝐘 𝐁𝐀𝐍𝐀𝐑𝐒𝐈 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 𝐂𝐎𝐋𝐋𝐄𝐂𝐓𝐈𝐎𝐍 ✨🌿\n\nMake your festive moments extra royal with this breathtaking Banarasi lehenga set 💚👑  \nBeautiful pastel tones, intricate traditional prints and elegant detailing create a graceful designer look perfect for weddings & grand occasions 💃✨\n\nA perfect blend of classy ethnic charm and modern elegance 🌸💫\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n💚 Elegant Pastel Banarasi Look  \n✨ Rich Traditional Print Work  \n👑 Premium Designer Partywear Style  \n🌸 Beautiful Heavy Flair  \n💫 Soft Net Dupatta With Border Work  \n🎀 Stylish Sleeveless Blouse  \n📸 Perfect Wedding Season Outfit  \n💎 Luxury Ethnic Finish\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💖\n\n👗 Product Type : Banarasi Lehenga Choli  \n🎨 Colour : Pastel Mint Green  \n🧵 Fabric : Premium Banarasi Fabric  \n✨ Work : Traditional Print & Designer Work  \n👑 Style : Partywear / Festive Wear  \n💫 Blouse : Stylish Designer Blouse  \n🌸 Dupatta : Soft Net Dupatta With Elegant Border  \n🎉 Occasion : Wedding, Reception, Mehendi & Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 🔥\n\n💍 Wedding Functions  \n🌸 Mehendi Ceremony  \n👑 Engagement Parties  \n🎉 Festive Celebrations  \n📸 Ethnic Photoshoots  \n💃 Sangeet Nights  \n✨ Family Functions\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 💎\n\n✔ Premium Banarasi Look  \n✔ Elegant Traditional Design  \n✔ Lightweight & Comfortable  \n✔ Rich Ethnic Finish  \n✔ Beautiful Designer Dupatta  \n✔ Trendy Partywear Style  \n✔ Perfect Royal Flair\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹7699/-  \n🔥 𝐒𝐓 𝐏𝐑𝐈𝐂𝐄 : ₹3999/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available  \n💯 Premium Quality Assured  \n⚡ Limited Stock Available  \n💚 Upgrade your festive wardrobe with this stunning Banarasi lehenga ✨👑",
+        "Price": 3999,
+        "Quantity": 16,
+        "ImageURL1": "https://drive.google.com/file/d/1UwS09O8GIPwaV40ul9DT8eYzBDUIupiP/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/11E556jGP7coNpB-UuFTHz-_3ogewMxvN/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1adY37HPJVEteBc2buL5C7LlnuX2pmugh/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1nVW7X-VUtj37N7428dsLGtSDC1FonuqY/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1UwS09O8GIPwaV40ul9DT8eYzBDUIupiP=w400",
+            "https://lh3.googleusercontent.com/d/11E556jGP7coNpB-UuFTHz-_3ogewMxvN=w400",
+            "https://lh3.googleusercontent.com/d/1adY37HPJVEteBc2buL5C7LlnuX2pmugh=w400",
+            "https://lh3.googleusercontent.com/d/1nVW7X-VUtj37N7428dsLGtSDC1FonuqY=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1UwS09O8GIPwaV40ul9DT8eYzBDUIupiP=w400"
+    },
+    {
+        "ID": "NY-1778359411596",
+        "Category": "Ready to Wear Saree",
+        "Name": "Elegant Ready to Wear Saree",
+        "Description": "❤️✨ 𝐄𝐋𝐄𝐆𝐀𝐍𝐓 𝐑𝐄𝐀𝐃𝐘 𝐓𝐎 𝐖𝐄𝐀𝐑 𝐒𝐀𝐑𝐄𝐄 ✨❤️\n\nTurn every celebration into a royal fashion moment with this stunning wine red ready-to-wear saree 🍷👑  \nBeautiful embroidery work, stylish designer blouse and graceful drape make it a perfect choice for festive & wedding occasions 💃✨\n\nModern elegance blended with timeless ethnic charm 🌹💫\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n❤️ Gorgeous Wine Red Shade  \n✨ Heavy Embroidery Designer Blouse  \n👑 Ready To Wear Saree Style  \n💫 Elegant Pre-Draped Look  \n🌸 Lightweight & Comfortable Fabric  \n🎀 Stylish Modern Ethnic Design  \n📸 Perfect Festive Glam Outfit  \n💎 Premium Partywear Finish\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💖\n\n👗 Product Type : Ready To Wear Saree  \n🎨 Colour : Wine Red  \n🧵 Fabric : Premium Soft Fabric  \n✨ Work : Heavy Embroidery & Designer Work  \n👑 Style : Partywear / Festive Wear  \n💫 Blouse : Fully Stitched Designer Blouse  \n🌸 Saree Style : Pre Draped Ready To Wear  \n🎉 Occasion : Wedding, Reception, Festive & Party Wear\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 🔥\n\n💍 Wedding Functions  \n🌸 Festive Celebrations  \n👑 Reception Parties  \n💃 Sangeet Nights  \n📸 Fashion Photoshoots  \n🎉 Family Gatherings  \n✨ Evening Party Looks\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 💎\n\n✔ Easy Ready-To-Wear Style  \n✔ Elegant Designer Look  \n✔ Comfortable & Lightweight  \n✔ Rich Embroidery Work  \n✔ Perfect Modern Ethnic Outfit  \n✔ Premium Festive Finish  \n✔ Stylish & Trendy Appearance\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐑𝐏 : ₹5599/-  \n🔥 𝐒𝐀𝐋𝐄 𝐏𝐑𝐈𝐂𝐄 : ₹4535/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available  \n💯 Premium Quality Assured  \n⚡ Limited Stock Available  \n❤️ Add royal elegance to your wardrobe with this gorgeous ready-to-wear saree ✨👑",
+        "Price": 4535,
+        "Quantity": 11,
+        "ImageURL1": "https://drive.google.com/file/d/1SN8uAH257t4XkEkTj6lO-aig0s5mS0I0/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1MvS3lr8iE4-2zE-JA4L-GUldTIk_YhaW/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1w1g0J-MDzLlE5oINZKlZKzNAZFSISxUm/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/14ue1UYg9H9zEinE2aScxdcrlh3FV-CWi/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1SN8uAH257t4XkEkTj6lO-aig0s5mS0I0=w400",
+            "https://lh3.googleusercontent.com/d/1MvS3lr8iE4-2zE-JA4L-GUldTIk_YhaW=w400",
+            "https://lh3.googleusercontent.com/d/1w1g0J-MDzLlE5oINZKlZKzNAZFSISxUm=w400",
+            "https://lh3.googleusercontent.com/d/14ue1UYg9H9zEinE2aScxdcrlh3FV-CWi=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1SN8uAH257t4XkEkTj6lO-aig0s5mS0I0=w400"
+    },
+    {
+        "ID": "NY-1778359882457",
+        "Category": "Lehnga",
+        "Name": "Royal Bridal Lehenga ",
+        "Description": "👑❤️ 𝐑𝐎𝐘𝐀𝐋 𝐁𝐑𝐈𝐃𝐀𝐋 𝐋𝐄𝐇𝐄𝐍𝐆𝐀 ❤️👑\n\nMake your wedding moments unforgettable with this breathtaking bridal lehenga ✨💖  \nDesigned with rich embroidery, royal detailing and luxurious flair, this outfit is pure elegance for every bride-to-be 👰🌸\n\nA perfect blend of traditional charm & modern royal fashion 🌹✨\n\n━━━━━━━━━━━━━━━━━━\n\n🌟 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 🌟\n\n💖 Stunning Rani Pink Shade  \n✨ Heavy Bridal Embroidery Work  \n👑 Royal Designer Dupatta  \n💫 Premium Wedding Collection  \n🌸 Elegant Flared Lehenga  \n🎀 Rich Traditional Look  \n📸 Picture Perfect Bridal Outfit  \n💎 Luxurious Finishing & Detailing\n\n━━━━━━━━━━━━━━━━━━\n\n💖 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 💖\n\n👗 Product Type : Bridal Lehenga  \n🎨 Colour : Rani Pink  \n🧵 Fabric : Premium Quality Fabric  \n✨ Work : Heavy Embroidery & Sequins Work  \n👑 Dupatta : Embroidered Soft Net Dupatta  \n💫 Style : Designer Bridal Collection  \n🌸 Occasion : Wedding, Reception, Engagement & Bridal Wear\n\n━━━━━━━━━━━━━━━━━━\n\n🔥 𝐏𝐄𝐑𝐅𝐄𝐂𝐓 𝐅𝐎𝐑 🔥\n\n👰 Bridal Wear  \n💍 Wedding Functions  \n✨ Engagement Ceremony  \n💃 Sangeet Night  \n📸 Bridal Photoshoot  \n🌹 Reception Look  \n👑 Royal Festive Styling\n\n━━━━━━━━━━━━━━━━━━\n\n💎 𝐖𝐇𝐘 𝐘𝐎𝐔’𝐋𝐎𝐕𝐄 𝐈𝐓 💎\n\n✔ Royal Bridal Appearance  \n✔ Elegant Heavy Work  \n✔ Premium Designer Finish  \n✔ Stunning Traditional Vibes  \n✔ Graceful Dupatta Look  \n✔ Rich Wedding Collection  \n✔ Perfect For Grand Occasions\n\n━━━━━━━━━━━━━━━━━━\n\n💰 𝐌𝐓𝐏 : ₹6195/-  \n🔥 𝐒𝐀𝐋𝐄 𝐏𝐑𝐈𝐂𝐄 : ₹5017/- ONLY\n\n━━━━━━━━━━━━━━━━━━\n\n📦 PAN India Shipping Available  \n💯 Premium Quality Assured  \n⚡ Limited Stock Available  \n❤️ Step into your royal bridal era with this gorgeous lehenga 👑✨",
+        "Price": 5017,
+        "Quantity": 17,
+        "ImageURL1": "https://drive.google.com/file/d/1wFrJCs0TB0uMD0nVBbyzuX1Wn6xEirW_/view?usp=drive_link",
+        "ImageURL2": "https://drive.google.com/file/d/1RuPWHo-nxchgtttp-lW19lZKWEhKJ7CS/view?usp=drive_link",
+        "ImageURL3": "https://drive.google.com/file/d/1WARTqFQEDt5ocKKvE5G5WKcfUI-v204d/view?usp=drive_link",
+        "ImageURL4": "https://drive.google.com/file/d/1AYCrnNVuX3Xcuv1a-OSVL87Tu1NLnxSm/view?usp=drive_link",
+        "MRP": 0,
+        "Images": [
+            "https://lh3.googleusercontent.com/d/1wFrJCs0TB0uMD0nVBbyzuX1Wn6xEirW_=w400",
+            "https://lh3.googleusercontent.com/d/1RuPWHo-nxchgtttp-lW19lZKWEhKJ7CS=w400",
+            "https://lh3.googleusercontent.com/d/1WARTqFQEDt5ocKKvE5G5WKcfUI-v204d=w400",
+            "https://lh3.googleusercontent.com/d/1AYCrnNVuX3Xcuv1a-OSVL87Tu1NLnxSm=w400"
+        ],
+        "ThumbnailURL": "https://lh3.googleusercontent.com/d/1wFrJCs0TB0uMD0nVBbyzuX1Wn6xEirW_=w400"
+    }
+];
+        let allProducts = [...inlinedProducts], cart = [], wishlist = [], compareList = [], recentlyViewed = [];
         let activeCat = 'All', currentView = 'grid', filtersOpen = false;
         let priceMax = 50000, couponApplied = false, selectedPayment = 'Online';
         let allOrdersCache = [], filteredCache = [], currentPage = 1;
@@ -7892,55 +8770,51 @@
         // ══════════════════════════════════════════
         function loadProducts() {
             const cacheKey = 'ny_products_cache';
-            const cacheTimeKey = 'ny_products_cache_time';
-            const cacheDuration = 10 * 60 * 1000; // 10 minutes cache
-            
             const cachedData = localStorage.getItem(cacheKey);
-            const cachedTime = localStorage.getItem(cacheTimeKey);
-            const now = Date.now();
             
-            if (cachedData && cachedTime && (now - cachedTime < cacheDuration)) {
+            // 1. If we have cached data, use that first (might be newer than inlined products)
+            if (cachedData) {
                 try {
                     const data = JSON.parse(cachedData);
-                    allProducts = Array.isArray(data) ? data : [];
-                    if (allProducts.length > 0) {
-                        // Render instantly from cache!
-                        document.getElementById('loading-skeletons').style.display = 'none';
-                        document.getElementById('product-grid').style.display = 'grid';
-                        applyFilters(); renderTrending(); renderRecentlyViewed(); hideLoader();
-                        
-                        // Fetch quietly in background to refresh cache
-                        api('getProducts').then(data => {
-                            if (Array.isArray(data) && data.length > 0) {
-                                localStorage.setItem(cacheKey, JSON.stringify(data));
-                                localStorage.setItem(cacheTimeKey, Date.now());
-                                if (JSON.stringify(data) !== cachedData) {
-                                    allProducts = data;
-                                    applyFilters(); renderTrending(); renderRecentlyViewed();
-                                }
-                            }
-                        }).catch(() => {});
-                        return;
+                    if (Array.isArray(data) && data.length > 0) {
+                        allProducts = data;
                     }
                 } catch(e) {
                     localStorage.removeItem(cacheKey);
-                    localStorage.removeItem(cacheTimeKey);
                 }
             }
             
-            // Standard loading if no cache
-            api('getProducts').then(data => {
-                allProducts = Array.isArray(data) ? data : [];
-                if (allProducts.length > 0) {
-                    localStorage.setItem(cacheKey, JSON.stringify(allProducts));
-                    localStorage.setItem(cacheTimeKey, Date.now());
-                }
+            // 2. Render instantly from inlined products or cache (Instant Load!)
+            if (allProducts && allProducts.length > 0) {
                 document.getElementById('loading-skeletons').style.display = 'none';
                 document.getElementById('product-grid').style.display = 'grid';
                 applyFilters(); renderTrending(); renderRecentlyViewed(); hideLoader();
-            }).catch(() => {
-                document.getElementById('loading-skeletons').innerHTML = `<div class="empty-state"><h3>Could not load products</h3><p>Please refresh the page</p></div>`;
-                hideLoader();
+                checkUrlParams();
+            }
+            
+            // 3. Always fetch quietly in background to revalidate and update cache
+            api('getProducts').then(data => {
+                if (Array.isArray(data) && data.length > 0) {
+                    const freshDataStr = JSON.stringify(data);
+                    const oldDataStr = localStorage.getItem(cacheKey) || JSON.stringify(inlinedProducts);
+                    
+                    localStorage.setItem(cacheKey, freshDataStr);
+                    
+                    // Only re-render if the live data has actually changed to avoid layout shifts
+                    if (freshDataStr !== oldDataStr || !allProducts.length) {
+                        allProducts = data;
+                        document.getElementById('loading-skeletons').style.display = 'none';
+                        document.getElementById('product-grid').style.display = 'grid';
+                        applyFilters(); renderTrending(); renderRecentlyViewed(); hideLoader();
+                        checkUrlParams();
+                    }
+                }
+            }).catch(err => {
+                console.error("Background validation failed:", err);
+                if (!allProducts.length) {
+                    document.getElementById('loading-skeletons').innerHTML = `<div class="empty-state"><h3>Could not load products</h3><p>Please check your connection and refresh</p></div>`;
+                    hideLoader();
+                }
             });
         }
 
@@ -8769,6 +9643,15 @@
                                 <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                                 Available on selected pincodes
                             </div>
+                            <!-- Premium Trust Badges for COD -->
+                            <div class="co-trust-icons" style="margin-top: 8px; gap: 6px;">
+                                <span style="font-size:7px; font-weight:800; background:#eafcf1; padding:2px 6px; border-radius:2px; color:#1e7e43; border:1px solid #c3f3d7; font-family:sans-serif; text-transform:uppercase; letter-spacing:0.5px; display:inline-flex; align-items:center; gap:3px;">
+                                    <span style="font-size:8px;">✓</span> Free COD
+                                </span>
+                                <span style="font-size:7px; font-weight:800; background:#fdf5e6; padding:2px 6px; border-radius:2px; color:#925f0a; border:1px solid #fadca3; font-family:sans-serif; text-transform:uppercase; letter-spacing:0.5px; display:inline-flex; align-items:center; gap:3px;">
+                                    🚚 Pan-India
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -9283,9 +10166,12 @@
         });
         // ── IMAGE CAROUSEL ──────────────────────────────────────
         function initCarousels() {
+            let cardIndex = 0;
             document.querySelectorAll('.c-carousel[data-images]').forEach(el => {
                 if (el.dataset.init) return;
                 el.dataset.init = '1';
+                
+                const curIndex = cardIndex++;
 
                 let imgs;
                 try { imgs = JSON.parse(el.dataset.images); } catch (e) { return; }
@@ -9298,9 +10184,17 @@
                 // Always build images — even for single image
                 imgs.forEach((src, i) => {
                     const img = document.createElement('img');
-                    img.src = upscaleGD(src, 600);
+                    img.src = upscaleGD(src, 400); // Optimized resolution for thumbnail grid cards
                     img.alt = '';
-                    img.loading = 'lazy';
+                    
+                    // Performance optimization: Eagerly load the first image for the top 4 products
+                    if (curIndex < 4 && i === 0) {
+                        img.loading = 'eager';
+                        img.setAttribute('fetchpriority', 'high');
+                    } else {
+                        img.loading = 'lazy';
+                    }
+                    
                     img.style.width = '100%';
                     img.style.height = '100%';
                     img.style.objectFit = 'cover';

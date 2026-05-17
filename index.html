@@ -7037,7 +7037,7 @@
                     <div>
                         <h5>Help</h5>
                         <a class="f-link">Track Order</a>
-                        <a class="f-link">Returns & Exchange</a>
+                        <a class="f-link" onclick="openReturnPolicy()" style="cursor: pointer;">Returns & Exchange</a>
                         <a class="f-link">Size Guide</a>
                         <a class="f-link">FAQs</a>
                         <a class="f-link">Contact Us</a>
@@ -7567,6 +7567,48 @@
                     </svg></button>
             </div>
             <div class="modal-body" id="checkout-body"></div>
+        </div>
+    </div>
+
+    <!-- RETURN POLICY MODAL -->
+    <div class="modal-bg" id="return-policy-overlay">
+        <div class="modal" id="return-policy-modal" style="max-width: 600px;">
+            <div class="modal-head">
+                <div class="modal-title" style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--ink);">Return & Exchange Policy</div>
+                <button class="d-close" onclick="closeReturnPolicy()"><svg width="20" height="20" fill="none"
+                        stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg></button>
+            </div>
+            <div class="modal-body" style="padding: 24px; font-family: 'DM Sans', sans-serif; color: var(--ink); line-height: 1.6;">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div style="font-size: 48px; margin-bottom: 8px;">🔄</div>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--primary);">Nayasha 7-Days Return Policy</h3>
+                </div>
+                
+                <p style="font-size: 15px; margin-bottom: 16px; font-weight: 500; text-align: center; color: var(--ink);">
+                    We strive to ensure you love your handcrafted luxury garments. If you are not completely satisfied, we offer a hassle-free <strong>7-Day Return Policy</strong>.
+                </p>
+
+                <div style="background: var(--cream); border-left: 4px solid var(--primary); padding: 16px; border-radius: 4px; margin-bottom: 20px; border: 1px solid var(--bd2);">
+                    <strong style="color: var(--ink); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px; font-family: 'DM Sans', sans-serif;">⚠️ Guidelines for Return:</strong>
+                    <ul style="margin: 0; padding-left: 20px; font-size: 14px; color: var(--ink2); line-height: 1.8;">
+                        <li style="margin-bottom: 6px;">The garment/cloth must be in its original, brand-new condition.</li>
+                        <li style="margin-bottom: 6px;">Items must <strong>not be worn, torn, stained, washed, altered, or damaged</strong>.</li>
+                        <li style="margin-bottom: 6px;">All original tags, labels, and packaging must remain completely intact.</li>
+                        <li style="margin-bottom: 0;">Any returned product showing signs of wear or tearing will not be accepted.</li>
+                    </ul>
+                </div>
+
+                <div style="font-size: 13px; color: var(--muted); text-align: center; margin-top: 24px;">
+                    For any support regarding returns or exchanges, feel free to contact us on WhatsApp or reply to your order confirmation email.
+                </div>
+                
+                <div style="text-align: center; margin-top: 24px;">
+                    <button class="place-btn" onclick="closeReturnPolicy()" style="padding: 10px 24px; min-width: 150px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase;">Got it</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -9669,6 +9711,11 @@
                         <label class="co-label">Phone Number *</label>
                         <input class="co-input" id="co-phone" type="tel" placeholder="10-digit mobile number" autocomplete="tel">
                     </div>
+
+                    <div class="co-input-group">
+                        <label class="co-label">Email Address *</label>
+                        <input class="co-input" id="co-email" type="email" placeholder="your@email.com" autocomplete="email">
+                    </div>
                     
                     <div class="co-input-group">
                         <label class="co-label">Address *</label>
@@ -9777,20 +9824,28 @@
             setTimeout(() => document.getElementById('co-name').focus(), 150);
         }
         function closeCheckout() { document.getElementById('checkout-overlay').classList.remove('open') }
+        function openReturnPolicy() {
+            document.getElementById('return-policy-overlay').classList.add('open');
+        }
+        function closeReturnPolicy() {
+            document.getElementById('return-policy-overlay').classList.remove('open');
+        }
         function placeOrder() {
             const name = document.getElementById('co-name').value.trim();
             const phone = document.getElementById('co-phone').value.trim();
+            const email = document.getElementById('co-email').value.trim();
             const addr = document.getElementById('co-addr').value.trim();
             const pin = document.getElementById('co-pin').value.trim();
             
             const city = window.coCity || '';
             const state = window.coState || '';
-            const email = ''; 
             const country = 'India';
 
             if (!name) { showToast('Please enter your name', true); document.getElementById('co-name').focus(); return }
             if (!phone) { showToast('Please enter your phone', true); document.getElementById('co-phone').focus(); return }
             if (!/^\d{10}$/.test(phone)) { showToast('Enter a valid 10-digit number', true); document.getElementById('co-phone').focus(); return }
+            if (!email) { showToast('Please enter your email', true); document.getElementById('co-email').focus(); return }
+            if (!/\S+@\S+\.\S+/.test(email)) { showToast('Enter a valid email address', true); document.getElementById('co-email').focus(); return }
             if (!addr) { showToast('Please enter your address', true); document.getElementById('co-addr').focus(); return }
             if (!pin || pin.length !== 6) { showToast('Please enter a valid 6-digit pincode', true); document.getElementById('co-pin').focus(); return }
 
@@ -9856,7 +9911,7 @@
                   <p style="color:var(--muted);font-size:14px;margin-bottom:10px">Thank you for shopping at Nayasha</p>
                   <div class="success-oid">${orderId}</div>
                   <p style="font-size:12px;color:var(--muted2);margin-top:8px">₹${total.toLocaleString('en-IN')} · ${method === 'COD' ? 'Cash on Delivery' : 'Online Payment'}</p>
-                  <p style="font-size:12px;color:var(--muted2);margin-top:4px">Your delivery details have been registered successfully.</p>
+                  <p style="font-size:12px;color:var(--muted2);margin-top:4px">A confirmation email has been sent to your registered email address.</p>
                   <button class="place-btn" style="margin-top:32px" onclick="closeCheckout();switchView('shop')">Continue Shopping →</button>
                 </div>`;
         }

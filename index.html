@@ -9830,6 +9830,20 @@
         function closeReturnPolicy() {
             document.getElementById('return-policy-overlay').classList.remove('open');
         }
+        function loadRazorpay() {
+            return new Promise((resolve) => {
+                if (window.Razorpay) {
+                    resolve(true);
+                    return;
+                }
+                const script = document.createElement('script');
+                script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+                script.onload = () => resolve(true);
+                script.onerror = () => resolve(false);
+                document.head.appendChild(script);
+            });
+        }
+
         function placeOrder() {
             const name = document.getElementById('co-name').value.trim();
             const phone = document.getElementById('co-phone').value.trim();
@@ -9850,7 +9864,7 @@
             if (!pin || pin.length !== 6) { showToast('Please enter a valid 6-digit pincode', true); document.getElementById('co-pin').focus(); return }
 
             const method = window.selectedPaymentMethodVal || 'Online';
-            const btn = document.getElementById('place-btn'); btn.disabled = true; btn.innerHTML = '<div class="spin"></div> Placing Order…';
+            const btn = document.getElementById('place-btn'); btn.disabled = true; btn.innerHTML = '<div class="spin"></div> Processing…';
             
             const sub = cart.reduce((s, c) => s + Number(c.Price) * c.qty, 0);
             const disc = couponApplied ? Math.round(sub * .15) : 0; 
@@ -9867,42 +9881,133 @@
             
             const orderId = 'NY' + Date.now().toString().slice(-6);
             
-            api('placeOrder', { 
-                name, 
-                phone, 
-                email, 
-                address: addr, 
-                city, 
-                pincode: pin, 
-                state, 
-                country, 
-                items: JSON.stringify(items), 
-                total, 
-                method 
-            })
-            .then(r => {
-                if (r.success) { 
-                    cart = []; saveCart(); renderCartCount(); couponApplied = false; 
-                    showSuccess(r.orderId || orderId, total, method); 
-                }
-                else { 
-                    showToast('Order failed: ' + (r.message || 'Unknown'), true); 
-                    btn.disabled = false; 
-                    btn.innerHTML = `${method === 'COD' ? 'Complete Order' : 'Secure Checkout'} · ₹${total.toLocaleString('en-IN')}`; 
-                }
-            }).catch(() => {
-                // If network times out, still confirm to prevent cart abandonment (sheet handles retry or offline logs)
-                cart = []; saveCart(); renderCartCount(); couponApplied = false;
-                showSuccess(orderId, total, method);
-            });
-            
-            // Fast confirmation UI for premium instant feel
-            setTimeout(() => {
-              if (btn.disabled && cart.length > 0) {
-                cart = []; saveCart(); renderCartCount(); couponApplied = false;
-                showSuccess(orderId, total, method);
-              }
-            }, 1200);
+            if (method === 'COD') {
+                api('placeOrder', { 
+                    name, 
+                    phone, 
+                    email, 
+                    address: addr, 
+                    city, 
+                    pincode: pin, 
+                    state, 
+                    country, 
+                    items: JSON.stringify(items), 
+                    total, 
+                    method 
+                })
+                .then(r => {
+                    if (r.success) { 
+                        cart = []; saveCart(); renderCartCount(); couponApplied = false; 
+                        showSuccess(r.orderId || orderId, total, method); 
+                    }
+                    else { 
+                        showToast('Order failed: ' + (r.message || 'Unknown'), true); 
+                        btn.disabled = false; 
+                        btn.innerHTML = `Complete Order · ₹${total.toLocaleString('en-IN')}`; 
+                    }
+                }).catch(() => {
+                    cart = []; saveCart(); renderCartCount(); couponApplied = false;
+                    showSuccess(orderId, total, method);
+                });
+                
+                // Fast confirmation UI for COD only
+                setTimeout(() => {
+                  if (btn.disabled && cart.length > 0) {
+                    cart = []; saveCart(); renderCartCount(); couponApplied = false;
+                    showSuccess(orderId, total, method);
+                  }
+                }, 1200);
+            } else {
+                btn.innerHTML = '<div class="spin"></div> Initializing Secure Payment…';
+                loadRazorpay().then(loaded => {
+                    if (!loaded) {
+                        showToast('Failed to load payment gateway. Please try again.', true);
+                        btn.disabled = false;
+                        btn.innerHTML = `Secure Checkout · ₹${total.toLocaleString('en-IN')}`;
+                        return;
+                    }
+                    
+                    // Create Razorpay order on backend
+                    api('createRazorpayOrder', { total })
+                    .then(r => {
+                        if (!r.success) {
+                            showToast('Payment initialization failed: ' + r.message, true);
+                            btn.disabled = false;
+                            btn.innerHTML = `Secure Checkout · ₹${total.toLocaleString('en-IN')}`;
+                            return;
+                        }
+                        
+                        // Launch Razorpay checkout
+                        const options = {
+                            key: 'rzp_test_TH0OoVi3LACIWD', // Razorpay Test Key ID
+                            amount: total * 100, // paise
+                            currency: 'INR',
+                            name: 'Nayasha',
+                            description: 'Luxury Ethnic Wear',
+                            image: 'https://lh3.googleusercontent.com/d/1ZGmBPr5Zxm5v3X5nBT2n4Dk4Ox8IkqZ9', // logo
+                            order_id: r.id,
+                            prefill: {
+                                name: name,
+                                email: email,
+                                contact: phone
+                            },
+                            theme: {
+                                color: '#C4973A' // Nayasha Gold Accent
+                            },
+                            handler: function (response) {
+                                btn.innerHTML = '<div class="spin"></div> Verifying Payment…';
+                                
+                                // Call backend to verify signature and place order
+                                api('verifyRazorpayPayment', {
+                                    name,
+                                    phone,
+                                    email,
+                                    address: addr,
+                                    city,
+                                    pincode: pin,
+                                    state,
+                                    country,
+                                    items: JSON.stringify(items),
+                                    total,
+                                    payment_id: response.razorpay_payment_id,
+                                    rzp_order_id: response.razorpay_order_id,
+                                    signature: response.razorpay_signature
+                                })
+                                .then(vr => {
+                                    if (vr.success) {
+                                        cart = []; saveCart(); renderCartCount(); couponApplied = false;
+                                        showSuccess(vr.orderId || orderId, total, 'Online');
+                                    } else {
+                                        showToast('Payment verification failed: ' + vr.message, true);
+                                        btn.disabled = false;
+                                        btn.innerHTML = `Secure Checkout · ₹${total.toLocaleString('en-IN')}`;
+                                    }
+                                })
+                                .catch(err => {
+                                    showToast('Payment verification error: ' + err.toString(), true);
+                                    btn.disabled = false;
+                                    btn.innerHTML = `Secure Checkout · ₹${total.toLocaleString('en-IN')}`;
+                                });
+                            },
+                            modal: {
+                                ondismiss: function () {
+                                    showToast('Payment cancelled by user', true);
+                                    btn.disabled = false;
+                                    btn.innerHTML = `Secure Checkout · ₹${total.toLocaleString('en-IN')}`;
+                                }
+                            }
+                        };
+                        
+                        const rzp = new Razorpay(options);
+                        rzp.open();
+                    })
+                    .catch(err => {
+                        showToast('Error initializing payment: ' + err.toString(), true);
+                        btn.disabled = false;
+                        btn.innerHTML = `Secure Checkout · ₹${total.toLocaleString('en-IN')}`;
+                    });
+                });
+            }
         }
         function showSuccess(orderId, total, method) {
             document.getElementById('checkout-body').innerHTML = `

@@ -9367,11 +9367,6 @@
                             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
                                 ${sizesHTML}
                             </div>
-                            
-                            <h4 style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--ink); margin-bottom:10px">Select Color</h4>
-                            <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-                                ${colorsHTML}
-                            </div>
                         </div>
                         
                         <div style="height:1px; background:var(--bd); margin: 20px 0;"></div>
@@ -9607,7 +9602,7 @@
                         <div>
                             <div class="ci-brand">${escH(item.Brand || 'Nayasha')}</div>
                             <div class="ci-name">${escH(item.Name)}</div>
-                            <div class="ci-size" style="font-size:11px; color:var(--muted2); margin-top:2px;">Size: ${escH(itemSize)} | Color: ${escH(itemColor)}</div>
+                            <div class="ci-size" style="font-size:11px; color:var(--muted2); margin-top:2px;">Size: ${escH(itemSize)}</div>
                             <div class="ci-ctrl">
                                 <button class="qty-btn" onclick="updateQty('${escH(item.ID)}','${escH(itemSize)}','${escH(itemColor)}',-1)">−</button>
                                 <span class="ci-qty">${item.qty}</span>
@@ -9667,7 +9662,6 @@
                             <div class="co-prod-name">${escH(c.Name)}</div>
                             <div class="co-prod-meta">
                                 <span>Size: ${escH(itemSize)}</span>
-                                <span>Color: ${escH(itemColor)}</span>
                                 <span>Qty: ${c.qty}</span>
                             </div>
                             <div class="co-prod-price">
@@ -9873,7 +9867,7 @@
             
             const items = cart.map(c => ({ 
                 id: c.ID, 
-                name: `${c.Name} (Size: ${c.size || getDefaultSize(c)}, Color: ${c.color || getDefaultColor(c)})`, 
+                name: `${c.Name} (Size: ${c.size || getDefaultSize(c)})`, 
                 qty: c.qty, 
                 price: c.Price,
                 image: c.ThumbnailURL || ''

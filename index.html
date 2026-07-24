@@ -4923,20 +4923,61 @@
             flex: 1;
             height: 54px;
         }
-        .pdp-actions-secondary {
+        .pdp-btn-bag {
+            background: none !important;
+            border: 1px solid var(--bd) !important;
+            color: var(--ink) !important;
+        }
+        .pdp-btn-bag:hover {
+            background: var(--bd2) !important;
+        }
+        .pdp-btn-cart {
+            background: none !important;
+            border: 1px solid var(--g) !important;
+            color: var(--ink) !important;
+        }
+        .pdp-btn-cart:hover {
+            background: var(--g5) !important;
+        }
+        .pdp-btn-buy {
+            background: var(--g) !important;
+            border: none !important;
+            color: var(--ink) !important;
+        }
+        .pdp-btn-buy:hover {
+            background: var(--g4) !important;
+            color: var(--cream) !important;
+        }
+        .pdp-actions-secondary-row {
             display: flex;
             gap: 12px;
+            margin-top: -28px;
+            margin-bottom: 40px;
+            max-width: 480px;
+            width: 100%;
         }
-        .pdp-actions-secondary .qty-btn {
+        .pdp-actions-secondary-row .qty-btn {
+            flex: 1;
             height: 54px;
             border-radius: 4px;
-            border-color: var(--bd);
+            border: 1px solid var(--bd);
+            background: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: none;
             cursor: pointer;
             transition: var(--tr);
+            gap: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ink);
+        }
+        .pdp-actions-secondary-row .qty-btn:hover {
+            border-color: var(--ink);
+            background: var(--warm);
         }
         @media (max-width: 480px) {
             .pdp-actions-row {
@@ -4948,14 +4989,208 @@
                 width: 100%;
                 flex: none;
             }
-            .pdp-actions-secondary {
-                width: 100%;
-                display: flex;
-                gap: 12px;
+            .pdp-actions-secondary-row {
+                margin-top: -18px;
+                margin-bottom: 30px;
             }
-            .pdp-actions-secondary .qty-btn {
-                flex: 1;
+        }
+
+        /* Cart Page Specific Styles */
+        .checkout-card-container {
+            padding: 24px;
+        }
+        .co-form-group {
+            margin-bottom: 16px;
+            position: relative;
+            text-align: left;
+        }
+        .co-form-label {
+            display: block;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8c826d;
+            margin-bottom: 6px;
+        }
+        .co-form-input {
+            width: 100%;
+            height: 42px;
+            padding: 8px 14px;
+            border: 1px solid #d8cfbe;
+            background: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--ink);
+            outline: none;
+            transition: var(--tr);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .co-form-input:focus {
+            border-color: var(--g) !important;
+            box-shadow: 0 0 0 3px rgba(196, 151, 58, 0.08);
+        }
+        select.co-form-input {
+            height: 42px;
+            padding: 8px 14px;
+        }
+        .co-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 0px;
+        }
+        .co-section-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 28px 0 16px 0;
+            border-bottom: 1px solid var(--bd);
+            padding-bottom: 8px;
+            text-align: left;
+        }
+        .co-section-title-wrap h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--ink);
+            margin: 0;
+            flex: 1;
+        }
+        .use-location-btn {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--g4);
+            border: 1px solid var(--g);
+            background: transparent;
+            padding: 4px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--tr);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .use-location-btn:hover {
+            background: var(--g);
+            color: var(--white);
+        }
+        .co-pay-card-page {
+            border: 1px solid #d8cfbe;
+            background: var(--white);
+            padding: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--tr);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: left;
+        }
+        .co-pay-card-page.active {
+            border-color: var(--g) !important;
+            background: var(--warm) !important;
+            box-shadow: 0 0 0 1px var(--g);
+        }
+        .co-pay-card-page:hover {
+            border-color: var(--ink) !important;
+        }
+        .pincode-loader {
+            position: absolute;
+            right: 14px;
+            bottom: 13px;
+            display: none;
+        }
+        .pincode-success-msg {
+            font-size: 11px;
+            margin-top: 4px;
+            display: none;
+        }
+        .cart-items-container {
+            padding: 24px;
+        }
+        .cart-coupon-container {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .cart-return-policy-container {
+            border: 1px dashed var(--bd2);
+            border-radius: 8px;
+            background: var(--warm);
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            cursor: pointer;
+        }
+        @media (max-width: 900px) {
+            .cart-page-grid {
+                flex-direction: column !important;
+                gap: 32px !important;
             }
+            .cart-page-grid > div {
+                width: 100% !important;
+                flex: none !important;
+            }
+            .cart-page-grid > div:last-child {
+                position: static !important;
+            }
+        }
+        @media (max-width: 600px) {
+            .cart-coupon-container {
+                flex-direction: column;
+                align-items: stretch !important;
+                padding: 16px !important;
+            }
+            .cart-coupon-container > div:last-child {
+                max-width: 100% !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .checkout-card-container {
+                padding: 20px 16px !important;
+            }
+            .cart-items-container {
+                padding: 16px !important;
+            }
+            .cart-page-item {
+                gap: 12px !important;
+                padding: 16px 0 !important;
+            }
+            .cart-page-item > div:first-child {
+                width: 80px !important;
+                height: 104px !important;
+            }
+            .cart-return-policy-container {
+                padding: 16px !important;
+                gap: 12px !important;
+            }
+            .co-form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+        .spin {
+            border: 2px solid rgba(28, 24, 16, 0.1);
+            border-top-color: var(--ink);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         @media (max-width: 768px) {
@@ -7306,6 +7541,9 @@
             </div>
         </div>
 
+        <!-- CART PANEL -->
+        <div id="cart-panel" style="display:none; max-width: 1200px; margin: 0 auto; padding: 40px 20px;"></div>
+
 
 
 
@@ -8776,6 +9014,9 @@
             const exp = document.getElementById('expri-panel');
             if (exp) exp.style.display = v === 'expri' ? 'block' : 'none';
 
+            const cartPanel = document.getElementById('cart-panel');
+            if (cartPanel) cartPanel.style.display = v === 'cart' ? 'block' : 'none';
+
             const btnShop = document.getElementById('btn-shop');
             if (btnShop) btnShop.classList.toggle('on', v === 'shop');
             const btnAdmin = document.getElementById('btn-admin');
@@ -8795,6 +9036,12 @@
                 document.body.style.overscrollBehaviorY = 'auto';
                 document.body.style.backgroundColor = 'var(--cream)';
                 window.spaceAnimating = false;
+            }
+
+            if (v === 'cart') {
+                renderCartPage();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
             }
 
             if (v === 'about') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
@@ -9375,22 +9622,26 @@
                         <p style="font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:32px; font-weight:300; max-width: 480px; white-space: pre-line;">${escH(p.Description || 'A beautiful piece carefully crafted to celebrate elegance and tradition. Premium finish, sustainable styling, crafted for the modern Indian wardrobe.')}</p>
                         
                         <div class="pdp-actions-row">
-                            <button class="place-btn" onclick="event.stopPropagation(); addToCart(${allProducts.indexOf(p)}, window.pdpSelectedSize, window.pdpSelectedColor);">Add to Bag</button>
-                            <div class="pdp-actions-secondary">
-                                <button class="qty-btn" style="width: 54px;" onclick="toggleWish(${allProducts.indexOf(p)}, this)">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                                </button>
-                                <button class="qty-btn" style="padding:0 20px; gap:8px;" onclick="shareProduct(${allProducts.indexOf(p)})" title="Share Product">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="18" cy="5" r="3"></circle>
-                                        <circle cx="6" cy="12" r="3"></circle>
-                                        <circle cx="18" cy="19" r="3"></circle>
-                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                                    </svg>
-                                    <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px;">Share</span>
-                                </button>
-                            </div>
+                            <button class="place-btn pdp-btn-bag" onclick="event.stopPropagation(); addToCart(${allProducts.indexOf(p)}, window.pdpSelectedSize, window.pdpSelectedColor);">Add to Bag</button>
+                            <button class="place-btn pdp-btn-cart" onclick="event.stopPropagation(); addToCart(${allProducts.indexOf(p)}, window.pdpSelectedSize, window.pdpSelectedColor); toggleCart(true); closeProductModal();">Go to Cart</button>
+                            <button class="place-btn pdp-btn-buy" onclick="event.stopPropagation(); cart = []; addToCart(${allProducts.indexOf(p)}, window.pdpSelectedSize, window.pdpSelectedColor); toggleCart(true); closeProductModal();">Buy Now</button>
+                        </div>
+                        
+                        <div class="pdp-actions-secondary-row">
+                            <button class="qty-btn" onclick="toggleWish(${allProducts.indexOf(p)}, this)">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                                <span>Wishlist</span>
+                            </button>
+                            <button class="qty-btn" onclick="shareProduct(${allProducts.indexOf(p)})" title="Share Product">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="18" cy="5" r="3"></circle>
+                                    <circle cx="6" cy="12" r="3"></circle>
+                                    <circle cx="18" cy="19" r="3"></circle>
+                                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                </svg>
+                                <span>Share</span>
+                            </button>
                         </div>
                         
                         <div style="border-top:1px solid var(--bd); padding-top:24px; max-width: 480px;">
@@ -9570,9 +9821,7 @@
             document.getElementById('cart-count').textContent = total;
         }
         function toggleCart(open) {
-            document.getElementById('cart-drawer').classList.toggle('open', open);
-            document.getElementById('overlay').classList.toggle('open', open);
-            if (open) renderCartDrawer();
+            if (open) switchView('cart');
         }
         function toggleMobileMenu() {
             const drw = document.getElementById('mobile-drawer');
@@ -9589,7 +9838,7 @@
                 foot.style.display = 'none'; return;
             }
             const sub = cart.reduce((s, c) => s + Number(c.Price) * c.qty, 0);
-            const disc = couponApplied ? Math.round(sub * .15) : 0;
+            const disc = couponApplied ? Math.round(sub * .05) : 0;
             const shipping = sub >= 2999 ? 0 : 99;
             const total = sub - disc + shipping;
             list.innerHTML = cart.map(item => {
@@ -9623,7 +9872,7 @@
         }
         function applyCoupon() {
             const code = document.getElementById('coupon-in').value.trim().toUpperCase();
-            if (code === 'NAYASHA15') { couponApplied = true; renderCartDrawer(); showToast('Coupon NAYASHA15 applied! 15% off', 'ok') }
+            if (code === 'NAYASHA5') { couponApplied = true; renderCartDrawer(); showToast('Coupon NAYASHA5 applied! 5% off', 'ok') }
             else if (code) showToast('Invalid coupon code', true);
         }
 
@@ -9642,7 +9891,7 @@
         function openCheckout() {
             toggleCart(false);
             const sub = cart.reduce((s, c) => s + Number(c.Price) * c.qty, 0);
-            const disc = couponApplied ? Math.round(sub * .15) : 0;
+            const disc = couponApplied ? Math.round(sub * .05) : 0;
             const shipping = sub >= 2999 ? 0 : 99; const total = sub - disc + shipping;
             
             // Set defaults
@@ -9861,7 +10110,7 @@
             const btn = document.getElementById('place-btn'); btn.disabled = true; btn.innerHTML = '<div class="spin"></div> Processing…';
             
             const sub = cart.reduce((s, c) => s + Number(c.Price) * c.qty, 0);
-            const disc = couponApplied ? Math.round(sub * .15) : 0; 
+            const disc = couponApplied ? Math.round(sub * .05) : 0; 
             const shipping = sub >= 2999 ? 0 : 99; 
             const total = sub - disc + shipping;
             
@@ -9933,7 +10182,7 @@
                         
                         // Launch Razorpay checkout
                         const options = {
-                            key: 'rzp_test_TH0OoVi3LACIWD', // Razorpay Test Key ID
+                            key: 'rzp_live_THOtPXYmYjKp3X', // Razorpay Key ID
                             amount: total * 100, // paise
                             currency: 'INR',
                             name: 'Nayasha',
@@ -10015,6 +10264,725 @@
                   <button class="place-btn" style="margin-top:32px" onclick="closeCheckout();switchView('shop')">Continue Shopping →</button>
                 </div>`;
         }
+
+        // ══════════════════════════════════════════
+        // NEW CART PAGE & CHECKOUT FLOW
+        // ══════════════════════════════════════════
+        window.selectedPaymentMethodVal = window.selectedPaymentMethodVal || 'Online';
+        window.coHouseVal = window.coHouseVal || '';
+        window.coRoadVal = window.coRoadVal || '';
+        window.coPinVal = window.coPinVal || '';
+        window.coCity = window.coCity || '';
+        window.coState = window.coState || '';
+        window.coLandmarkVal = window.coLandmarkVal || '';
+        window.coNameVal = window.coNameVal || '';
+        window.coPhoneVal = window.coPhoneVal || '';
+        window.coEmailVal = window.coEmailVal || '';
+
+        function renderCartPage() {
+            const panel = document.getElementById('cart-panel');
+            if (!panel) return;
+            
+            if (!cart.length) {
+                panel.innerHTML = `
+                    <div style="text-align: center; padding: 80px 20px; font-family: 'DM Sans', sans-serif;">
+                        <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" style="margin-bottom:24px; opacity:.2; color: var(--ink);">
+                            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <path d="M16 10a4 4 0 01-8 0"/>
+                        </svg>
+                        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 36px); font-weight: 400; color: var(--ink); margin-bottom: 8px;">Your Shopping Bag is Empty</h3>
+                        <p style="font-size: 14px; color: var(--muted); margin-bottom: 32px;">Add handcrafted luxury ethnic wear to begin.</p>
+                        <button class="btn-primary" style="padding: 16px 40px; font-size: 12px; letter-spacing: 2px;" onclick="switchView('shop')">Explore Catalogue</button>
+                    </div>
+                `;
+                return;
+            }
+            
+            const sub = cart.reduce((s, c) => s + Number(c.Price) * c.qty, 0);
+            const disc = couponApplied ? Math.round(sub * .05) : 0;
+            const shipping = sub >= 2999 ? 0 : 99;
+            const total = sub - disc + shipping;
+            
+            // Cart Items HTML
+            const itemsHTML = cart.map((item, idx) => {
+                const itemMRP = getMRP(item);
+                const itemPrice = Number(item.Price);
+                const itemSize = item.size || getDefaultSize(item);
+                const itemColor = item.color || getDefaultColor(item);
+                return `
+                    <div class="cart-page-item" style="display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--bd);">
+                        <div style="width: 100px; height: 130px; flex-shrink: 0; background: var(--warm); border-radius: 4px; overflow: hidden; box-shadow: var(--sh);">
+                            ${item.ThumbnailURL ? `<img src="${item.ThumbnailURL}" alt="${escH(item.Name)}" style="width: 100%; height: 100%; object-fit: cover;">` :
+                            `<div style="display:flex; width:100%; height:100%; align-items:center; justify-content:center"><div class="devnagari" style="font-size:36px;color:var(--bd2)">${getCatDeco(item.Category)}</div></div>`}
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--g4); letter-spacing: 1px; margin-bottom: 4px;">${escH(item.Brand || 'Nayasha')}</div>
+                                <div style="font-size: 16px; font-weight: 600; color: var(--ink); line-height: 1.3; margin-bottom: 8px;">${escH(item.Name)}</div>
+                                <div style="display: flex; gap: 16px; font-size: 13px; color: var(--muted); margin-bottom: 8px;">
+                                    <span>Size: <strong>${escH(itemSize)}</strong></span>
+                                    <span>Color: <strong>${escH(itemColor)}</strong></span>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                                <!-- Qty selector -->
+                                <div style="display: flex; align-items: center; border: 1px solid var(--bd); border-radius: 4px; overflow: hidden; background: var(--white);">
+                                    <button style="border: none; background: none; width: 32px; height: 32px; cursor: pointer; color: var(--ink); font-weight: 700;" onclick="adjustCartQty(${idx}, -1)">−</button>
+                                    <span style="font-size: 14px; font-weight: 600; min-width: 24px; text-align: center; color: var(--ink);">${item.qty}</span>
+                                    <button style="border: none; background: none; width: 32px; height: 32px; cursor: pointer; color: var(--ink); font-weight: 700;" onclick="adjustCartQty(${idx}, 1)">+</button>
+                                </div>
+                                
+                                <!-- Price and Remove -->
+                                <div style="text-align: right;">
+                                    <div style="margin-bottom: 6px;">
+                                        <span style="font-size: 16px; font-weight: 700; color: var(--ink);">₹${(itemPrice * item.qty).toLocaleString('en-IN')}</span>
+                                        ${itemMRP > itemPrice ? `<span style="font-size: 12px; text-decoration: line-through; color: var(--muted); margin-left: 6px;">₹${(itemMRP * item.qty).toLocaleString('en-IN')}</span>` : ''}
+                                    </div>
+                                    <button style="border: none; background: none; color: #b83232; font-size: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px; margin-left: auto;" onclick="removeCartItem(${idx})">
+                                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Build the main Cart Panel layout
+            panel.innerHTML = `
+                <div style="font-family: 'DM Sans', sans-serif;">
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 400; color: var(--ink); margin-bottom: 32px; border-bottom: 1px solid var(--bd); padding-bottom: 16px;">Shopping Bag</h2>
+                    
+                    <div class="cart-page-grid" style="display: flex; gap: 48px; align-items: flex-start;">
+                        <!-- LEFT COLUMN: CART ITEMS & PROMO -->
+                        <div style="flex: 1.3; min-width: 0;">
+                            <div class="cart-items-container" style="border: 1px solid var(--bd); border-radius: 8px; background: var(--white); box-shadow: var(--sh); margin-bottom: 24px;">
+                                <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; color: var(--ink); letter-spacing: 1px; margin-bottom: 20px; border-bottom: 1px solid var(--bd); padding-bottom: 12px;">Items in your bag</div>
+                                <div style="display: flex; flex-direction: column;">
+                                    ${itemsHTML}
+                                </div>
+                            </div>
+                            
+                            <!-- PROMO CODE -->
+                            <div class="cart-coupon-container" style="border: 1px solid var(--bd); border-radius: 8px; background: var(--white); box-shadow: var(--sh); margin-bottom: 24px;">
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 700; font-size: 14px; color: var(--ink);">Apply Promo Code</div>
+                                    <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">Get 5% off with code <strong>NAYASHA5</strong></div>
+                                </div>
+                                <div style="display: flex; gap: 8px; max-width: 320px; width: 100%; align-items: center;">
+                                    <input class="co-form-input" id="cart-page-coupon-in" placeholder="Enter coupon code" value="${couponApplied ? 'NAYASHA5' : ''}">
+                                    <button class="btn-primary" style="padding: 0 24px; font-size: 11px; border-radius: 4px; height: 42px; display: flex; align-items: center; justify-content: center;" onclick="applyPageCoupon()">Apply</button>
+                                </div>
+                            </div>
+                            
+                            <!-- RETURN POLICY NOTICE -->
+                            <div class="cart-return-policy-container" style="margin-bottom: 24px;" onclick="openReturnPolicy()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--g); flex-shrink: 0;"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                                <div>
+                                    <div style="font-weight: 700; font-size: 13px; color: var(--ink); text-transform: uppercase; letter-spacing: 0.5px;">Easy 7-Days Returns & Exchanges</div>
+                                    <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">We offer hassle-free size exchanges and returns. Click to view policy.</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- RIGHT COLUMN: SHIPPING & CHECKOUT FORM -->
+                        <div style="flex: 1; min-width: 330px; position: sticky; top: 100px;">
+                            <div class="checkout-card-container" style="border: 1px solid var(--bd); border-radius: 8px; background: var(--white); box-shadow: var(--sh);">
+                                
+                                <!-- CONTACT DETAILS (ADDRESS) -->
+                                <div class="co-section-title-wrap" style="margin-top:0;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--g);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    <h3>Delivery Address</h3>
+                                    <button type="button" class="use-location-btn" onclick="window.useMyLocation()">
+                                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                                        Use Location
+                                    </button>
+                                </div>
+                                
+                                <div class="co-form-group">
+                                    <label class="co-form-label">House no. / Building name *</label>
+                                    <input class="co-form-input" id="co-house" placeholder="House No., Building, Apartment name" value="${window.coHouseVal || ''}">
+                                </div>
+                                
+                                <div class="co-form-group">
+                                    <label class="co-form-label">Road name / Area / Colony *</label>
+                                    <input class="co-form-input" id="co-road" placeholder="Road, Street, Area, Colony" value="${window.coRoadVal || ''}">
+                                </div>
+                                
+                                <div class="co-form-row">
+                                    <div class="co-form-group" style="grid-column: span 2;">
+                                        <label class="co-form-label">Pincode *</label>
+                                        <input class="co-form-input" id="co-pin" type="tel" maxlength="6" oninput="window.checkPagePincode(this.value)" placeholder="6-digit pincode" value="${window.coPinVal || ''}">
+                                        <div class="spin pincode-loader" id="co-pin-loader"></div>
+                                        <div class="pincode-success-msg" id="co-pin-success"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="co-form-row">
+                                    <div class="co-form-group">
+                                        <label class="co-form-label">City *</label>
+                                        <input class="co-form-input" id="co-city" placeholder="City" value="${window.coCity || ''}">
+                                    </div>
+                                    
+                                    <div class="co-form-group">
+                                        <label class="co-form-label">State *</label>
+                                        <select class="co-form-input" id="co-state" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 fill=%22none%22 stroke=%22%23777%22 stroke-width=%222%22 viewBox=%220 0 24 24%22><path d=%22M6 9l6 6 6-6%22/></svg>'); background-repeat: no-repeat; background-position: right 15px center; padding-right: 32px;">
+                                            <option value="">Select State</option>
+                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                            <option value="Assam">Assam</option>
+                                            <option value="Bihar">Bihar</option>
+                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                            <option value="Goa">Goa</option>
+                                            <option value="Gujarat">Gujarat</option>
+                                            <option value="Haryana">Haryana</option>
+                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                            <option value="Jharkhand">Jharkhand</option>
+                                            <option value="Karnataka">Karnataka</option>
+                                            <option value="Kerala">Kerala</option>
+                                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                            <option value="Maharashtra">Maharashtra</option>
+                                            <option value="Manipur">Manipur</option>
+                                            <option value="Meghalaya">Meghalaya</option>
+                                            <option value="Mizoram">Mizoram</option>
+                                            <option value="Nagaland">Nagaland</option>
+                                            <option value="Odisha">Odisha</option>
+                                            <option value="Punjab">Punjab</option>
+                                            <option value="Rajasthan">Rajasthan</option>
+                                            <option value="Sikkim">Sikkim</option>
+                                            <option value="Tamil Nadu">Tamil Nadu</option>
+                                            <option value="Telangana">Telangana</option>
+                                            <option value="Tripura">Tripura</option>
+                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                            <option value="Uttarakhand">Uttarakhand</option>
+                                            <option value="West Bengal">West Bengal</option>
+                                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                            <option value="Chandigarh">Chandigarh</option>
+                                            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                                            <option value="Delhi">Delhi</option>
+                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                            <option value="Ladakh">Ladakh</option>
+                                            <option value="Lakshadweep">Lakshadweep</option>
+                                            <option value="Puducherry">Puducherry</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="co-form-group">
+                                    <label class="co-form-label">Nearby Famous Place/Shop/School, etc. (optional)</label>
+                                    <input class="co-form-input" id="co-landmark" placeholder="e.g. Near petrol pump, Behind temple" value="${window.coLandmarkVal || ''}">
+                                </div>
+                                
+                                <!-- CONTACT DETAILS (PERSON) -->
+                                <div class="co-section-title-wrap">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--g);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                    <h3>Contact Details</h3>
+                                </div>
+                                
+                                <div class="co-form-row">
+                                    <div class="co-form-group">
+                                        <label class="co-form-label">Name *</label>
+                                        <input class="co-form-input" id="co-name" placeholder="Full Name" value="${window.coNameVal || ''}">
+                                    </div>
+                                    <div class="co-form-group">
+                                        <label class="co-form-label">Contact Number *</label>
+                                        <input class="co-form-input" id="co-phone" type="tel" maxlength="10" placeholder="10-digit number" value="${window.coPhoneVal || ''}">
+                                    </div>
+                                </div>
+                                
+                                <div class="co-form-group" style="margin-bottom: 28px;">
+                                    <label class="co-form-label">Email Address *</label>
+                                    <input class="co-form-input" id="co-email" type="email" placeholder="your@email.com" value="${window.coEmailVal || ''}">
+                                    <span style="font-size: 11px; color: var(--muted); margin-top: 4px;">Used for sending invoices & order tracking details.</span>
+                                </div>
+                                
+                                <!-- PAYMENT SELECTION -->
+                                <div class="co-section-title-wrap">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--g);"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                                    <h3>Payment Mode</h3>
+                                </div>
+                                
+                                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px;">
+                                    <!-- Online Pay -->
+                                    <div class="co-pay-card-page ${window.selectedPaymentMethodVal === 'Online' ? 'active' : ''}" onclick="window.selectPagePaymentMethod('Online')">
+                                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                                            <span style="font-size:12px; font-weight:700; letter-spacing:1px;">UPI / CARD / NETBANKING</span>
+                                            <div style="width: 14px; height: 14px; border: 1.5px solid var(--bd); border-radius: 50%; display:flex; align-items:center; justify-content:center; background: ${window.selectedPaymentMethodVal === 'Online' ? 'var(--ink)' : 'transparent'};">
+                                                <div style="width: 6px; height: 6px; background: white; border-radius: 50%;"></div>
+                                            </div>
+                                        </div>
+                                        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Pay instantly using UPI, cards, wallets, or netbanking.</div>
+                                    </div>
+                                    <!-- COD Pay -->
+                                    <div class="co-pay-card-page ${window.selectedPaymentMethodVal === 'COD' ? 'active' : ''}" onclick="window.selectPagePaymentMethod('COD')">
+                                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                                            <span style="font-size:12px; font-weight:700; letter-spacing:1px;">CASH ON DELIVERY (COD)</span>
+                                            <div style="width: 14px; height: 14px; border: 1.5px solid var(--bd); border-radius: 50%; display:flex; align-items:center; justify-content:center; background: ${window.selectedPaymentMethodVal === 'COD' ? 'var(--ink)' : 'transparent'};">
+                                                <div style="width: 6px; height: 6px; background: white; border-radius: 50%;"></div>
+                                            </div>
+                                        </div>
+                                        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Pay cash when order is delivered.</div>
+                                        <div id="co-page-cod-pincode-note" style="font-size: 11px; color: var(--muted); margin-top: 6px; display: flex; align-items: center; gap: 4px;">
+                                            <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                                            COD availability depends on your pincode
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- ORDER TOTAL SUMMARY -->
+                                <div style="background: var(--warm); border-radius: 6px; padding: 20px; margin-bottom: 24px; border: 1px solid var(--bd);">
+                                    <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:8px; color:var(--muted)"><span>Bag Subtotal</span><span>₹${sub.toLocaleString('en-IN')}</span></div>
+                                    ${disc ? `<div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:8px; color:var(--ok)"><span>Discount (5%)</span><span>-₹${disc.toLocaleString('en-IN')}</span></div>` : ''}
+                                    <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:12px; color:var(--muted)"><span>Delivery</span><span style="color:var(--ok); font-weight:700">FREE</span></div>
+                                    <div style="border-top: 1px dashed var(--bd2); padding-top: 12px; display:flex; justify-content:space-between; font-weight:700; font-size:16px; color:var(--ink)">
+                                        <span>Order Total</span>
+                                        <span id="co-page-total-val" data-total="${total}">₹${total.toLocaleString('en-IN')}</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- CHECKOUT BUTTON -->
+                                <button class="place-btn" id="cart-page-place-btn" style="width: 100%; height: 54px; font-size: 13px; letter-spacing: 2px;" onclick="window.placePageOrder()">
+                                    <span>PLACE ORDER · ₹${total.toLocaleString('en-IN')}</span>
+                                </button>
+                                
+                                <div style="margin-top: 16px; text-align: center; font-size: 11px; color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                        <path d="M7 11V7a5 5 0 0110 0v4" />
+                                    </svg>
+                                    100% SECURE & ENCRYPTED TRANSACTIONS
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            const stateSelector = document.getElementById('co-state');
+            if (stateSelector && window.coState) {
+                stateSelector.value = window.coState;
+            }
+        }
+
+        window.adjustCartQty = function(idx, change) {
+            const item = cart[idx];
+            if (!item) return;
+            const max = Number(item.Quantity) || 99;
+            const newQty = item.qty + change;
+            if (newQty < 1) return;
+            if (newQty > max) {
+                showToast('Maximum stock reached', true);
+                return;
+            }
+            item.qty = newQty;
+            saveCart();
+            renderCartCount();
+            renderCartPage();
+        };
+
+        window.removeCartItem = function(idx) {
+            cart.splice(idx, 1);
+            saveCart();
+            renderCartCount();
+            renderCartPage();
+        };
+
+        window.applyPageCoupon = function() {
+            const val = document.getElementById('cart-page-coupon-in').value.trim().toUpperCase();
+            if (val === 'NAYASHA5') {
+                couponApplied = true;
+                showToast('Coupon NAYASHA5 applied! You save 5% ✓', 'ok');
+            } else if (val === '') {
+                couponApplied = false;
+                showToast('Coupon removed', 'ok');
+            } else {
+                showToast('Invalid Coupon Code', true);
+            }
+            renderCartPage();
+        };
+
+        window.selectPagePaymentMethod = function(method) {
+            window.selectedPaymentMethodVal = method;
+            renderCartPage();
+        };
+
+        window.checkPagePincode = function(val) {
+            const pin = String(val).trim();
+            window.coPinVal = pin;
+            if (pin.length === 6 && /^\d{6}$/.test(pin)) {
+                const loader = document.getElementById('co-pin-loader');
+                const successMsg = document.getElementById('co-pin-success');
+                if (loader) loader.style.display = 'block';
+                if (successMsg) successMsg.style.display = 'none';
+                
+                fetch(`https://api.postalpincode.in/pincode/${pin}`)
+                    .then(res => res.json())
+                    .then(res => {
+                        if (loader) loader.style.display = 'none';
+                        if (res && res[0] && res[0].Status === 'Success') {
+                            const postOffice = res[0].PostOffice[0];
+                            const city = postOffice.District;
+                            const state = postOffice.State;
+                            
+                            window.coCity = city;
+                            window.coState = state;
+                            
+                            const cityInput = document.getElementById('co-city');
+                            const stateInput = document.getElementById('co-state');
+                            if (cityInput) cityInput.value = city;
+                            if (stateInput) stateInput.value = state;
+                            
+                            if (successMsg) {
+                                successMsg.innerHTML = `✓ Verified: ${city}, ${state}`;
+                                successMsg.style.color = 'var(--ok)';
+                                successMsg.style.display = 'block';
+                            }
+                            const codAlert = document.getElementById('co-page-cod-pincode-note');
+                            if (codAlert) {
+                                codAlert.innerHTML = `✓ COD Available for ${city}`;
+                                codAlert.style.color = 'var(--ok)';
+                            }
+                        } else {
+                            window.coCity = '';
+                            window.coState = '';
+                            if (successMsg) {
+                                successMsg.innerHTML = `✗ Invalid Pincode`;
+                                successMsg.style.color = '#b83232';
+                                successMsg.style.display = 'block';
+                            }
+                            const codAlert = document.getElementById('co-page-cod-pincode-note');
+                            if (codAlert) {
+                                codAlert.innerHTML = `Available on selected pincodes`;
+                                codAlert.style.color = 'var(--muted)';
+                            }
+                        }
+                    })
+                    .catch(() => {
+                        if (loader) loader.style.display = 'none';
+                        window.coCity = '';
+                        window.coState = '';
+                    });
+            }
+        };
+
+        window.useMyLocation = function() {
+            const btn = document.querySelector('.use-location-btn');
+            if (!btn) return;
+            const oldText = btn.innerHTML;
+            btn.innerHTML = '<div class="spin" style="width:12px;height:12px;display:inline-block;margin-right:5px;"></div> Locating...';
+            btn.disabled = true;
+            
+            const fetchIPLocation = () => {
+                fetch('https://ipapi.co/json/')
+                    .then(res => res.json())
+                    .then(data => {
+                        btn.innerHTML = oldText;
+                        btn.disabled = false;
+                        if (data) {
+                            const pincode = data.postal || '';
+                            const city = data.city || '';
+                            const state = data.region || '';
+                            if (pincode) {
+                                document.getElementById('co-pin').value = pincode;
+                                window.checkPagePincode(pincode);
+                            }
+                            if (city) {
+                                document.getElementById('co-city').value = city;
+                                window.coCity = city;
+                            }
+                            if (state) {
+                                document.getElementById('co-state').value = state;
+                                window.coState = state;
+                            }
+                            showToast('Location estimated via IP!', 'ok');
+                        } else {
+                            showToast('Could not fetch location details', true);
+                        }
+                    })
+                    .catch(() => {
+                        btn.innerHTML = oldText;
+                        btn.disabled = false;
+                        showToast('Failed to estimate location', true);
+                    });
+            };
+
+            if (!navigator.geolocation) {
+                fetchIPLocation();
+                return;
+            }
+            
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    
+                    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            btn.innerHTML = oldText;
+                            btn.disabled = false;
+                            
+                            if (data && data.address) {
+                                const addr = data.address;
+                                const pincode = addr.postcode || '';
+                                const city = addr.city || addr.town || addr.village || addr.county || '';
+                                const state = addr.state || '';
+                                const road = addr.road || addr.suburb || addr.neighbourhood || '';
+                                const house = addr.house_number || addr.building || addr.amenity || '';
+                                
+                                if (pincode) {
+                                    document.getElementById('co-pin').value = pincode;
+                                    window.checkPagePincode(pincode);
+                                }
+                                if (city) {
+                                    document.getElementById('co-city').value = city;
+                                    window.coCity = city;
+                                }
+                                if (state) {
+                                    document.getElementById('co-state').value = state;
+                                    window.coState = state;
+                                }
+                                if (road) {
+                                    document.getElementById('co-road').value = road;
+                                }
+                                if (house) {
+                                    document.getElementById('co-house').value = house;
+                                }
+                                
+                                showToast('Address loaded successfully!', 'ok');
+                            } else {
+                                fetchIPLocation();
+                            }
+                        })
+                        .catch(() => {
+                            fetchIPLocation();
+                        });
+                },
+                (error) => {
+                    fetchIPLocation();
+                },
+                { enableHighAccuracy: true, timeout: 4000, maximumAge: 0 }
+            );
+        };
+
+        window.placePageOrder = function() {
+            const house = document.getElementById('co-house').value.trim();
+            const road = document.getElementById('co-road').value.trim();
+            const pin = document.getElementById('co-pin').value.trim();
+            const city = document.getElementById('co-city').value.trim();
+            const state = document.getElementById('co-state').value.trim();
+            const landmark = document.getElementById('co-landmark').value.trim();
+            const name = document.getElementById('co-name').value.trim();
+            const phone = document.getElementById('co-phone').value.trim();
+            const email = document.getElementById('co-email').value.trim();
+            
+            window.coHouseVal = house;
+            window.coRoadVal = road;
+            window.coPinVal = pin;
+            window.coCity = city;
+            window.coState = state;
+            window.coLandmarkVal = landmark;
+            window.coNameVal = name;
+            window.coPhoneVal = phone;
+            window.coEmailVal = email;
+
+            if (!house) { showToast('Please enter house no. / building name', true); document.getElementById('co-house').focus(); return }
+            if (!road) { showToast('Please enter road name / area / colony', true); document.getElementById('co-road').focus(); return }
+            if (!pin || pin.length !== 6) { showToast('Please enter a valid 6-digit pincode', true); document.getElementById('co-pin').focus(); return }
+            if (!city) { showToast('Please enter your city', true); document.getElementById('co-city').focus(); return }
+            if (!state) { showToast('Please select your state', true); document.getElementById('co-state').focus(); return }
+            if (!name) { showToast('Please enter your name', true); document.getElementById('co-name').focus(); return }
+            if (!phone) { showToast('Please enter your phone number', true); document.getElementById('co-phone').focus(); return }
+            if (!/^\d{10}$/.test(phone)) { showToast('Enter a valid 10-digit mobile number', true); document.getElementById('co-phone').focus(); return }
+            if (!email) { showToast('Please enter your email', true); document.getElementById('co-email').focus(); return }
+            if (!/\S+@\S+\.\S+/.test(email)) { showToast('Enter a valid email address', true); document.getElementById('co-email').focus(); return }
+
+            const method = window.selectedPaymentMethodVal || 'Online';
+            const btn = document.getElementById('cart-page-place-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<div class="spin" style="width:14px;height:14px;display:inline-block;margin-right:5px;"></div> Processing…';
+            
+            const sub = cart.reduce((s, c) => s + Number(c.Price) * c.qty, 0);
+            const disc = couponApplied ? Math.round(sub * .05) : 0; 
+            const shipping = sub >= 2999 ? 0 : 99; 
+            const total = sub - disc + shipping;
+            
+            const items = cart.map(c => ({ 
+                id: c.ID, 
+                name: `${c.Name} (Size: ${c.size || getDefaultSize(c)})`, 
+                qty: c.qty, 
+                price: c.Price,
+                image: c.ThumbnailURL || ''
+            }));
+            
+            const concatenatedAddress = `${house}, ${road}${landmark ? `, Near ${landmark}` : ''}`;
+            
+            if (method === 'COD') {
+                api('placeOrder', { 
+                    name, 
+                    phone, 
+                    email, 
+                    address: concatenatedAddress, 
+                    city, 
+                    pincode: pin, 
+                    state, 
+                    country: 'India', 
+                    items: JSON.stringify(items), 
+                    total, 
+                    method,
+                    house,
+                    road,
+                    landmark
+                })
+                .then(r => {
+                    if (r.success) { 
+                        cart = []; 
+                        saveCart(); 
+                        renderCartCount(); 
+                        couponApplied = false;
+                        window.showOrderSuccessPage(r.orderId, total, name, concatenatedAddress, city, pin, state);
+                    } else { 
+                        showToast('Order failed: ' + r.message, true); 
+                        btn.disabled = false; 
+                        btn.innerHTML = `<span>PLACE ORDER · ₹${total.toLocaleString('en-IN')}</span>`; 
+                    }
+                })
+                .catch(e => {
+                    showToast('Order failed: ' + e.toString(), true);
+                    btn.disabled = false;
+                    btn.innerHTML = `<span>PLACE ORDER · ₹${total.toLocaleString('en-IN')}</span>`;
+                });
+            } else {
+                btn.innerHTML = '<div class="spin" style="width:14px;height:14px;display:inline-block;margin-right:5px;"></div> Initializing Secure Payment…';
+                loadRazorpay().then(loaded => {
+                    if (!loaded) {
+                        showToast('Failed to load payment gateway. Please try again.', true);
+                        btn.disabled = false;
+                        btn.innerHTML = `<span>PLACE ORDER · ₹${total.toLocaleString('en-IN')}</span>`;
+                        return;
+                    }
+                    
+                    api('createRazorpayOrder', { total })
+                    .then(r => {
+                        if (!r.success) {
+                            showToast('Payment initialization failed: ' + r.message, true);
+                            btn.disabled = false;
+                            btn.innerHTML = `<span>PLACE ORDER · ₹${total.toLocaleString('en-IN')}</span>`;
+                            return;
+                        }
+                        
+                        const options = {
+                            key: 'rzp_live_THOtPXYmYjKp3X',
+                            amount: total * 100,
+                            currency: 'INR',
+                            name: 'Nayasha',
+                            description: 'Luxury Ethnic Wear',
+                            image: 'https://lh3.googleusercontent.com/d/1ZGmBPr5Zxm5v3X5nBT2n4Dk4Ox8IkqZ9',
+                            order_id: r.id,
+                            prefill: {
+                                name: name,
+                                email: email,
+                                contact: phone
+                            },
+                            theme: {
+                                color: '#C4973A'
+                            },
+                            handler: function(response) {
+                                btn.innerHTML = '<div class="spin" style="width:14px;height:14px;display:inline-block;margin-right:5px;"></div> Verifying Payment…';
+                                
+                                api('verifyRazorpayPayment', {
+                                    name,
+                                    phone,
+                                    email,
+                                    address: concatenatedAddress,
+                                    city,
+                                    pincode: pin,
+                                    state,
+                                    country: 'India',
+                                    items: JSON.stringify(items),
+                                    total,
+                                    payment_id: response.razorpay_payment_id,
+                                    rzp_order_id: response.razorpay_order_id,
+                                    signature: response.razorpay_signature,
+                                    house,
+                                    road,
+                                    landmark
+                                })
+                                .then(vr => {
+                                    if (vr.success) {
+                                        cart = []; 
+                                        saveCart(); 
+                                        renderCartCount(); 
+                                        couponApplied = false;
+                                        window.showOrderSuccessPage(vr.orderId || r.id, total, name, concatenatedAddress, city, pin, state);
+                                    } else {
+                                        showToast('Payment verification failed: ' + vr.message, true);
+                                        btn.disabled = false;
+                                        btn.innerHTML = `<span>PLACE ORDER · ₹${total.toLocaleString('en-IN')}</span>`;
+                                    }
+                                })
+                                .catch(err => {
+                                    showToast('Verification error: ' + err.toString(), true);
+                                    btn.disabled = false;
+                                    btn.innerHTML = `<span>PLACE ORDER · ₹${total.toLocaleString('en-IN')}</span>`;
+                                });
+                            },
+                            modal: {
+                                ondismiss: function() {
+                                    showToast('Payment cancelled by user', true);
+                                    btn.disabled = false;
+                                    btn.innerHTML = `<span>PLACE ORDER · ₹${total.toLocaleString('en-IN')}</span>`;
+                                }
+                            }
+                        };
+                        const rzp = new Razorpay(options);
+                        rzp.open();
+                    })
+                    .catch(e => {
+                        showToast('Razorpay error: ' + e.toString(), true);
+                        btn.disabled = false;
+                        btn.innerHTML = `<span>PLACE ORDER · ₹${total.toLocaleString('en-IN')}</span>`;
+                    });
+                });
+            }
+        };
+
+        window.showOrderSuccessPage = function(orderId, total, name, address, city, pin, state) {
+            const panel = document.getElementById('cart-panel');
+            if (!panel) return;
+            
+            panel.innerHTML = `
+                <div style="text-align: center; max-width: 600px; margin: 40px auto; padding: 48px; border: 1px solid var(--bd); border-radius: 8px; background: var(--white); box-shadow: var(--sh); font-family: 'DM Sans', sans-serif;">
+                    <div style="font-size: 64px; color: var(--ok); margin-bottom: 24px;">✓</div>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 400; color: var(--ink); margin-bottom: 12px;">Order Placed Successfully!</h2>
+                    <p style="font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 32px;">
+                        Thank you for shopping with Nayasha, <strong>${escH(name)}</strong>.<br>
+                        Your order ID is <strong>${orderId}</strong>.
+                    </p>
+                    
+                    <div style="text-align: left; background: var(--warm); border-radius: 6px; padding: 24px; margin-bottom: 36px; border: 1px solid var(--bd);">
+                        <div style="font-weight: 700; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; border-bottom: 1px solid var(--bd); padding-bottom: 8px;">Delivery Details</div>
+                        <div style="font-size: 14px; color: var(--ink); line-height: 1.6;">
+                            <strong>Delivery Address:</strong><br>
+                            ${escH(address)}<br>
+                            ${escH(city)}, ${escH(state)} - ${escH(pin)}<br>
+                            India
+                        </div>
+                        <div style="font-size: 14px; color: var(--ink); margin-top: 12px;">
+                            <strong>Amount Paid:</strong> ₹${total.toLocaleString('en-IN')}
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" style="padding: 16px 48px; font-size: 12px; letter-spacing: 2px;" onclick="switchView('shop')">Continue Shopping</button>
+                    <p style="font-size:12px; color:var(--muted2); margin-top:16px;">A confirmation email has been sent to your email address.</p>
+                </div>
+            `;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
 
         // ══════════════════════════════════════════
         // ADMIN
